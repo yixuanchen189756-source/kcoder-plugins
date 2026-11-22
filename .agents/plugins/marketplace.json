@@ -1,0 +1,19 @@
+{
+  "name": "kcoder-plugins",
+  "interface": {
+    "displayName": "KCoder Plugins"
+  },
+  "plugins": [
+    {
+      "name": "kcoder-starter",
+      "source": {
+        "source": "local",
+        "path": "./plugins/kcoder-starter"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      }
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "hooks": "./hooks/hooks.json",
+  "interface": {
+    "displayName": "KCoder Starter",
+    "shortDescription": "Reference skill, hook and MCP server",
+    "longDescription": "A minimal, dependency-free reference plugin. It contributes one skill, one SessionStart hook that only prints a short notice, and a local stdio MCP server with two read-only tools.",
+    "developerName": "KCoder Plugins",
+    "category": "Developer Tools"
+  }
+}

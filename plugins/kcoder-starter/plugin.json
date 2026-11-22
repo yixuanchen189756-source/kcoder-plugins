@@ -1,0 +1,12 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "kcoder-starter",
+  "version": "0.1.0",
+  "description": "Reference plugin showing a skill, a session hook and a stdio MCP server for KCoder.",
+  "author": {
+    "name": "KCoder Plugins"
+  },
+  "homepage": "https://github.com/yixuanchen189756-source/kcoder-plugins",
+  "repository": "https://github.com/yixuanchen189756-source/kcoder-plugins",
+  "keywords": ["starter", "example", "kcoder"]
+}
