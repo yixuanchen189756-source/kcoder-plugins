@@ -535,8 +535,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/apollo"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/apollo",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "0.1.1",
     "license": "MIT",
@@ -577,7 +579,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/apollo"
   },
   {
     "name": "asana",
@@ -686,8 +689,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/auth0"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/auth0",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "2.6.0",
     "license": "Apache-2.0",
@@ -718,7 +723,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/auth0"
   },
   {
     "name": "aws-agents",
@@ -767,8 +773,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/aws-agents-for-devsecops"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/aws-agents-for-devsecops",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "1.1.0",
     "license": "Apache-2.0",
@@ -803,7 +811,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/aws-agents-for-devsecops"
   },
   {
     "name": "aws-amplify",
@@ -852,8 +861,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/aws-core"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/aws-core",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "1.1.0",
     "license": "Apache-2.0",
@@ -896,7 +907,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/aws-core"
   },
   {
     "name": "aws-data-analytics",
@@ -905,8 +917,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/aws-data-analytics"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/aws-data-analytics",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "1.0.0",
     "license": "Apache-2.0",
@@ -947,7 +961,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/aws-data-analytics"
   },
   {
     "name": "aws-serverless",
@@ -998,8 +1013,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/aws-startup-advisor"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/aws-startup-advisor",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "2.0.3",
     "license": "Apache-2.0",
@@ -1057,7 +1074,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/aws-startup-advisor"
   },
   {
     "name": "aws-transform",
@@ -1146,8 +1164,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/azure"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/azure",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "1.2.50",
     "license": "MIT",
@@ -1191,7 +1211,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/azure"
   },
   {
     "name": "azure-cosmos-db-assistant",
@@ -1230,8 +1251,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/azure-sql-developer"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/azure-sql-developer",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "1.1.0",
     "license": "MIT",
@@ -1262,7 +1285,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/azure-sql-developer"
   },
   {
     "name": "bigdata-com",
@@ -1519,8 +1543,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/brightdata-plugin"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/brightdata-plugin",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "1.9.0",
     "license": "MIT",
@@ -1550,7 +1576,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/brightdata-plugin"
   },
   {
     "name": "browser-use",
@@ -1810,8 +1837,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/catalyst-by-zoho"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/catalyst-by-zoho",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "0.0.2",
     "license": "Apache-2.0",
@@ -1857,7 +1886,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/catalyst-by-zoho"
   },
   {
     "name": "champion-kit",
@@ -1866,8 +1896,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/champion-kit"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/champion-kit",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "0.5.0",
     "license": "Apache-2.0",
@@ -1906,7 +1938,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/champion-kit"
   },
   {
     "name": "circleback",
@@ -1982,8 +2015,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/ckeditor"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/ckeditor",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "0.1.1",
     "license": "MIT",
@@ -2013,7 +2048,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/ckeditor"
   },
   {
     "name": "claude-api",
@@ -2022,8 +2058,10 @@
     "upstream": "skills",
     "upstreamUrl": "https://github.com/anthropics/skills",
     "source": {
-      "source": "local",
-      "path": "./plugins/claude-api"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/claude-api",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": null,
     "license": "Apache-2.0",
@@ -2054,7 +2092,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/claude-api"
   },
   {
     "name": "claude-code-setup",
@@ -2063,8 +2102,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/claude-code-setup"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/claude-code-setup",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "1.0.0",
     "license": "Apache-2.0",
@@ -2101,7 +2142,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/claude-code-setup"
   },
   {
     "name": "clay",
@@ -2144,8 +2186,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/clickhouse-best-practices"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/clickhouse-best-practices",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "0.3.0",
     "license": "Apache-2.0",
@@ -2176,7 +2220,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/clickhouse-best-practices"
   },
   {
     "name": "cloud-sql-mysql",
@@ -2299,8 +2344,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/cloudflare"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/cloudflare",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "1.0.4",
     "license": "Apache-2.0",
@@ -2341,7 +2388,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/cloudflare"
   },
   {
     "name": "cloudinary",
@@ -2415,8 +2463,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/coderabbit"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/coderabbit",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "1.2.1",
     "license": "MIT",
@@ -2449,7 +2499,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/coderabbit"
   },
   {
     "name": "confidence",
@@ -2458,8 +2509,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/confidence"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/confidence",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "0.9.0",
     "license": "Apache-2.0",
@@ -2513,7 +2566,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/confidence"
   },
   {
     "name": "context7",
@@ -2589,8 +2643,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/crowdstrike-falcon-foundry"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/crowdstrike-falcon-foundry",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "1.7.1",
     "license": "MIT",
@@ -2622,7 +2678,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/crowdstrike-falcon-foundry"
   },
   {
     "name": "crowdstrike-falcon-fusion",
@@ -2631,8 +2688,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/crowdstrike-falcon-fusion"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/crowdstrike-falcon-fusion",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "1.4.0",
     "license": "MIT",
@@ -2662,7 +2721,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/crowdstrike-falcon-fusion"
   },
   {
     "name": "dash0",
@@ -2671,8 +2731,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/dash0"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/dash0",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "0.1.28",
     "license": "Apache-2.0",
@@ -2704,7 +2766,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/dash0"
   },
   {
     "name": "data-agent-kit",
@@ -2713,8 +2776,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/data-agent-kit"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/data-agent-kit",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "1.0.0",
     "license": "Apache-2.0",
@@ -2820,7 +2885,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/data-agent-kit"
   },
   {
     "name": "datadog",
@@ -2829,8 +2895,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/datadog"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/datadog",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "0.7.19",
     "license": "Apache-2.0",
@@ -2877,7 +2945,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/datadog"
   },
   {
     "name": "dataproc",
@@ -2924,8 +2993,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/dataverse"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/dataverse",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "1.14.0",
     "license": "MIT",
@@ -2960,7 +3031,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/dataverse"
   },
   {
     "name": "deepeval",
@@ -2969,8 +3041,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/deepeval"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/deepeval",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "1.0.0",
     "license": "Apache-2.0",
@@ -2998,7 +3072,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/deepeval"
   },
   {
     "name": "deploy-on-aws",
@@ -3315,8 +3390,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/duckdb-skills"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/duckdb-skills",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "0.2.4",
     "license": "MIT",
@@ -3346,7 +3423,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/duckdb-skills"
   },
   {
     "name": "duende-skills",
@@ -3431,8 +3509,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/exa"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/exa",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "3.4.1",
     "license": "MIT",
@@ -3471,7 +3551,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/exa"
   },
   {
     "name": "example-skills",
@@ -3609,8 +3690,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/fiftyone"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/fiftyone",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "1.0.4",
     "license": "Apache-2.0",
@@ -3652,7 +3735,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/fiftyone"
   },
   {
     "name": "firebase",
@@ -3778,8 +3862,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/forge-skills"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/forge-skills",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "0.1.0",
     "license": "Apache-2.0",
@@ -3824,7 +3910,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/forge-skills"
   },
   {
     "name": "frontend-design",
@@ -4054,8 +4141,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/google-cloud-storage"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/google-cloud-storage",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "1.1.0",
     "license": "Apache-2.0",
@@ -4094,7 +4183,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/google-cloud-storage"
   },
   {
     "name": "govtribe",
@@ -4211,8 +4301,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/greptile"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/greptile",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "1.3.1",
     "license": "MIT",
@@ -4256,7 +4348,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/greptile"
   },
   {
     "name": "helena",
@@ -4303,8 +4396,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/honeycomb"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/honeycomb",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "1.0.0",
     "license": "MIT",
@@ -4353,7 +4448,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/honeycomb"
   },
   {
     "name": "hostinger",
@@ -4443,8 +4539,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/huggingface-skills"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/huggingface-skills",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "1.0.35",
     "license": "Apache-2.0",
@@ -4486,7 +4584,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/huggingface-skills"
   },
   {
     "name": "hunter",
@@ -4534,8 +4633,10 @@
     "upstream": "openai",
     "upstreamUrl": "https://github.com/openai/plugins",
     "source": {
-      "source": "local",
-      "path": "./plugins/hyperframes"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/hyperframes",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "0.1.2",
     "license": "Apache-2.0",
@@ -4567,7 +4668,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/hyperframes"
   },
   {
     "name": "idmp-plugin",
@@ -4605,8 +4707,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/imessage"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/imessage",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "0.2.0",
     "license": "Apache-2.0",
@@ -4650,7 +4754,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/imessage"
   },
   {
     "name": "incident-io",
@@ -4659,8 +4764,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/incident-io"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/incident-io",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "1.20261015.672",
     "license": "MIT",
@@ -4704,7 +4811,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/incident-io"
   },
   {
     "name": "intercom",
@@ -4786,8 +4894,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/intuit-quickbooks"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/intuit-quickbooks",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "0.1.0",
     "license": "Apache-2.0",
@@ -4817,7 +4927,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/intuit-quickbooks"
   },
   {
     "name": "jfrog",
@@ -4826,8 +4937,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/jfrog"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/jfrog",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "0.3.11",
     "license": "Apache-2.0",
@@ -4879,7 +4992,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/jfrog"
   },
   {
     "name": "knowledge-catalog",
@@ -5297,8 +5411,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/logfire"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/logfire",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "0.1.4",
     "license": "MIT",
@@ -5343,7 +5459,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/logfire"
   },
   {
     "name": "logrocket",
@@ -5726,8 +5843,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/mcp-server-dev"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/mcp-server-dev",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": null,
     "license": "Apache-2.0",
@@ -5756,7 +5875,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/mcp-server-dev"
   },
   {
     "name": "mergify",
@@ -5832,8 +5952,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/migration-to-aws"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/migration-to-aws",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "1.5.0",
     "license": "Apache-2.0",
@@ -5902,7 +6024,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/migration-to-aws"
   },
   {
     "name": "mintlify",
@@ -5911,8 +6034,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/mintlify"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/mintlify",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": null,
     "license": "MIT",
@@ -5957,7 +6082,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/mintlify"
   },
   {
     "name": "miro",
@@ -6006,8 +6132,10 @@
     "upstream": "openai",
     "upstreamUrl": "https://github.com/openai/plugins",
     "source": {
-      "source": "local",
-      "path": "./plugins/mixpanel-headless"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/mixpanel-headless",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "0.1.2",
     "license": "MIT",
@@ -6038,7 +6166,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/mixpanel-headless"
   },
   {
     "name": "mlflow",
@@ -6104,8 +6233,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/monday-crm"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/monday-crm",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "0.5.0",
     "license": "MIT",
@@ -6151,7 +6282,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/monday-crm"
   },
   {
     "name": "mongodb",
@@ -6160,8 +6292,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/mongodb"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/mongodb",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "1.2.1",
     "license": "Apache-2.0",
@@ -6209,7 +6343,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/mongodb"
   },
   {
     "name": "neon",
@@ -6258,8 +6393,10 @@
     "upstream": "xai",
     "upstreamUrl": "https://github.com/xai-org/plugin-marketplace",
     "source": {
-      "source": "local",
-      "path": "./plugins/netlify"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/netlify",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "1.9.0",
     "license": "MIT",
@@ -6301,7 +6438,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/netlify"
   },
   {
     "name": "netlify-skills",
@@ -6310,8 +6448,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/netlify-skills"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/netlify-skills",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "1.7.0",
     "license": "MIT",
@@ -6353,7 +6493,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/netlify-skills"
   },
   {
     "name": "netsuite-ai-companion",
@@ -6420,8 +6561,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/netsuite-suitecloud"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/netsuite-suitecloud",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "1.0.0",
     "license": "The Universal Permissive License (UPL), Version 1.0",
@@ -6456,7 +6599,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/netsuite-suitecloud"
   },
   {
     "name": "newrelic",
@@ -6808,8 +6952,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/oracle-ai-data-platform-workbench-databricks-migrator"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/oracle-ai-data-platform-workbench-databricks-migrator",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "0.2.0",
     "license": "MIT",
@@ -6851,7 +6997,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/oracle-ai-data-platform-workbench-databricks-migrator"
   },
   {
     "name": "oracle-ai-data-platform-workbench-engineer-agent",
@@ -6860,8 +7007,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/oracle-ai-data-platform-workbench-engineer-agent"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/oracle-ai-data-platform-workbench-engineer-agent",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "0.5.0",
     "license": "MIT",
@@ -6895,7 +7044,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/oracle-ai-data-platform-workbench-engineer-agent"
   },
   {
     "name": "oracle-ai-data-platform-workbench-spark-connectors",
@@ -6904,8 +7054,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/oracle-ai-data-platform-workbench-spark-connectors"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/oracle-ai-data-platform-workbench-spark-connectors",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "0.7.0",
     "license": "MIT",
@@ -6936,7 +7088,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/oracle-ai-data-platform-workbench-spark-connectors"
   },
   {
     "name": "oracledb",
@@ -7017,8 +7170,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/pendo-analytics"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/pendo-analytics",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "1.4.0",
     "license": "MIT",
@@ -7062,7 +7217,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/pendo-analytics"
   },
   {
     "name": "pendo-guides",
@@ -7186,8 +7342,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/pixeltable"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/pixeltable",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "2.12.0",
     "license": "Apache-2.0",
@@ -7218,7 +7376,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/pixeltable"
   },
   {
     "name": "planetscale",
@@ -7507,8 +7666,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/project-artifact"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/project-artifact",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": null,
     "license": "Apache-2.0",
@@ -7540,7 +7701,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/project-artifact"
   },
   {
     "name": "pydantic-ai",
@@ -7780,8 +7942,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/railway"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/railway",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "1.5.2",
     "license": "MIT",
@@ -7822,7 +7986,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/railway"
   },
   {
     "name": "rc",
@@ -7868,8 +8033,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/receipts"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/receipts",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": null,
     "license": "Apache-2.0",
@@ -7900,7 +8067,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/receipts"
   },
   {
     "name": "redis-development",
@@ -7967,8 +8135,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/render"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/render",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "0.3.0",
     "license": "MIT",
@@ -8013,7 +8183,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/render"
   },
   {
     "name": "revenuecat",
@@ -8178,8 +8349,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/sanity"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/sanity",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "1.0.0",
     "license": "MIT",
@@ -8221,7 +8394,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/sanity"
   },
   {
     "name": "sap-hana-cli",
@@ -8569,8 +8743,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/session-report"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/session-report",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": null,
     "license": "Apache-2.0",
@@ -8601,7 +8777,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/session-report"
   },
   {
     "name": "setup-agent-analytics",
@@ -8639,8 +8816,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/setup-mcp-agent-analytics"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/setup-mcp-agent-analytics",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "1.1.0",
     "license": "MIT",
@@ -8670,7 +8849,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/setup-mcp-agent-analytics"
   },
   {
     "name": "shippo",
@@ -8751,8 +8931,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/skill-creator"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/skill-creator",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": null,
     "license": "Apache-2.0",
@@ -8783,7 +8965,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/skill-creator"
   },
   {
     "name": "skyvern",
@@ -8893,8 +9076,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/snowflake-cortex-code"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/snowflake-cortex-code",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "3.4.0",
     "license": "Apache-2.0",
@@ -8930,7 +9115,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/snowflake-cortex-code"
   },
   {
     "name": "sonatype-guide",
@@ -9126,8 +9312,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/streaming-skills-plugin"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/streaming-skills-plugin",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "1.4.0",
     "license": "Apache-2.0",
@@ -9162,7 +9350,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/streaming-skills-plugin"
   },
   {
     "name": "sumup",
@@ -9171,8 +9360,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/sumup"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/sumup",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "1.0.0",
     "license": "Apache-2.0",
@@ -9211,7 +9402,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/sumup"
   },
   {
     "name": "superpowers",
@@ -9220,8 +9412,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/superpowers"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/superpowers",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "7.0.2",
     "license": "MIT",
@@ -9252,7 +9446,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/superpowers"
   },
   {
     "name": "synthflow",
@@ -9512,8 +9707,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/twilio-developer-kit"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/twilio-developer-kit",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "0.2.0",
     "license": "MIT",
@@ -9554,7 +9751,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/twilio-developer-kit"
   },
   {
     "name": "ui-theme-designer",
@@ -9736,8 +9934,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/unreal-engine-skills-for-claude-code"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/unreal-engine-skills-for-claude-code",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "3.1.2",
     "license": "MIT",
@@ -9766,7 +9966,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/unreal-engine-skills-for-claude-code"
   },
   {
     "name": "valtown",
@@ -10023,8 +10224,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/vsql-extension-builder"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/vsql-extension-builder",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "1.0.0",
     "license": "Apache-2.0",
@@ -10054,7 +10257,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/vsql-extension-builder"
   },
   {
     "name": "web-artifacts-builder",
@@ -10129,8 +10333,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/wingspan"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/wingspan",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "0.1.0",
     "license": "MIT",
@@ -10174,7 +10380,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/wingspan"
   },
   {
     "name": "wix",
@@ -10345,8 +10552,10 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "local",
-      "path": "./plugins/zoom-plugin"
+      "source": "git-subdir",
+      "url": "https://github.com/yixuanchen189756-source/kcoder-plugins.git",
+      "path": "plugins/zoom-plugin",
+      "sha": "e0594239e353e8bc94cb7197ee4bb558e60ff806"
     },
     "version": "1.2.0",
     "license": "MIT",
@@ -10440,7 +10649,8 @@
     },
     "contentReview": {
       "status": "adapted"
-    }
+    },
+    "packageUrl": "https://github.com/yixuanchen189756-source/kcoder-plugins/tree/e0594239e353e8bc94cb7197ee4bb558e60ff806/plugins/zoom-plugin"
   },
   {
     "name": "zoominfo",

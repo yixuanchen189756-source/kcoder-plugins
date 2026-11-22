@@ -327,8 +327,7 @@ function validateCatalog(root, marketplace, report) {
 }
 
 /** Files a maintainer reviewed as containing only example or test credentials. */
-function loadSecretAllowlist(root, report) {
-  const at = 'catalog/secret-scan-allowlist.json';
+function loadSecretAllowlist(root, report, at = 'catalog/secret-scan-allowlist.json') {
   if (!existsAs(join(root, at), 'file')) return new Set();
   const list = readJson(join(root, at), at, report);
   if (!Array.isArray(list) || !list.every(item => isString(item?.path) && isString(item?.reason) && item.reason.trim())) {
@@ -399,9 +398,33 @@ export function validateMarketplace(repoRoot) {
   return report;
 }
 
+/** Check the adapted packages published on the `packages` branch. */
+export function validatePackages(repoRoot) {
+  const report = new Report();
+  const root = resolve(repoRoot);
+  const allow = loadSecretAllowlist(root, report, 'secret-scan-allowlist.json');
+  const pluginsDir = join(root, 'plugins');
+  if (!existsAs(pluginsDir, 'dir')) { report.error('plugins', 'missing'); return report; }
+  for (const name of readdirSync(pluginsDir).sort()) {
+    const dir = join(pluginsDir, name);
+    const where = `plugins/${name}`;
+    if (!existsAs(dir, 'dir')) { report.error(where, 'must be a directory'); continue; }
+    if (!NAME_RE.test(name)) report.error(where, 'directory name must be a lowercase identifier');
+    const files = walkPlugin(dir, where, report, VENDOR_LIMITS);
+    scanSecrets(files, dir, where, report, allow);
+    validateUpstream(dir, where, report);
+    // Skill-list packages have no manifest; their marketplace entry names the skills.
+    const skills = existsAs(join(dir, 'skills'), 'dir') ? readdirSync(join(dir, 'skills')).map(skill => `./skills/${skill}`) : [];
+    validateVendorManifest(dir, where, report, { strict: false, skills });
+  }
+  return report;
+}
+
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  const root = process.argv[2] ?? resolve(fileURLToPath(new URL('..', import.meta.url)));
-  const report = validateMarketplace(root);
+  const packages = process.argv.includes('--packages');
+  const args = process.argv.slice(2).filter(arg => arg !== '--packages');
+  const root = args[0] ?? resolve(fileURLToPath(new URL('..', import.meta.url)));
+  const report = packages ? validatePackages(root) : validateMarketplace(root);
   for (const warning of report.warnings) console.warn(`warning  ${warning}`);
   for (const error of report.errors) console.error(`error    ${error}`);
   console.log(`${report.errors.length} error(s), ${report.warnings.length} warning(s)`);

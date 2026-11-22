@@ -23,7 +23,7 @@ for (const plugin of catalog) {
 const order = [...GROUP_ORDER.filter(g => groups.has(g)), ...[...groups.keys()].filter(g => !GROUP_ORDER.includes(g))];
 const count = status => catalog.filter(p => p.contentReview?.status === status).length;
 const lines = [
-  `共收录 ${catalog.length} 个上游插件，全部在 KCoder 中验证为 \`fully_supported\`。其中 ${count('adapted')} 个已针对 KCoder 改编并放在本仓库 \`plugins/\` 下，其余固定到上游的具体提交。`,
+  `共收录 ${catalog.length} 个上游插件，全部在 KCoder 中验证为 \`fully_supported\`。其中 ${count('adapted')} 个已针对 KCoder 改编，放在本仓库的 [\`packages\` 分支](https://github.com/yixuanchen189756-source/kcoder-plugins/tree/packages)；其余固定到上游的具体提交。`,
   '',
   `内容审查：${count('clean')} 个未发现其他客户端专属写法，${count('no_change_needed')} 个经人工判断无需修改，${count('adapted')} 个已改编，${count('not_adapted')} 个因许可证未改编（仍可安装，但说明中可能提到 Claude Code 的命令或路径）。`,
   '',
@@ -37,9 +37,9 @@ for (const g of order) {
     const needs = p.requirements.length ? p.requirements.join('；') : '—';
     const review = p.contentReview?.status;
     const nameCell = review === 'adapted'
-      ? `[\`${p.name}\`](plugins/${p.name}/UPSTREAM.md)（已改编）`
+      ? `[\`${p.name}\`](${p.packageUrl}/UPSTREAM.md)（已改编）`
       : review === 'not_adapted' ? `\`${p.name}\`（含 Claude 专属说明）` : `\`${p.name}\``;
-    const sourceCell = review === 'adapted' ? `本仓库改编自 [${p.upstream}](${p.upstreamUrl})` : `[${p.upstream}](${p.upstreamUrl})`;
+    const sourceCell = review === 'adapted' ? `[本仓库改编](${p.packageUrl})自 [${p.upstream}](${p.upstreamUrl})` : `[${p.upstream}](${p.upstreamUrl})`;
     const mcp = p.mcpTest?.length ? [...new Set(p.mcpTest.map(t => t.label))].join('；') : '—';
     lines.push(`| ${nameCell} | ${short(p.description)} | ${caps} | ${cell(mcp)} | ${cell(needs)} | ${cell(p.license ?? '未声明')} | ${sourceCell} |`);
   }
