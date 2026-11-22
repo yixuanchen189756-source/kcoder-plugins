@@ -23,6 +23,8 @@ jobs:
         run: node scripts/validate.mjs
       - name: Validator tests
         run: node --test scripts/validate.test.mjs
+      - name: README catalog is current
+        run: node scripts/render-catalog.mjs --check
       - name: Smoke-test the starter MCP server
         run: |
           printf '%s\n' \

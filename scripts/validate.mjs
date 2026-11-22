@@ -261,6 +261,29 @@ function validateRemoteSource(source, at, report) {
   if (source.source === 'git-subdir' && !isString(source.path)) report.error(at, '`git-subdir` sources need `path`');
 }
 
+/** Every remote entry needs a verification record whose pinned source matches. */
+function validateCatalog(root, marketplace, report) {
+  const at = 'catalog/plugins.json';
+  const remote = marketplace.plugins.filter(entry => isObject(entry?.source) && entry.source.source !== 'local');
+  const path = join(root, at);
+  if (!existsAs(path, 'file')) {
+    if (remote.length) report.error(at, 'missing; remote entries need verification records');
+    return;
+  }
+  const catalog = readJson(path, at, report);
+  if (!Array.isArray(catalog)) { if (catalog !== undefined) report.error(at, 'must be an array'); return; }
+  const records = new Map(catalog.map(record => [record?.name, record]));
+  if (records.size !== catalog.length) report.error(at, 'contains duplicate names');
+  for (const entry of remote) {
+    const record = records.get(entry.name);
+    if (!record) { report.error(at, `no verification record for \`${entry.name}\``); continue; }
+    if (JSON.stringify(record.source) !== JSON.stringify(entry.source)) report.error(at, `\`${entry.name}\` was verified against a different source; re-run the verification`);
+    if (record.verification?.level !== 'fully_supported' || record.verification?.healthy !== true) report.error(at, `\`${entry.name}\` is not recorded as healthy and fully supported`);
+  }
+  const listed = new Set(remote.map(entry => entry.name));
+  for (const name of records.keys()) if (!listed.has(name)) report.error(at, `\`${name}\` is not listed in the marketplace`);
+}
+
 export function validateMarketplace(repoRoot) {
   const report = new Report();
   const root = resolve(repoRoot);
@@ -304,6 +327,7 @@ export function validateMarketplace(repoRoot) {
     validateMcp(dir, where, report);
     validateOverlay(dir, where, report);
   });
+  validateCatalog(root, marketplace, report);
   const pluginsDir = join(root, 'plugins');
   if (existsAs(pluginsDir, 'dir')) {
     for (const name of readdirSync(pluginsDir)) {

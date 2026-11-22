@@ -26,6 +26,8 @@
 
 - 只允许 `https`，`url` 中不能带凭证或查询参数。
 - `sha` 必须是完整的 40 位提交号。更新上游版本时，改 `sha` 并重新验证。
+- 在 `catalog/plugins.json` 中添加同名记录，`source` 与市场条目完全一致，并写明分类（`group`）、许可证、实际加载到的能力、需要的运行时和环境变量（`env`），以及验证结果（`verification`）。校验脚本会拒绝没有记录、来源不一致或未验证通过的远端条目。
+- 修改后运行 `node scripts/render-catalog.mjs` 更新 README 插件表。
 
 ### 3. 改编第三方插件
 

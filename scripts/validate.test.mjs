@@ -56,7 +56,9 @@ test('remote sources must be https and pinned to a full commit', t => {
   const remote = { source: 'url', url: 'https://github.com/example/plugin.git' };
   assert.match(errorsOf(fixture(t, { entry: { source: remote } })), /pin a full 40-character `sha`/);
   assert.match(errorsOf(fixture(t, { entry: { source: { ...remote, url: 'http://example.test/x.git', sha: 'a'.repeat(40) } } })), /must use https/);
-  assert.equal(errorsOf(fixture(t, { entry: { source: { ...remote, sha: 'a'.repeat(40) } } })), '');
+  const pinned = { ...remote, sha: 'a'.repeat(40) };
+  const record = { name: 'demo', source: pinned, verification: { level: 'fully_supported', healthy: true } };
+  assert.equal(errorsOf(fixture(t, { entry: { source: pinned }, files: { 'catalog/plugins.json': [record] } })), '');
 });
 
 test('symlinks and secrets are rejected', t => {
@@ -93,4 +95,17 @@ test('hooks are validated through the overlay that references them', t => {
   assert.match(errorsOf(fixture(t, { files: { 'plugins/demo/.codex-plugin/plugin.json': { hooks: '../hooks.json' } } })), /inside the plugin/);
   const orphan = validateMarketplace(fixture(t, { files: { 'plugins/demo/hooks/hooks.json': { hooks: {} } } }));
   assert.match(orphan.warnings.join('\n'), /ignored without/);
+});
+
+test('remote entries need a matching verification record', t => {
+  const source = { source: 'url', url: 'https://github.com/example/plugin.git', sha: 'a'.repeat(40) };
+  const record = { name: 'demo', source, verification: { level: 'fully_supported', healthy: true } };
+  assert.match(errorsOf(fixture(t, { entry: { source } })), /remote entries need verification records/);
+  assert.equal(errorsOf(fixture(t, { entry: { source }, files: { 'catalog/plugins.json': [record] } })), '');
+  const moved = { ...record, source: { ...source, sha: 'b'.repeat(40) } };
+  assert.match(errorsOf(fixture(t, { entry: { source }, files: { 'catalog/plugins.json': [moved] } })), /different source/);
+  const partial = { ...record, verification: { level: 'partially_supported', healthy: true } };
+  assert.match(errorsOf(fixture(t, { entry: { source }, files: { 'catalog/plugins.json': [partial] } })), /not recorded as healthy/);
+  const extra = { ...record, name: 'ghost' };
+  assert.match(errorsOf(fixture(t, { entry: { source }, files: { 'catalog/plugins.json': [record, extra] } })), /`ghost` is not listed/);
 });
