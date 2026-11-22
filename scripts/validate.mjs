@@ -34,7 +34,10 @@ const SECRET_PATTERNS = [
   [/\bAKIA[0-9A-Z]{16}\b/, 'AWS access key'],
   [/-----BEGIN [A-Z ]*PRIVATE KEY-----/, 'private key'],
 ];
-const FORBIDDEN_FILES = [/^\.env(?:\..*)?$/, /\.pem$/, /^id_(?:rsa|ed25519|ecdsa)$/];
+// Template env files (.env.example/.env.template/.env.sample) are allowed; their content is still scanned.
+const FORBIDDEN_FILES = [/^\.env(?:\.(?!example$|template$|sample$).*)?$/, /\.pem$/, /^id_(?:rsa|ed25519|ecdsa)$/];
+// Adapted upstream packages may be larger; KCoder enforces its own install limits.
+const VENDOR_LIMITS = { entries: 10000, bytes: 100 * 1024 * 1024, file: 20 * 1024 * 1024 };
 
 class Report {
   constructor() { this.errors = []; this.warnings = []; }
@@ -71,7 +74,7 @@ function existsAs(path, kind) {
   } catch { return false; }
 }
 
-function walkPlugin(root, where, report) {
+function walkPlugin(root, where, report, limits = { entries: MAX_PLUGIN_ENTRIES, bytes: MAX_PLUGIN_BYTES, file: MAX_FILE_BYTES }) {
   let entries = 0;
   let bytes = 0;
   const textFiles = [];
@@ -82,23 +85,24 @@ function walkPlugin(root, where, report) {
       const path = join(dir, name);
       const rel = relative(root, path);
       entries += 1;
-      if (entries > MAX_PLUGIN_ENTRIES) { report.error(where, `more than ${MAX_PLUGIN_ENTRIES} files and directories`); return textFiles; }
+      if (entries > limits.entries) { report.error(where, `more than ${limits.entries} files and directories`); return textFiles; }
       const info = lstatSync(path);
       if (info.isSymbolicLink()) { report.error(`${where}/${rel}`, 'symlinks are not allowed'); continue; }
       if (info.isDirectory()) { stack.push(path); continue; }
       if (!info.isFile()) { report.error(`${where}/${rel}`, 'only regular files are allowed'); continue; }
       if (FORBIDDEN_FILES.some(pattern => pattern.test(name))) report.error(`${where}/${rel}`, 'credential-like files must not be published');
-      if (info.size > MAX_FILE_BYTES) report.error(`${where}/${rel}`, `file exceeds ${MAX_FILE_BYTES} bytes`);
+      if (info.size > limits.file) report.error(`${where}/${rel}`, `file exceeds ${limits.file} bytes`);
       bytes += info.size;
-      if (info.size <= MAX_FILE_BYTES) textFiles.push(path);
+      if (info.size <= limits.file) textFiles.push(path);
     }
   }
-  if (bytes > MAX_PLUGIN_BYTES) report.error(where, `plugin exceeds ${MAX_PLUGIN_BYTES} bytes`);
+  if (bytes > limits.bytes) report.error(where, `plugin exceeds ${limits.bytes} bytes`);
   return textFiles;
 }
 
-function scanSecrets(files, root, where, report) {
+function scanSecrets(files, root, where, report, allow = new Set()) {
   for (const path of files) {
+    if (allow.has(`${where}/${relative(root, path).split(sep).join('/')}`)) continue;
     const buffer = readFileSync(path);
     if (buffer.includes(0)) continue; // Binary file.
     const text = buffer.toString('utf8');
@@ -106,6 +110,39 @@ function scanSecrets(files, root, where, report) {
       if (pattern.test(text)) report.error(`${where}/${relative(root, path)}`, `looks like it contains a ${label}`);
     }
   }
+}
+
+// Manifest locations KCoder also loads; adapted third-party plugins keep theirs.
+const VENDOR_MANIFESTS = ['.kcoder-plugin/plugin.json', '.codex-plugin/plugin.json', '.claude-plugin/plugin.json', '.cursor-plugin/plugin.json', '.grok-plugin/plugin.json', '.codebuddy-plugin/plugin.json', 'kcoder-plugin.json'];
+
+// Plugins authored here use Agent Plugins 1.0.0; adapted copies carry UPSTREAM.md.
+function isAgentPlugin(root) {
+  return !existsAs(join(root, 'UPSTREAM.md'), 'file');
+}
+
+/** Adapted packages are format-checked by a real KCoder install; here we only require a readable manifest. */
+function validateVendorManifest(root, where, report, entry) {
+  const found = [...VENDOR_MANIFESTS, 'plugin.json'].filter(path => existsAs(join(root, path), 'file'));
+  // Like upstream, a non-strict entry may define the plugin by its skill list.
+  if (!found.length && entry?.strict === false && Array.isArray(entry.skills) && entry.skills.length) {
+    for (const skill of entry.skills) {
+      const dir = containedPath(root, skill);
+      if (!dir || !existsAs(join(dir, 'SKILL.md'), 'file')) report.error(where, `listed skill ${skill} is missing SKILL.md`);
+    }
+    return;
+  }
+  if (!found.length) { report.error(where, 'no plugin manifest found'); return; }
+  for (const path of found) {
+    const manifest = readJson(join(root, path), `${where}/${path}`, report);
+    if (manifest !== undefined && !isObject(manifest)) report.error(`${where}/${path}`, 'must be a JSON object');
+  }
+}
+
+function validateUpstream(root, where, report) {
+  const path = join(root, 'UPSTREAM.md');
+  if (!existsAs(path, 'file')) { report.error(where, 'adapted third-party plugins need UPSTREAM.md'); return; }
+  const text = readFileSync(path, 'utf8');
+  if (!/https:\/\//.test(text) || !/\b[0-9a-f]{40}\b/.test(text)) report.error(`${where}/UPSTREAM.md`, 'must name the upstream URL and the full commit it is based on');
 }
 
 function validatePluginManifest(root, where, report) {
@@ -264,10 +301,15 @@ function validateRemoteSource(source, at, report) {
 /** Every remote entry needs a verification record whose pinned source matches. */
 function validateCatalog(root, marketplace, report) {
   const at = 'catalog/plugins.json';
-  const remote = marketplace.plugins.filter(entry => isObject(entry?.source) && entry.source.source !== 'local');
+  const adapted = entry => {
+    const source = isString(entry?.source) ? { source: 'local', path: entry.source } : entry?.source;
+    const dir = isObject(source) && source.source === 'local' ? containedPath(root, source.path) : null;
+    return Boolean(dir && existsAs(join(dir, 'UPSTREAM.md'), 'file'));
+  };
+  const remote = marketplace.plugins.filter(entry => (isObject(entry?.source) && entry.source.source !== 'local') || adapted(entry));
   const path = join(root, at);
   if (!existsAs(path, 'file')) {
-    if (remote.length) report.error(at, 'missing; remote entries need verification records');
+    if (remote.length) report.error(at, 'missing; remote and adapted entries need verification records');
     return;
   }
   const catalog = readJson(path, at, report);
@@ -284,6 +326,19 @@ function validateCatalog(root, marketplace, report) {
   for (const name of records.keys()) if (!listed.has(name)) report.error(at, `\`${name}\` is not listed in the marketplace`);
 }
 
+/** Files a maintainer reviewed as containing only example or test credentials. */
+function loadSecretAllowlist(root, report) {
+  const at = 'catalog/secret-scan-allowlist.json';
+  if (!existsAs(join(root, at), 'file')) return new Set();
+  const list = readJson(join(root, at), at, report);
+  if (!Array.isArray(list) || !list.every(item => isString(item?.path) && isString(item?.reason) && item.reason.trim())) {
+    report.error(at, 'must be an array of { path, reason } with a review reason');
+    return new Set();
+  }
+  for (const item of list) if (!existsAs(join(root, item.path), 'file')) report.error(at, `${item.path} does not exist`);
+  return new Set(list.map(item => item.path));
+}
+
 export function validateMarketplace(repoRoot) {
   const report = new Report();
   const root = resolve(repoRoot);
@@ -295,6 +350,7 @@ export function validateMarketplace(repoRoot) {
     report.error(MARKETPLACE_PATH, '`plugins` must be a non-empty array');
     return report;
   }
+  const secretAllowlist = loadSecretAllowlist(root, report);
   const seen = new Set();
   const listedDirs = new Set();
   marketplace.plugins.forEach((entry, index) => {
@@ -319,13 +375,19 @@ export function validateMarketplace(repoRoot) {
     if (!existsAs(dir, 'dir')) { report.error(at, `plugin directory ${source.path} is missing`); return; }
     listedDirs.add(dir);
     const where = relative(root, dir).split(sep).join('/');
-    const files = walkPlugin(dir, where, report);
-    scanSecrets(files, dir, where, report);
-    const manifest = validatePluginManifest(dir, where, report);
-    if (manifest && isString(entry.name) && manifest.name !== entry.name) report.error(at, `name \`${entry.name}\` differs from plugin.json name \`${manifest.name}\``);
-    validateSkills(dir, where, report);
-    validateMcp(dir, where, report);
-    validateOverlay(dir, where, report);
+    const vendored = !isAgentPlugin(dir);
+    const files = walkPlugin(dir, where, report, vendored ? VENDOR_LIMITS : undefined);
+    scanSecrets(files, dir, where, report, secretAllowlist);
+    if (!vendored) {
+      const manifest = validatePluginManifest(dir, where, report);
+      if (manifest && isString(entry.name) && manifest.name !== entry.name) report.error(at, `name \`${entry.name}\` differs from plugin.json name \`${manifest.name}\``);
+      validateSkills(dir, where, report);
+      validateMcp(dir, where, report);
+      validateOverlay(dir, where, report);
+    } else {
+      validateVendorManifest(dir, where, report, entry);
+      validateUpstream(dir, where, report);
+    }
   });
   validateCatalog(root, marketplace, report);
   const pluginsDir = join(root, 'plugins');

@@ -23,6 +23,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -48,6 +51,15 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "no_change_needed",
+      "notes": [
+        "skills/claude-api/shared/managed-agents-*.md: `.claude/skills` describes the Claude Managed Agents API's repository skill discovery (an API fact), left unchanged as a false positive",
+        "skills/claude-api/shared/evals/**: `.claude/hillclimb/<flow>/` is a self-contained eval output layout used consistently by the bundled scripts; left unchanged",
+        "skills/skill-creator/scripts/*.py: the description-optimization scripts still invoke `claude -p` (code not modified per scope); documented in SKILL.md instead",
+        "Edits were made only in skills this entry does not load; the loaded skills are unchanged, so the upstream reference is kept."
+      ]
     }
   },
   {
@@ -77,6 +89,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "Adobe",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -105,6 +128,18 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "aikido-mcp",
+        "transport": "stdio",
+        "status": "ok",
+        "label": "可用（13 个工具）",
+        "tools": 13
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -134,6 +169,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "airtable",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -163,6 +209,23 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "airwallex-agentos",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      },
+      {
+        "server": "airwallex-dev",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -191,6 +254,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "aiven",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -216,6 +290,12 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "no_change_needed",
+      "notes": [
+        "skills/algorithmic-art/SKILL.md describes claude.ai artifacts as the display surface; in KCoder the generated HTML file is opened in a browser instead. Left unchanged (not a finding; the HTML works standalone)"
+      ]
     }
   },
   {
@@ -243,6 +323,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "alloydb-postgres",
+        "transport": "stdio",
+        "status": "config",
+        "label": "需要配置 `ALLOYDB_POSTGRES_PROJECT`、`ALLOYDB_POSTGRES_REGION`、`ALLOYDB_POSTGRES_CLUSTER` 等"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -271,6 +362,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "alloydb-omni",
+        "transport": "stdio",
+        "status": "config",
+        "label": "需要配置 `ALLOYDB_OMNI_DATABASE`、`ALLOYDB_OMNI_USER`、`ALLOYDB_OMNI_PASSWORD`"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -300,6 +402,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "aws-mcp",
+        "transport": "stdio",
+        "status": "config",
+        "label": "需要 AWS 凭证"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -329,6 +442,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "amazon-selling-partner",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -355,6 +479,13 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "not_adapted",
+      "reason": "许可证未允许修改再分发，保留上游原文",
+      "issues": [
+        "引用 ~/.claude 配置路径"
+      ]
     }
   },
   {
@@ -384,6 +515,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "amplitude",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -393,9 +535,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/apolloio/apollo-mcp-plugin.git",
-      "sha": "bd0513c961f02105492fcff0d7d29c9cccf1ed23"
+      "source": "local",
+      "path": "./plugins/apollo"
     },
     "version": "0.1.1",
     "license": "MIT",
@@ -412,6 +553,30 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "apollo",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/apolloio/apollo-mcp-plugin.git",
+      "sha": "bd0513c961f02105492fcff0d7d29c9cccf1ed23"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/{analytics,enrich-lead,prospect,sequence-load}/SKILL.md: rewrote `mcp__claude_ai_Apollo_MCP__<tool>` (Claude.ai connector names) to `the <tool> tool from the apollo MCP server`"
+      ],
+      "remaining": [
+        "README install sections cover Claude Code/Desktop/Cowork, Cursor and VS Code; left as-is (multi-client documentation)"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -438,6 +603,13 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "not_adapted",
+      "reason": "许可证未允许修改再分发，保留上游原文",
+      "issues": [
+        "使用 claude 命令行"
+      ]
     }
   },
   {
@@ -466,6 +638,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "atlassian",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -491,6 +674,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -500,10 +686,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "git-subdir",
-      "url": "https://github.com/auth0/agent-skills.git",
-      "path": "plugins/auth0",
-      "sha": "7b3821d533430eef35fd7406a87b7b8d02302bdf"
+      "source": "local",
+      "path": "./plugins/auth0"
     },
     "version": "2.6.0",
     "license": "Apache-2.0",
@@ -517,6 +701,23 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "git-subdir",
+      "url": "https://github.com/auth0/agent-skills.git",
+      "path": "plugins/auth0",
+      "sha": "7b3821d533430eef35fd7406a87b7b8d02302bdf"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/auth0/references/feature-custom-domains/index.md: added KCoder Cloudflare MCP setup (http `mcp_servers` entry in `~/.config/kcoder/settings.json`, restart, browser authorization in KCoder) next to the `claude mcp add` command in the DNS tier list and the Cloudflare pre-flight message; the pre-flight no longer assumes a Claude Code session"
+      ],
+      "remaining": [
+        "No license file is present in this installed copy; see the upstream repository"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -546,6 +747,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "awsknowledge",
+        "transport": "http",
+        "status": "ok",
+        "label": "可用"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -555,10 +767,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "git-subdir",
-      "url": "https://github.com/aws/agent-toolkit-for-aws.git",
-      "path": "plugins/aws-agents-for-devsecops",
-      "sha": "7bde20faede49dd5764c02b54f5e306849f7e3ca"
+      "source": "local",
+      "path": "./plugins/aws-agents-for-devsecops"
     },
     "version": "1.1.0",
     "license": "Apache-2.0",
@@ -573,6 +783,26 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "git-subdir",
+      "url": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "path": "plugins/aws-agents-for-devsecops",
+      "sha": "7bde20faede49dd5764c02b54f5e306849f7e3ca"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/setup-devops-agent/SKILL.md: added a \"Running in KCoder\" section (bundled `.mcp.json` env expansion, do not edit installed plugin files, write SigV4/fallback entries to `~/.config/kcoder/settings.json` or `.kcoder/settings.local.json` `mcp_servers` array with example, `timeout` -> `policy.tool_timeout_secs`, KCoder config locations, new session + `/mcp verbose` instead of `/reload-plugins`, routing guide at `.kcoder/aws-agents-for-devsecops.md`); `${CLAUDE_PLUGIN_ROOT}/.mcp.json` and `/README.md` -> `../../` paths; restart/troubleshooting lines mention KCoder",
+        "skills/coordinating-multi-space-devops-agent/SKILL.md, commands/spaces.md: routing-guide lookup also lists `.kcoder/aws-agents-for-devsecops.md`",
+        "README.md: added KCoder install (`kcoder plugin install --marketplace <marketplace-id> --name aws-agents-for-devsecops`) and how to trigger setup skills"
+      ],
+      "remaining": [
+        "The Claude-format `.claude/settings*.json` / `~/.claude.json` locations remain listed for Claude Code users alongside the KCoder ones",
+        "KCoder plugin slash-command names differ from `/aws-agents-for-devsecops:setup`; README points KCoder users to natural-language triggers instead"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -602,6 +832,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "aws-mcp",
+        "transport": "stdio",
+        "status": "config",
+        "label": "需要 AWS 凭证"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -611,10 +852,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "git-subdir",
-      "url": "https://github.com/aws/agent-toolkit-for-aws.git",
-      "path": "plugins/aws-core",
-      "sha": "34b3eccfd8b619ea0cb4ba04a9be9dfefebd94e7"
+      "source": "local",
+      "path": "./plugins/aws-core"
     },
     "version": "1.1.0",
     "license": "Apache-2.0",
@@ -632,6 +871,31 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "aws-mcp",
+        "transport": "stdio",
+        "status": "ok",
+        "label": "可用（8 个工具）",
+        "tools": 8
+      }
+    ],
+    "upstreamSource": {
+      "source": "git-subdir",
+      "url": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "path": "plugins/aws-core",
+      "sha": "34b3eccfd8b619ea0cb4ba04a9be9dfefebd94e7"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/amazon-bedrock/SKILL.md, skills/aws-cloudformation/SKILL.md, skills/aws-containers/SKILL.md: added 'the skill base directory KCoder shows when it loads the skill' to the 'Installed locally' examples",
+        "skills/aws-observability/references/cloudwatch/dynamic-instrumentation.md: noted that in KCoder `SKILL_DIR` is the skill base directory shown when the skill loaded"
+      ],
+      "remaining": []
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -641,10 +905,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "git-subdir",
-      "url": "https://github.com/aws/agent-toolkit-for-aws.git",
-      "path": "plugins/aws-data-analytics",
-      "sha": "0d6167ad2e6dfb858098c4162fe74d04c975532f"
+      "source": "local",
+      "path": "./plugins/aws-data-analytics"
     },
     "version": "1.0.0",
     "license": "Apache-2.0",
@@ -661,6 +923,30 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "aws-mcp",
+        "transport": "stdio",
+        "status": "ok",
+        "label": "可用（8 个工具）",
+        "tools": 8
+      }
+    ],
+    "upstreamSource": {
+      "source": "git-subdir",
+      "url": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "path": "plugins/aws-data-analytics",
+      "sha": "0d6167ad2e6dfb858098c4162fe74d04c975532f"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/{amazon-opensearch-service,authoring-mwaa-workflow,debugging-mwaa-workflow,testing-mwaa-workflow,upgrading-mwaa-environments}/SKILL.md: the \"Installed locally\" example now also covers a KCoder plugin or skills directory whose base directory KCoder reports, so the model reads packaged files locally instead of via retrieve_skill"
+      ],
+      "remaining": []
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -691,6 +977,18 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "aws-serverless-mcp",
+        "transport": "stdio",
+        "status": "ok",
+        "label": "可用（25 个工具）",
+        "tools": 25
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -700,10 +998,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "git-subdir",
-      "url": "https://github.com/aws/agent-toolkit-for-aws.git",
-      "path": "plugins/aws-startup-advisor",
-      "sha": "b310d1c46b4ced6423a737542c92a3a22cfe9e96"
+      "source": "local",
+      "path": "./plugins/aws-startup-advisor"
     },
     "version": "2.0.3",
     "license": "Apache-2.0",
@@ -723,6 +1019,44 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "aws-mcp",
+        "transport": "stdio",
+        "status": "ok",
+        "label": "可用（8 个工具）",
+        "tools": 8
+      }
+    ],
+    "upstreamSource": {
+      "source": "git-subdir",
+      "url": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "path": "plugins/aws-startup-advisor",
+      "sha": "b310d1c46b4ced6423a737542c92a3a22cfe9e96"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/agent-advisor/SKILL.md: rewrote the `$PLUGIN` definition: KCoder does not substitute `${CLAUDE_PLUGIN_ROOT}` in skills, plugin-root paths are written `../../...` relative to the skill base directory and must be resolved to absolute paths before reading or running; the skill-local fallback is kept",
+        "skills/agent-advisor/references/diagram/build-diagram.md: `${CLAUDE_PLUGIN_ROOT}` -> `../..` in the build_diagram command",
+        "skills/agent-advisor/references/phases/add-capabilities/add-capabilities.md: `${CLAUDE_PLUGIN_ROOT}` -> `../..` in decision-ref paths",
+        "skills/agent-advisor/references/phases/clarify/clarify-business.md: `${CLAUDE_PLUGIN_ROOT}` -> `../..`",
+        "skills/agent-advisor/references/phases/clarify/clarify-technical.md: `${CLAUDE_PLUGIN_ROOT}` -> `../..`",
+        "skills/agent-advisor/references/phases/clarify/clarify.md: `${CLAUDE_PLUGIN_ROOT}` -> `../..` (model-selection ref and SCRIPTS directory)",
+        "skills/agent-advisor/references/phases/design/design.md: `${CLAUDE_PLUGIN_ROOT}` -> `../..` in four decision-ref paths",
+        "skills/agent-advisor/references/phases/generate/generate.md: `${CLAUDE_PLUGIN_ROOT}` -> `../..`",
+        "skills/agent-advisor/references/phases/migration-plan/migration-plan.md: `$GCP_BASE` now uses `../../skills/gcp-to-aws` resolved against the agent-advisor skill base directory; the fallback condition now triggers when that path lacks gcp-to-aws instead of when the variable fails to expand",
+        "skills/agent-advisor/references/phases/poc/poc.md: `${CLAUDE_PLUGIN_ROOT}` -> `../..`"
+      ],
+      "remaining": [
+        "skills/llm-to-bedrock/SKILL.md mentions `${CLAUDE_PLUGIN_ROOT}` only to say the skill does not depend on it and to expand `$HELPERS` to an absolute path for subagents; both are correct in KCoder and were left unchanged",
+        "The upstream development checker tools/check-skill-refs.py recognizes `${CLAUDE_PLUGIN_ROOT}/` prefixes; it may resolve the new `../..` paths relative to each reference file rather than the skill base directory. It is a repository tool, not used at runtime",
+        "commands/usage-data.md keeps `${CLAUDE_PLUGIN_ROOT}`, which KCoder expands in commands",
+        "No license file is present in this installed copy; see the upstream repository"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -752,6 +1086,18 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "aws-transform-mcp",
+        "transport": "stdio",
+        "status": "ok",
+        "label": "可用（21 个工具）",
+        "tools": 21
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -780,6 +1126,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "axiom",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -789,9 +1146,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/microsoft/azure-skills.git",
-      "sha": "5b4f0c0778079a2f568581107f23349ce9a0a9b2"
+      "source": "local",
+      "path": "./plugins/azure"
     },
     "version": "1.2.50",
     "license": "MIT",
@@ -801,7 +1157,8 @@
       "hooks"
     ],
     "requirements": [
-      "Node.js"
+      "Node.js",
+      "系统库 libicu"
     ],
     "env": [],
     "verification": {
@@ -809,6 +1166,31 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "azure",
+        "transport": "stdio",
+        "status": "runtime",
+        "label": "缺少系统库 libicu"
+      }
+    ],
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/microsoft/azure-skills.git",
+      "sha": "5b4f0c0778079a2f568581107f23349ce9a0a9b2"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/azure-compute/SKILL.md: description now says 'the azure MCP get_azure_bestpractices tool' instead of the hard-coded `mcp__azure__get_azure_bestpractices`",
+        "skills/azure-compute/workflows/vm-creator/references/mcp-tools.md: the compute proxy is described as the `compute` tool from the `azure` MCP server with KCoder's `mcp__<server id>__compute` naming; the call example uses `compute({...})`"
+      ],
+      "remaining": [
+        ".github/plugins/azure-skills/skills/** is a duplicate tree not loaded by the plugin manifest (skills: ./skills/); left unchanged"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -836,6 +1218,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -845,9 +1230,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/microsoft/azure-sql-database-container.git",
-      "sha": "c1e8167e4c1d5979d7fc4a6ea11a6ce885a9398b"
+      "source": "local",
+      "path": "./plugins/azure-sql-developer"
     },
     "version": "1.1.0",
     "license": "MIT",
@@ -861,6 +1245,23 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/microsoft/azure-sql-database-container.git",
+      "sha": "c1e8167e4c1d5979d7fc4a6ea11a6ce885a9398b"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/azuresql-db-*/SKILL.md (17 files): the \"Staying current\" line now names the `microsoft_docs_search` / `microsoft_docs_fetch` tools of the `microsoft-learn` MCP server, keeping the Claude Code `mcp__microsoft-learn__...` names visible as an example, because KCoder prefixes MCP tool names differently",
+        "skills/README.md: added KCoder verify command, manual-install example and install-matrix row (.kcoder/skills/, ~/.config/kcoder/skills/); added a KCoder `mcp_servers` HTTP entry for Microsoft Learn with `kcoder mcp test`; reworded the authoring rule and tool-name paragraph to name tool plus server instead of only the Claude Code fully-qualified form"
+      ],
+      "remaining": [
+        "README.md (root): `/plugin marketplace add` install line is Claude Code/Codex-specific; left as is because the KCoder marketplace id for this plugin is not known here"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -890,6 +1291,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "com",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -918,6 +1330,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "bigquery",
+        "transport": "stdio",
+        "status": "config",
+        "label": "需要配置 `BIGQUERY_PROJECT`"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -946,6 +1369,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "blackrock-advisor-center",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -972,6 +1406,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -998,6 +1435,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -1026,6 +1466,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "box",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -1051,6 +1502,14 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "no_change_needed",
+      "notes": [
+        "skills/claude-api/shared/managed-agents-*.md: `.claude/skills` describes Claude Managed Agents platform behavior for mounted repositories; correct as API documentation, left unchanged",
+        "skills/skill-creator scripts (run_eval.py, improve_description.py, run_loop.py) still shell out to the Claude Code `claude` CLI; scripts were not modified, so automated description optimization has no KCoder-native path",
+        "Edits were made only in skills this entry does not load; the loaded skills are unchanged, so the upstream reference is kept."
+      ]
     }
   },
   {
@@ -1060,9 +1519,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/brightdata/skills.git",
-      "sha": "37503c1ba31056370323a9d5ba88dd003a280008"
+      "source": "local",
+      "path": "./plugins/brightdata-plugin"
     },
     "version": "1.9.0",
     "license": "MIT",
@@ -1076,6 +1534,22 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/brightdata/skills.git",
+      "sha": "37503c1ba31056370323a9d5ba88dd003a280008"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/bright-data-mcp/references/mcp-setup.md: added a 'Setup in KCoder' section (user-level `mcp_servers` HTTP entry, warning that the URL carries the token; local stdio alternative passing `API_TOKEN` through `policy.env_vars`) and a KCoder troubleshooting line"
+      ],
+      "remaining": [
+        "Claude Code and Claude.ai setup sections kept as multi-client documentation"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -1104,6 +1578,18 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "browser-use",
+        "transport": "stdio",
+        "status": "ok",
+        "label": "可用（4 个工具）",
+        "tools": 4
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -1133,6 +1619,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "calcom",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -1158,6 +1655,15 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "no_change_needed",
+      "notes": [
+        "skill-creator description-optimization scripts (`run_loop.py`, `run_eval.py`, `improve_description.py`) hard-code the `claude` CLI; scripts were not modified, so automated description optimization stays Claude Code-only",
+        "the edited `skill-creator` and `claude-api` skills are not in this plugin's manifest skill list (it exposes only its own skill); they were adapted for consistency with the other copies of the same repository",
+        "skills/claude-api/shared/managed-agents-{environments,overview,tools}.md: no change; `.claude/skills` there documents Anthropic Managed Agents repository behavior, which is correct as written (false positive)",
+        "Edits were made only in skills this entry does not load; the loaded skills are unchanged, so the upstream reference is kept."
+      ]
     }
   },
   {
@@ -1183,6 +1689,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -1210,6 +1719,16 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "not_adapted",
+      "reason": "许可证未允许修改再分发，保留上游原文",
+      "issues": [
+        "写死了 MCP 工具名",
+        "技能中使用 ${CLAUDE_PLUGIN_ROOT}",
+        "引用 ~/.claude 配置路径",
+        "使用 claude 命令行"
+      ]
     }
   },
   {
@@ -1237,6 +1756,15 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "not_adapted",
+      "reason": "许可证未允许修改再分发，保留上游原文",
+      "issues": [
+        "写死了 MCP 工具名",
+        "技能中使用 ${CLAUDE_PLUGIN_ROOT}",
+        "引用 ~/.claude 配置路径"
+      ]
     }
   },
   {
@@ -1264,6 +1792,15 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "not_adapted",
+      "reason": "许可证未允许修改再分发，保留上游原文",
+      "issues": [
+        "写死了 MCP 工具名",
+        "技能中使用 ${CLAUDE_PLUGIN_ROOT}",
+        "使用 claude 命令行"
+      ]
     }
   },
   {
@@ -1273,9 +1810,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/catalystbyzoho/claude-plugin.git",
-      "sha": "9670b79d72fe4923cc845ca0414d009ef3684ccb"
+      "source": "local",
+      "path": "./plugins/catalyst-by-zoho"
     },
     "version": "0.0.2",
     "license": "Apache-2.0",
@@ -1294,6 +1830,33 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "catalyst-by-zoho",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/catalystbyzoho/claude-plugin.git",
+      "sha": "9670b79d72fe4923cc845ca0414d009ef3684ccb"
+    },
+    "adaptation": {
+      "changes": [
+        "commands/switch-dc.md: added a KCoder procedure (do not edit KCoder's managed plugin copy; `kcoder mcp list`, switch off the plugin server on Studio's MCP page, add a user-level `mcp_servers` HTTP entry for the DC, new session + browser login); labelled the `~/.claude/` steps as Claude Code only",
+        "skills/catalyst-zoho-mcp/references/dc-switching.md: added the same KCoder section and a KCoder troubleshooting row",
+        "skills/catalyst-basics/references/setup/claude-code.md: added a KCoder note (plugin already loads `.mcp.json`; custom URL via user-level `mcp_servers`, keep token URLs out of committed settings; tool names carry a server prefix)"
+      ],
+      "remaining": [
+        "`${CLAUDE_PLUGIN_ROOT}` is not used by these files; hooks/ not reviewed for KCoder behavior (no findings)",
+        "the exact KCoder disable step relies on Studio's MCP page toggle; there is no `kcoder mcp` CLI subcommand to disable a plugin server"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -1303,10 +1866,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "git-subdir",
-      "url": "https://github.com/anthropics/claude-plugins-official.git",
-      "path": "plugins/champion-kit",
-      "sha": "73c8cf3ea7e296057b467990f2f5d61b4c922260"
+      "source": "local",
+      "path": "./plugins/champion-kit"
     },
     "version": "0.5.0",
     "license": "Apache-2.0",
@@ -1322,6 +1883,29 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "git-subdir",
+      "url": "https://github.com/anthropics/claude-plugins-official.git",
+      "path": "plugins/champion-kit",
+      "sha": "73c8cf3ea7e296057b467990f2f5d61b4c922260"
+    },
+    "adaptation": {
+      "changes": [
+        "agents/repo-scout.md: also excludes ~/.config/kcoder from reads and lists KCoder shared-context equivalents (AGENTS.md/KCODER.md, .kcoder/skills/, .kcoder/settings*.json)",
+        "skills/faq/SKILL.md: Glob check also covers AGENTS.md and .kcoder/settings.json for KCoder teams; never copy values from .kcoder/settings*.json",
+        "skills/maturity/SKILL.md: evidence list includes KCoder equivalents",
+        "skills/patterns/SKILL.md: good-practice scan includes .kcoder/skills/ and AGENTS.md/KCODER.md",
+        "skills/routines/SKILL.md: unattended-edit ban also names AGENTS.md and .kcoder/",
+        "skills/hackathon/SKILL.md: added a KCoder translation paragraph for the starter ideas (skills/hooks locations, kcoder mcp add, git worktree + kcoder --cwd, headless `kcoder \"PROMPT\"` since -p is --permission-mode, spawn_agent instead of .claude/agents)"
+      ],
+      "remaining": [
+        "skills/climb/SKILL.md: transcript analysis targets Claude Code transcripts (~/.claude/projects/, /insights) and its tool name list (including NotebookEdit) is a vocabulary for counting Claude Code transcript entries, not a tool call; left unchanged, KCoder session history is not covered",
+        "README.md install steps and code.claude.com links are Claude Code-specific; the plugin is a Claude Code champion program, so left unchanged"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -1349,6 +1933,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "circleback",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -1375,6 +1970,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -1384,9 +1982,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/ckeditor/skills.git",
-      "sha": "261766a0d70fe88c34d34336acbd293c69048a62"
+      "source": "local",
+      "path": "./plugins/ckeditor"
     },
     "version": "0.1.1",
     "license": "MIT",
@@ -1400,6 +1997,22 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/ckeditor/skills.git",
+      "sha": "261766a0d70fe88c34d34336acbd293c69048a62"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/ckeditor/references/documentation-access.md: added 'Turn it on — KCoder' with a user-level `mcp_servers` HTTP entry, the project-array replacement caveat (`mcp_inherited_servers`), KCoder MCP sign-in and `kcoder mcp list`"
+      ],
+      "remaining": [
+        "Claude Code `/mcp` and `claude mcp add` instructions kept as multi-client documentation"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -1409,9 +2022,8 @@
     "upstream": "skills",
     "upstreamUrl": "https://github.com/anthropics/skills",
     "source": {
-      "source": "url",
-      "url": "https://github.com/anthropics/skills.git",
-      "sha": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba"
+      "source": "local",
+      "path": "./plugins/claude-api"
     },
     "version": null,
     "license": "Apache-2.0",
@@ -1425,6 +2037,23 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/anthropics/skills.git",
+      "sha": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/claude-api/shared/prompt-audit.md: added KCoder equivalents (`~/.config/kcoder/`, `KCODER.md`, `.kcoder/`, `.kcoder/settings*.json`, `~/.config/kcoder/settings.json`) next to the Claude Code paths in scope and do-not-read-secrets lists"
+      ],
+      "remaining": [
+        "skills/claude-api/shared/managed-agents-*.md `.claude/skills` refer to the Claude Managed Agents platform's repository-skill discovery (a documented platform format); left unchanged",
+        "skills/skill-creator/SKILL.md `claude -p` is in a skill this plugin does not expose (manifest lists only ./skills/claude-api); left unchanged"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -1434,10 +2063,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "git-subdir",
-      "url": "https://github.com/anthropics/claude-plugins-official.git",
-      "path": "plugins/claude-code-setup",
-      "sha": "73c8cf3ea7e296057b467990f2f5d61b4c922260"
+      "source": "local",
+      "path": "./plugins/claude-code-setup"
     },
     "version": "1.0.0",
     "license": "Apache-2.0",
@@ -1451,6 +2078,29 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "git-subdir",
+      "url": "https://github.com/anthropics/claude-plugins-official.git",
+      "path": "plugins/claude-code-setup",
+      "sha": "73c8cf3ea7e296057b467990f2f5d61b4c922260"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/claude-automation-recommender/SKILL.md: added a \"Running in KCoder\" mapping table (AGENTS.md/KCODER.md, .kcoder/skills, hooks in .kcoder/settings.json with lowercase exact matchers, permission_rules, kcoder mcp add/list/test, headless `kcoder \"PROMPT\"` with --json, no project agents dir -> spawn_agent, kcoder plugin install); Phase 1 also inspects .kcoder/, AGENTS.md, KCODER.md; template, headless and permissions sections point to KCoder equivalents",
+        "skills/claude-automation-recommender/references/hooks-patterns.md: KCoder hook placement and matcher note",
+        "skills/claude-automation-recommender/references/mcp-servers.md: KCoder MCP add/diagnose note next to `claude --mcp-debug`",
+        "skills/claude-automation-recommender/references/skills-reference.md: KCoder skill locations, relative script paths and plugin install note",
+        "skills/claude-automation-recommender/references/subagent-templates.md: KCoder has no project agents directory; recommend role/prompt for spawn_agent; existing text labelled as Claude Code",
+        "skills/claude-automation-recommender/references/plugins-reference.md: KCoder plugin install command next to /plugin commands"
+      ],
+      "remaining": [
+        "The plugin's purpose and name remain Claude Code-oriented (description, README); KCoder equivalents for some features (output styles, /plugin info, slash-command subagents, `context: fork`, `disable-model-invocation`) were not verified and are not mapped",
+        "KCoder hook/permission field details beyond `hooks` matcher shape and `permission_rules` (tool, input_pattern, action) were not verified against a running KCoder"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -1478,6 +2128,13 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "not_adapted",
+      "reason": "许可证未允许修改再分发，保留上游原文",
+      "issues": [
+        "使用 claude 命令行"
+      ]
     }
   },
   {
@@ -1487,9 +2144,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/ClickHouse/agent-skills.git",
-      "sha": "356a8c1b9a7392adb389a132f5ad3fec38532a03"
+      "source": "local",
+      "path": "./plugins/clickhouse-best-practices"
     },
     "version": "0.3.0",
     "license": "Apache-2.0",
@@ -1503,6 +2159,23 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/ClickHouse/agent-skills.git",
+      "sha": "356a8c1b9a7392adb389a132f5ad3fec38532a03"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/clickhouse-best-practices/rules/agent-connect-mcp.md: replaced `claude mcp add --transport http ...` with a KCoder `mcp_servers` HTTP entry in `~/.config/kcoder/settings.json` (kcoder mcp add is stdio-only) and Studio **Authorize** for OAuth",
+        "skills/clickhouse-best-practices/AGENTS.md: same change in the compiled rule copy"
+      ],
+      "remaining": [
+        "skills/clickhouse-js-node-rowbinary/eval_result*.md `.claude/skills/skill-bench` links are upstream benchmark records (and that skill is not in the plugin manifest); left unchanged as false positives"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -1530,6 +2203,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "cloud-sql-mysql",
+        "transport": "stdio",
+        "status": "config",
+        "label": "需要配置 `CLOUD_SQL_MYSQL_PROJECT`、`CLOUD_SQL_MYSQL_REGION`、`CLOUD_SQL_MYSQL_INSTANCE` 等"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -1557,6 +2241,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "cloud-sql-postgres",
+        "transport": "stdio",
+        "status": "config",
+        "label": "需要配置 `CLOUD_SQL_POSTGRES_PROJECT`、`CLOUD_SQL_POSTGRES_REGION`、`CLOUD_SQL_POSTGRES_INSTANCE` 等"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -1584,6 +2279,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "cloud-sql-mssql",
+        "transport": "stdio",
+        "status": "config",
+        "label": "需要配置 `CLOUD_SQL_MSSQL_PROJECT`、`CLOUD_SQL_MSSQL_REGION`、`CLOUD_SQL_MSSQL_INSTANCE` 等"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -1593,9 +2299,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/cloudflare/skills.git",
-      "sha": "cbf893b954222276bf1af57e5f23379231e0efb9"
+      "source": "local",
+      "path": "./plugins/cloudflare"
     },
     "version": "1.0.4",
     "license": "Apache-2.0",
@@ -1612,6 +2317,30 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "cloudflare",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/cloudflare/skills.git",
+      "sha": "cbf893b954222276bf1af57e5f23379231e0efb9"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/turnstile-spin/SKILL.md: persist step names the KCoder project skill directory `.kcoder/skills/turnstile-spin/SKILL.md`",
+        "skills/turnstile-spin/tests/validation.md: persistence check also accepts `.kcoder/skills/turnstile-spin/SKILL.md`",
+        "skills/turnstile-spin/README.md: KCoder skill locations (`~/.config/kcoder/skills/`, `.kcoder/skills/`) for the clone and single-file install"
+      ],
+      "remaining": []
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -1642,6 +2371,41 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "cloudinary-analysis",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      },
+      {
+        "server": "cloudinary-asset-mgmt",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      },
+      {
+        "server": "cloudinary-env-config",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      },
+      {
+        "server": "cloudinary-mediaflows",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      },
+      {
+        "server": "cloudinary-smd",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -1651,9 +2415,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/coderabbitai/skills.git",
-      "sha": "45bd1ae2c471cd861b8b6903f7dcab7c57aa0e59"
+      "source": "local",
+      "path": "./plugins/coderabbit"
     },
     "version": "1.2.1",
     "license": "MIT",
@@ -1669,6 +2432,23 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/coderabbitai/skills.git",
+      "sha": "45bd1ae2c471cd861b8b6903f7dcab7c57aa0e59"
+    },
+    "adaptation": {
+      "changes": [
+        "commands/setup.md: added KCoder MCP sign-in guidance (Studio MCP page, `kcoder mcp list`) next to the Claude Code `/mcp` line",
+        "packaging/mcp/skills/setup/SKILL.md: no change; it is the template for an independently assembled Claude-native package (plugin-qualified hook and `mcp__plugin_coderabbit_coderabbit__start_code_review`), is not part of this plugin's loaded `skills/`, and is Claude-specific by design"
+      ],
+      "remaining": [
+        "packaging/mcp/** remains Claude Code-specific (hook-based local review keyed on a Claude plugin-qualified MCP tool name)"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -1678,9 +2458,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/spotify/confidence-ai-plugins.git",
-      "sha": "f416826fde819978ab90f1d7ae27513667aa5d0f"
+      "source": "local",
+      "path": "./plugins/confidence"
     },
     "version": "0.9.0",
     "license": "Apache-2.0",
@@ -1698,6 +2477,42 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "confidence-docs",
+        "transport": "http",
+        "status": "ok",
+        "label": "可用"
+      },
+      {
+        "server": "confidence-flags",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/spotify/confidence-ai-plugins.git",
+      "sha": "f416826fde819978ab90f1d7ae27513667aa5d0f"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/*/SKILL.md (analyze-project, explore-metric, instrument-events, migrate-eppo, migrate-optimizely, migrate-posthog, migrate-statsig, onboard-confidence, setup-warehouse, setup-warehouse-bigquery, -databricks, -redshift, -snowflake): rewrote all 134 hard-coded `mcp__<server>__<tool>` names as tool + server references (prose: 'the `T` tool from the `S` MCP server'; tables: '`T` (`S` MCP server)'; code samples: `S/T(...)`) and added a KCoder note explaining the notation and KCoder's plugin MCP naming",
+        "skills/migrate-*/SKILL.md: KCoder note also explains that the `confidence` server named there is the Confidence flags server that this plugin ships as `confidence-flags`",
+        "skills/{analyze-project,explore-metric,instrument-events,migrate-*}/SKILL.md: replaced 13 `claude mcp add ... --transport http --url ...` blocks with KCoder `mcp_servers` HTTP entries for `~/.config/kcoder/settings.json` / `.kcoder/settings.json` (original command kept as the Claude Code equivalent); for bundled confidence-flags/confidence-docs, first check the server is enabled and authorized",
+        "skills/onboard-confidence/SKILL.md, onboard-confidence-dry-run/SKILL.md, setup-warehouse/SKILL.md: replaced Claude Code `/mcp` -> Authenticate instructions and the `<local-command-caveat>` explanation with KCoder MCP authorization (KCoder Studio MCP management page; `/mcp verbose` to check registration); 'inside Claude Code' -> 'inside KCoder'; replaced the `.claude/skills/onboard-confidence` example path with a neutral one"
+      ],
+      "remaining": [
+        "`.claude/plans/*.md` plan-file paths used across skills/commands are a self-contained plugin data location, not Claude config; left unchanged",
+        "skills/onboard-confidence/SKILL.md tells the model to call Bash with `dangerouslyDisableSandbox: true`, a Claude Code-only parameter that KCoder's `bash` tool does not define; left unchanged because the KCoder sandbox escalation path depends on the session's permission settings",
+        "test-fixtures READMEs and migrate-optimizely mention 'Claude Code / Cursor' UI as examples; left unchanged",
+        "KCoder OAuth for HTTP MCP servers is completed from KCoder Studio's MCP management page; REPL-only users have no in-terminal 'Authenticate' action equivalent to Claude Code's `/mcp`"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -1726,6 +2541,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "context7",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -1751,6 +2577,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -1760,9 +2589,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/CrowdStrike/foundry-skills.git",
-      "sha": "90082f829c6c2c4192b1459a01488863a1e82d1e"
+      "source": "local",
+      "path": "./plugins/crowdstrike-falcon-foundry"
     },
     "version": "1.7.1",
     "license": "MIT",
@@ -1777,6 +2605,23 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/CrowdStrike/foundry-skills.git",
+      "sha": "90082f829c6c2c4192b1459a01488863a1e82d1e"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/debugging-workflows/references/install-and-visual-debugging.md: added `kcoder mcp add playwright --command npx --args @playwright/mcp@latest` next to the Claude Code command",
+        "skills/e2e-testing/references/debugging-with-mcp.md: added the KCoder Playwright MCP setup command and restart note"
+      ],
+      "remaining": [
+        "Surrounding prose still says 'Claude Code can read images'; KCoder can also read image files with `read`, so it was left unchanged"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -1786,9 +2631,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/CrowdStrike/fusion-skills.git",
-      "sha": "d4e2abf93b1f0900fcc67fe040e98d086fa1fb0c"
+      "source": "local",
+      "path": "./plugins/crowdstrike-falcon-fusion"
     },
     "version": "1.4.0",
     "license": "MIT",
@@ -1803,6 +2647,21 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/CrowdStrike/fusion-skills.git",
+      "sha": "d4e2abf93b1f0900fcc67fe040e98d086fa1fb0c"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/{authoring,deployment,execution,lookup-files,setup}/SKILL.md: \"Running the scripts\" notes now say KCoder uses its reported absolute skill base directory for `<dir>` (no `$CLAUDE_PLUGIN_ROOT` expansion)",
+        "skills/authoring/SKILL.md, skills/workflows/SKILL.md: added `kcoder plugin install --marketplace <marketplace-id> --name crowdstrike-falcon-foundry` next to `claude plugin install`"
+      ],
+      "remaining": []
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -1812,9 +2671,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/dash0hq/dash0-agent-plugin.git",
-      "sha": "72a84179e6c64871ad5b6fceb09e00f502de415a"
+      "source": "local",
+      "path": "./plugins/dash0"
     },
     "version": "0.1.28",
     "license": "Apache-2.0",
@@ -1828,6 +2686,24 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/dash0hq/dash0-agent-plugin.git",
+      "sha": "72a84179e6c64871ad5b6fceb09e00f502de415a"
+    },
+    "adaptation": {
+      "changes": [
+        "claude/skills/dash0-configure/SKILL.md: added KCoder notes: no `/plugin → Configure` UI or `pluginConfigs` (use the keychain keys or DASH0_AUTH_TOKEN in the environment instead), precedence items 1-2 do not apply, config files intentionally stay under `.claude/` because the plugin binary's Claude harness reads them there, and `/reload-plugins` is replaced by starting a new KCoder session"
+      ],
+      "remaining": [
+        ".claude/skills/copilot-local-dev/SKILL.md and qa/specs/claude/skills/*.md are repository development/QA files not exposed by the plugin manifest (skills: ./claude/skills/); left unchanged",
+        "The plugin is Claude Code session telemetry: its hooks run claude/claude-on-event.sh with the Claude harness and parse Claude Code event payloads; whether KCoder's hook payloads produce complete spans is not verified",
+        "userConfig options in .claude-plugin/plugin.json have no KCoder UI"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -1837,9 +2713,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/GoogleCloudPlatform/data-agent-kit-plugin.git",
-      "sha": "83c53b5f129cdeecabe149ff4ba82645d3e51745"
+      "source": "local",
+      "path": "./plugins/data-agent-kit"
     },
     "version": "1.0.0",
     "license": "Apache-2.0",
@@ -1857,6 +2732,94 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "dak-alloydb",
+        "transport": "stdio",
+        "status": "config",
+        "label": "需要 gcloud 登录（ADC）"
+      },
+      {
+        "server": "dak-bigquery",
+        "transport": "stdio",
+        "status": "config",
+        "label": "需要 gcloud 登录（ADC）"
+      },
+      {
+        "server": "dak-bigtable",
+        "transport": "stdio",
+        "status": "config",
+        "label": "需要 gcloud 登录（ADC）"
+      },
+      {
+        "server": "dak-bigtable-data",
+        "transport": "stdio",
+        "status": "config",
+        "label": "需要 gcloud 登录（ADC）"
+      },
+      {
+        "server": "dak-cloudsql",
+        "transport": "stdio",
+        "status": "config",
+        "label": "需要 gcloud 登录（ADC）"
+      },
+      {
+        "server": "dak-gcs",
+        "transport": "stdio",
+        "status": "config",
+        "label": "需要 gcloud 登录（ADC）"
+      },
+      {
+        "server": "dak-kc",
+        "transport": "stdio",
+        "status": "config",
+        "label": "需要 gcloud 登录（ADC）"
+      },
+      {
+        "server": "dak-notebook",
+        "transport": "stdio",
+        "status": "ok",
+        "label": "可用（9 个工具）",
+        "tools": 9
+      },
+      {
+        "server": "dak-spanner",
+        "transport": "stdio",
+        "status": "config",
+        "label": "需要 gcloud 登录（ADC）"
+      },
+      {
+        "server": "dak-spark",
+        "transport": "stdio",
+        "status": "config",
+        "label": "需要配置 `GCP_REGION`、`PROJECT_ID`"
+      },
+      {
+        "server": "dak-viz",
+        "transport": "stdio",
+        "status": "ok",
+        "label": "可用（0 个工具）",
+        "tools": 0
+      }
+    ],
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/GoogleCloudPlatform/data-agent-kit-plugin.git",
+      "sha": "83c53b5f129cdeecabe149ff4ba82645d3e51745"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/resolving-mcp-region-configs/SKILL.md: added a KCoder branch (look for the plugin's `dak-spark` server tools; do not edit KCoder's managed plugin copy; KCoder does not expand `$GCP_REGION`; switch off the plugin server and `kcoder mcp add dak-spark-<region> ...` with the region filled in; new session instead of `claude --resume`)",
+        "skills/google-cloud-storage-basics/references/mcp-usage.md: added a KCoder `mcp_servers` HTTP example that takes the bearer token from an environment variable via `policy.bearer_token_env_var` instead of a literal header"
+      ],
+      "remaining": [
+        "Claude Code/Codex/Antigravity paths kept as multi-client documentation",
+        "the KCoder workaround duplicates the plugin's stdio proxy as a user-level server; the user must switch off the plugin's `dak-spark` server in Studio"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -1866,9 +2829,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/datadog-labs/claude-code-plugin.git",
-      "sha": "a1603119c813f528b2d925a0ccadd73bf930550b"
+      "source": "local",
+      "path": "./plugins/datadog"
     },
     "version": "0.7.19",
     "license": "Apache-2.0",
@@ -1884,6 +2846,37 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "mcp",
+        "transport": "http",
+        "status": "config",
+        "label": "需要配置服务地址"
+      }
+    ],
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/datadog-labs/claude-code-plugin.git",
+      "sha": "a1603119c813f528b2d925a0ccadd73bf930550b"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/ddsetup/SKILL.md: `${CLAUDE_PLUGIN_DATA}` -> `<PLUGIN_DATA>` with a definition (KCoder plugin store data dir, normally `~/.config/kcoder/plugin_store/data/<marketplace-id>/datadog/`; skip saving if absent); added KCoder steps (new session, Studio MCP page **Authorize**) next to `/reload-plugins` and `/mcp`; KCoder server id `plugin.datadog@<marketplace-id>.mcp`",
+        "skills/ddtoolsets/SKILL.md: same `<PLUGIN_DATA>` rewrite, KCoder confirm steps and server id",
+        "skills/ddconfig/SKILL.md: KCoder alternatives (Studio **Sign out** / **Authorize**, new session) for each `/mcp` authentication step; server id",
+        "skills/{ddsetup,ddconfig,ddtoolsets}/references/mcp-settings.md: added KCoder server id",
+        "skills/ddviz/SKILL.md: `${CLAUDE_PLUGIN_ROOT}/skills/ddviz/scripts/*.sh` -> `<SKILL_BASE>/scripts/*.sh` with `<PLUGIN_ROOT>` passed to status.sh; explained absolute paths",
+        "README.md: KCoder install and key-auth environment notes"
+      ],
+      "remaining": [
+        "The setup flow edits the installed plugin's `.dd_claude-code_mcp.json`; whether KCoder keeps such edits to an installed plugin across updates was not verified (setting `DD_MCP_DOMAIN`/`DD_MCP_TOOLSETS` in KCoder's environment also works because KCoder expands `${VAR:-default}` in plugin MCP configs)",
+        "ddviz depends on Claude Code hooks and a macOS Swift panel; hook behavior in KCoder was not verified",
+        "The exact KCoder plugin data directory depends on the marketplace id and profile; text gives the normal location"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -1911,6 +2904,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "dataproc",
+        "transport": "stdio",
+        "status": "config",
+        "label": "需要配置 `DATAPROC_PROJECT`、`DATAPROC_REGION`"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -1920,10 +2924,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "git-subdir",
-      "url": "https://github.com/microsoft/Dataverse-skills.git",
-      "path": ".github/plugins/dataverse",
-      "sha": "669e71519886d4602753c34bff3db787d616d761"
+      "source": "local",
+      "path": "./plugins/dataverse"
     },
     "version": "1.14.0",
     "license": "MIT",
@@ -1937,6 +2939,27 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "git-subdir",
+      "url": "https://github.com/microsoft/Dataverse-skills.git",
+      "path": ".github/plugins/dataverse",
+      "sha": "669e71519886d4602753c34bff3db787d616d761"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/dv-connect/references/mcp-configuration.md: added a `kcoder` TOOL_TYPE alongside copilot/claude/cursor/codex: tool choice, user-scope config path `~/.config/kcoder/settings.json`, existing-server check via `kcoder mcp list` or `mcp_servers`, a stdio `mcp_servers` JSON entry for the npx proxy (not `kcoder mcp add`, whose `--args` cannot take `-y`), Windows `cmd /c` form, restart/resume (`kcoder --resume latest`) instructions and troubleshooting with `kcoder mcp test`",
+        "skills/dv-connect/SKILL.md: Step 6 skip check, host list, attribution env placement and a 'For KCoder' block; Step 7 Check 1 adds `kcoder mcp test dataverse-{orgid}`",
+        "skills/dv-connect/references/tools-setup.md: added the KCoder resume hint next to the `claude --continue` reminder"
+      ],
+      "remaining": [
+        "KCoder registration is user-scope only; project-scope MCP in KCoder is subject to trusted-directory and inheritance rules and was not documented here",
+        "KCoder is not in auth.py `_ALLOWED_AGENTS`, so the KCoder branch uses `agent=unknown` for attribution as the skill instructs for unrecognized hosts",
+        "No license file is present in this installed copy; see the upstream repository"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -1946,9 +2969,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/confident-ai/deepeval.git",
-      "sha": "da9b2c969f8a15e8aa4ef67c372157ce060cd63e"
+      "source": "local",
+      "path": "./plugins/deepeval"
     },
     "version": "1.0.0",
     "license": "Apache-2.0",
@@ -1962,6 +2984,20 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/confident-ai/deepeval.git",
+      "sha": "da9b2c969f8a15e8aa4ef67c372157ce060cd63e"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/README.md: added a \"For KCoder\" install section (plugin install or copy into `.kcoder/skills/` / `~/.config/kcoder/skills/`) next to the Claude Code section"
+      ],
+      "remaining": []
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -1993,6 +3029,31 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "awsiac",
+        "transport": "stdio",
+        "status": "ok",
+        "label": "可用（9 个工具）",
+        "tools": 9
+      },
+      {
+        "server": "awsknowledge",
+        "transport": "http",
+        "status": "ok",
+        "label": "可用"
+      },
+      {
+        "server": "awspricing",
+        "transport": "stdio",
+        "status": "ok",
+        "label": "可用（9 个工具）",
+        "tools": 9
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -2020,6 +3081,18 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "desktop-commander",
+        "transport": "stdio",
+        "status": "ok",
+        "label": "可用（25 个工具）",
+        "tools": 25
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -2045,6 +3118,15 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "no_change_needed",
+      "notes": [
+        "skills/claude-api/shared/managed-agents-*.md: `.claude/skills` describes the Claude Managed Agents API's repository skill discovery (an API fact), left unchanged as a false positive",
+        "skills/claude-api/shared/evals/**: `.claude/hillclimb/<flow>/` is a self-contained eval output layout used consistently by the bundled scripts; left unchanged",
+        "skills/skill-creator/scripts/*.py: the description-optimization scripts still invoke `claude -p` (code not modified per scope); documented in SKILL.md instead",
+        "Edits were made only in skills this entry does not load; the loaded skills are unchanged, so the upstream reference is kept."
+      ]
     }
   },
   {
@@ -2066,7 +3148,7 @@
       "mcp_servers"
     ],
     "requirements": [
-      "Node.js"
+      "Bun"
     ],
     "env": [],
     "verification": {
@@ -2074,6 +3156,21 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "discord",
+        "transport": "stdio",
+        "status": "runtime",
+        "label": "缺少 `bun`"
+      }
+    ],
+    "contentReview": {
+      "status": "no_change_needed",
+      "notes": [
+        "The plugin is a Claude Code 'channel': inbound Discord messages and permission relays use `notifications/claude/channel*` MCP notifications and `claude --channels`, which KCoder does not implement. The reply/fetch tools work as ordinary MCP tools, but messages are not pushed into a KCoder session",
+        "README.md setup steps use `/plugin install` and `claude --channels`; no KCoder equivalent for channels"
+      ]
     }
   },
   {
@@ -2099,6 +3196,14 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "not_adapted",
+      "reason": "许可证未允许修改再分发，保留上游原文",
+      "issues": [
+        "引用 ~/.claude 配置路径",
+        "使用 claude 命令行"
+      ]
     }
   },
   {
@@ -2124,6 +3229,14 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "no_change_needed",
+      "notes": [
+        "skills/claude-api/shared/managed-agents-*.md: `.claude/skills` describes Claude Managed Agents platform behavior for mounted repositories; correct as API documentation, left unchanged",
+        "skills/skill-creator scripts (run_eval.py, improve_description.py, run_loop.py) still shell out to the Claude Code `claude` CLI; scripts were not modified, so automated description optimization has no KCoder-native path",
+        "Edits were made only in skills this entry does not load; the loaded skills are unchanged, so the upstream reference is kept."
+      ]
     }
   },
   {
@@ -2149,6 +3262,10 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "no_change_needed",
+      "notes": []
     }
   },
   {
@@ -2178,6 +3295,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "claude_app_mcp",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -2187,9 +3315,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/duckdb/duckdb-skills.git",
-      "sha": "7feda8e01e22bc0886c86123f3884947e36d8c69"
+      "source": "local",
+      "path": "./plugins/duckdb-skills"
     },
     "version": "0.2.4",
     "license": "MIT",
@@ -2203,6 +3330,22 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/duckdb/duckdb-skills.git",
+      "sha": "7feda8e01e22bc0886c86123f3884947e36d8c69"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/read-memories/SKILL.md: description covers KCoder; added a KCoder query (top-level `role`/`content`/`timestamp_ms` records) and search paths under `~/.config/kcoder/projects/` with the non-alphanumeric-to-`-` project key rule; Claude Code paths kept and labeled"
+      ],
+      "remaining": [
+        "KCoder hashes very long project keys; the skill tells the model to list the projects directory if the computed path does not exist"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -2230,6 +3373,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -2265,6 +3411,17 @@
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22",
       "note": "Verified with placeholder values for the required environment variables."
+    },
+    "mcpTest": [
+      {
+        "server": "dynatrace",
+        "transport": "http",
+        "status": "config",
+        "label": "需要配置服务地址"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -2274,9 +3431,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/exa-labs/exa-mcp-server.git",
-      "sha": "15ffb50519e719dc791cdc750ce5ed1934c0a1ed"
+      "source": "local",
+      "path": "./plugins/exa"
     },
     "version": "3.4.1",
     "license": "MIT",
@@ -2293,6 +3449,28 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "exa",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/exa-labs/exa-mcp-server.git",
+      "sha": "15ffb50519e719dc791cdc750ce5ed1934c0a1ed"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/search/SKILL.md: \"one scroll length of the claude code screen\" -> the agent's terminal screen (Claude Code, KCoder, etc.)"
+      ],
+      "remaining": []
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -2318,6 +3496,14 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "not_adapted",
+      "reason": "许可证未允许修改再分发，保留上游原文",
+      "issues": [
+        "引用 ~/.claude 配置路径",
+        "使用 claude 命令行"
+      ]
     }
   },
   {
@@ -2344,6 +3530,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -2364,7 +3553,7 @@
       "mcp_servers"
     ],
     "requirements": [
-      "Node.js"
+      "Bun"
     ],
     "env": [],
     "verification": {
@@ -2372,6 +3561,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "fakechat",
+        "transport": "stdio",
+        "status": "runtime",
+        "label": "缺少 `bun`"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -2397,6 +3597,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -2406,9 +3609,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/voxel51/fiftyone-skills.git",
-      "sha": "8b87befcce6cfb86e73b4ccc1f692a0a2b6a4218"
+      "source": "local",
+      "path": "./plugins/fiftyone"
     },
     "version": "1.0.4",
     "license": "Apache-2.0",
@@ -2426,6 +3628,30 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "fiftyone",
+        "transport": "stdio",
+        "status": "runtime",
+        "label": "缺少 `fiftyone-mcp`"
+      }
+    ],
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/voxel51/fiftyone-skills.git",
+      "sha": "8b87befcce6cfb86e73b4ccc1f692a0a2b6a4218"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/fiftyone-create-notebook/SKILL.md: replaced every `NotebookEdit` instruction (Directives 2 and 4, Phase 3 example, troubleshooting) with appending cells to the `.ipynb` JSON via `edit` (valid single-line cell objects, unique end-of-file anchor, ordering preserved); made the Phase 3 `Write` template end with a newline before the closing brace so the anchor matches",
+        "skills/fiftyone-sdk-guidance/SKILL.md: added an 'On KCoder' branch that offers to add the fiftyone-docs HTTP server to `~/.config/kcoder/settings.json` after confirmation, with new-session and OAuth notes",
+        "skills/fiftyone-sdk-guidance/README.md: added KCoder setup instructions"
+      ],
+      "remaining": []
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -2454,6 +3680,18 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "firebase",
+        "transport": "stdio",
+        "status": "ok",
+        "label": "可用（19 个工具）",
+        "tools": 19
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -2482,6 +3720,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "firecrawl",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -2509,6 +3758,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "firestore",
+        "transport": "stdio",
+        "status": "config",
+        "label": "需要配置 `FIRESTORE_PROJECT`"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -2518,9 +3778,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/atlassian/forge-skills.git",
-      "sha": "4f04ae02879435f23808a4798da28f75d3ab74c3"
+      "source": "local",
+      "path": "./plugins/forge-skills"
     },
     "version": "0.1.0",
     "license": "Apache-2.0",
@@ -2537,6 +3796,34 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "ads-mcp",
+        "transport": "http",
+        "status": "ok",
+        "label": "可用"
+      },
+      {
+        "server": "forge",
+        "transport": "http",
+        "status": "ok",
+        "label": "可用"
+      }
+    ],
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/atlassian/forge-skills.git",
+      "sha": "4f04ae02879435f23808a4798da28f75d3ab74c3"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/forge-app-builder/README.md: added KCoder skill directories (`~/.config/kcoder/skills/`, `.kcoder/skills/`) to the manual install target list"
+      ],
+      "remaining": []
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -2563,6 +3850,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -2589,6 +3879,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -2619,6 +3912,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "gc-ai",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -2652,6 +3956,17 @@
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22",
       "note": "Verified with placeholder values for the required environment variables."
+    },
+    "mcpTest": [
+      {
+        "server": "github",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -2679,6 +3994,18 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "gitkraken",
+        "transport": "stdio",
+        "status": "ok",
+        "label": "可用（35 个工具）",
+        "tools": 35
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -2707,6 +4034,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "gitlab",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -2716,9 +4054,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/gemini-cli-extensions/google-cloud-storage.git",
-      "sha": "c7e3eeefa14ac0492a024458061d662e8b04c891"
+      "source": "local",
+      "path": "./plugins/google-cloud-storage"
     },
     "version": "1.1.0",
     "license": "Apache-2.0",
@@ -2735,6 +4072,28 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "cloud-storage",
+        "transport": "stdio",
+        "status": "config",
+        "label": "需要配置 `CLOUD_STORAGE_PROJECT`"
+      }
+    ],
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/gemini-cli-extensions/google-cloud-storage.git",
+      "sha": "c7e3eeefa14ac0492a024458061d662e8b04c891"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/google-cloud-storage-basics/references/mcp-usage.md: added a KCoder `mcp_servers` HTTP example next to the Claude Code one, with the access token supplied through `policy.bearer_token_env_var` instead of written into the file"
+      ],
+      "remaining": []
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -2763,6 +4122,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "govtribe",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -2789,6 +4159,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -2818,6 +4191,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "grafana-cloud",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -2827,10 +4211,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "git-subdir",
-      "url": "https://github.com/greptileai/skills.git",
-      "path": "plugins/greptile",
-      "sha": "4a13eb124ab175d018869fe7cc4d203e374571dc"
+      "source": "local",
+      "path": "./plugins/greptile"
     },
     "version": "1.3.1",
     "license": "MIT",
@@ -2847,6 +4229,33 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "greptile",
+        "transport": "http",
+        "status": "ok",
+        "label": "可用"
+      }
+    ],
+    "upstreamSource": {
+      "source": "git-subdir",
+      "url": "https://github.com/greptileai/skills.git",
+      "path": "plugins/greptile",
+      "sha": "4a13eb124ab175d018869fe7cc4d203e374571dc"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/login/SKILL.md, skills/review/SKILL.md: `${CLAUDE_PLUGIN_ROOT}/scripts/greptile.mjs` -> `../../scripts/greptile.mjs` resolved from the skill base directory to an absolute path; replaced the Codex-only path note",
+        "skills/login/SKILL.md: MCP sign-in now points at KCoder's MCP sign-in (Studio MCP page; `/mcp` in Claude Code); bash timeout wording names the `timeout` parameter",
+        "skills/review/SKILL.md: `/greptile:login` -> this plugin's `login` skill; MCP review tools named with their `greptile` server; 'Claude Code runs this without a TTY' -> 'The agent runs ...'"
+      ],
+      "remaining": [
+        "frontmatter `allowed-tools` left unchanged (metadata, not rewritten); it still lists Claude-style `mcp__...` names that will not match KCoder's generated MCP tool names if a KCoder path enforces that list (also contains `Bash(node ${CLAUDE_PLUGIN_ROOT}/...)`)"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -2874,6 +4283,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "helena",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -2883,10 +4303,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "git-subdir",
-      "url": "https://github.com/honeycombio/agent-skill.git",
-      "path": "honeycomb",
-      "sha": "6bb09279fc3fb69abf113228be939dbb929e34f1"
+      "source": "local",
+      "path": "./plugins/honeycomb"
     },
     "version": "1.0.0",
     "license": "MIT",
@@ -2906,6 +4324,35 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "honeycomb",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "upstreamSource": {
+      "source": "git-subdir",
+      "url": "https://github.com/honeycombio/agent-skill.git",
+      "path": "honeycomb",
+      "sha": "6bb09279fc3fb69abf113228be939dbb929e34f1"
+    },
+    "adaptation": {
+      "changes": [
+        "commands/honeycomb-setup.md: replaced `claude mcp add` steps with KCoder steps (bundled US server + Studio MCP page **Authorize**; EU/self-managed HTTP entries in `~/.config/kcoder/settings.json` `mcp_servers`; API key via `policy.bearer_token_env_var` instead of a literal Authorization header); `/mcp` -> `/mcp verbose` in a new session; CLAUDE.md -> AGENTS.md; description now says KCoder",
+        "skills/*/SKILL.md (beeline-migration, create-honeycomb-board, metrics-queries, observability-fundamentals, otel-genai-instrumentation, otel-instrumentation, otel-migration, production-investigation, query-patterns, slos-and-triggers): Replaced `${CLAUDE_PLUGIN_ROOT}/...` paths (not expanded in KCoder skill text) with paths relative to the skill base directory",
+        "skills/otel-instrumentation/references/{local-collector-debug-test,sdk-setup-by-language,wide-event-attributes}.md, skills/otel-migration/references/verification-checklist.md: same replacement, annotated as relative to the skill base directory",
+        "skills/create-honeycomb-board/SKILL.md, skills/verify-recent-trace/SKILL.md: added a note that the tools come from the `honeycomb` MCP server and must be matched by tool name (KCoder prefixes MCP tool names)"
+      ],
+      "remaining": [
+        "`allowed-tools` frontmatter in create-honeycomb-board and verify-recent-trace still lists Claude names `mcp__honeycomb__*`; it is a YAML list that cannot carry prose and KCoder does not enforce it for plugin skills, so it was left unchanged (the body now names the tools by bare name)",
+        "agents/instrumentation-advisor.md keeps `${CLAUDE_PLUGIN_ROOT}` (KCoder expands it in agents/)"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -2934,6 +4381,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "hostinger",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -2965,6 +4423,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "hubspot",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -2974,9 +4443,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/huggingface/skills.git",
-      "sha": "c3ff942be3e07116b475253f0a8fc4f54682c1a8"
+      "source": "local",
+      "path": "./plugins/huggingface-skills"
     },
     "version": "1.0.35",
     "license": "Apache-2.0",
@@ -2993,6 +4461,31 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "huggingface-skills",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/huggingface/skills.git",
+      "sha": "c3ff942be3e07116b475253f0a8fc4f54682c1a8"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/huggingface-llm-trainer/SKILL.md: `mcp__huggingface__hf_whoami()` -> the `hf_whoami` tool from the Hugging Face MCP server (match by name) or `hf auth whoami`",
+        "skills/huggingface-llm-trainer/references/troubleshooting.md: same rewrite"
+      ],
+      "remaining": [
+        "skills/huggingface-datasets/SKILL.md `~/.claude/projects` lists Claude Code's trace directory among agents whose traces the Hub can parse; KCoder traces are not a Hub-supported format, so it was left unchanged"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -3021,6 +4514,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "hunter",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -3030,10 +4534,8 @@
     "upstream": "openai",
     "upstreamUrl": "https://github.com/openai/plugins",
     "source": {
-      "source": "git-subdir",
-      "url": "https://github.com/openai/plugins.git",
-      "path": "plugins/hyperframes",
-      "sha": "981b02c0c44058b595f3b4180002c3ae3c806d40"
+      "source": "local",
+      "path": "./plugins/hyperframes"
     },
     "version": "0.1.2",
     "license": "Apache-2.0",
@@ -3047,6 +4549,24 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "git-subdir",
+      "url": "https://github.com/openai/plugins.git",
+      "path": "plugins/hyperframes",
+      "sha": "981b02c0c44058b595f3b4180002c3ae3c806d40"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/website-to-hyperframes/references/step-5-vo.md: ElevenLabs tools are now named as `search_voices` / `text_to_speech` from the `elevenlabs` MCP server; the HeyGen option names the `text_to_speech` tool from a HeyGen MCP server and explains that the original `mcp__claude_ai_HeyGen__` name is a Claude.ai connector"
+      ],
+      "remaining": [
+        "HeyGen is a Claude.ai connector; in KCoder it is only available if the user configures a HeyGen MCP server",
+        "No license file is present in this installed copy; see the upstream repository"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -3073,6 +4593,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -3082,10 +4605,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "git-subdir",
-      "url": "https://github.com/anthropics/claude-plugins-official.git",
-      "path": "external_plugins/imessage",
-      "sha": "73c8cf3ea7e296057b467990f2f5d61b4c922260"
+      "source": "local",
+      "path": "./plugins/imessage"
     },
     "version": "0.2.0",
     "license": "Apache-2.0",
@@ -3094,7 +4615,7 @@
       "mcp_servers"
     ],
     "requirements": [
-      "Node.js"
+      "Bun"
     ],
     "env": [],
     "verification": {
@@ -3102,6 +4623,33 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "imessage",
+        "transport": "stdio",
+        "status": "runtime",
+        "label": "缺少 `bun`"
+      }
+    ],
+    "upstreamSource": {
+      "source": "git-subdir",
+      "url": "https://github.com/anthropics/claude-plugins-official.git",
+      "path": "external_plugins/imessage",
+      "sha": "73c8cf3ea7e296057b467990f2f5d61b4c922260"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/access/SKILL.md: explains that ~/.claude/channels/imessage is the server's own default state directory (unchanged under KCoder) and that IMESSAGE_STATE_DIR overrides it",
+        "skills/configure/SKILL.md: same state-directory note; Full Disk Access hint mentions the app where Claude Code or KCoder runs",
+        "README.md: KCoder note with install command and the lack of channel delivery"
+      ],
+      "remaining": [
+        "KCoder does not implement Claude Code channels (`claude --channels`), so inbound iMessages are not pushed into a KCoder session; whether the server's tools work without channel delivery was not verified (no plugin code was run)"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -3111,10 +4659,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "git-subdir",
-      "url": "https://github.com/incident-io/skills.git",
-      "path": "plugins/incident-io",
-      "sha": "00f7d1dc80892deb1656f1cf577dd073a4a2de10"
+      "source": "local",
+      "path": "./plugins/incident-io"
     },
     "version": "1.20261015.672",
     "license": "MIT",
@@ -3131,6 +4677,33 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "incident_io",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "upstreamSource": {
+      "source": "git-subdir",
+      "url": "https://github.com/incident-io/skills.git",
+      "path": "plugins/incident-io",
+      "sha": "00f7d1dc80892deb1656f1cf577dd073a4a2de10"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/skill-authoring/references/agent-environments.md: added how KCoder exposes the skill base directory (plugin root two levels up) next to the Claude Code `${CLAUDE_PLUGIN_ROOT}` description, in both places",
+        "skills/extensions/references/extensions-product.md: example of existing team skill folders now lists `.kcoder/skills` beside `.claude/skills`"
+      ],
+      "remaining": [
+        "skills/skill-authoring/SKILL.md and references/format.md already say `${CLAUDE_PLUGIN_ROOT}` in Claude Code, otherwise two directories above the skill folder; correct for KCoder, left unchanged",
+        "No license file is present in this installed copy; see the upstream repository"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -3159,6 +4732,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "intercom",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -3184,6 +4768,15 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "no_change_needed",
+      "notes": [
+        "skill-creator description-optimization scripts (`run_loop.py`, `run_eval.py`, `improve_description.py`) hard-code the `claude` CLI; scripts were not modified, so automated description optimization stays Claude Code-only",
+        "the edited `skill-creator` and `claude-api` skills are not in this plugin's manifest skill list (it exposes only its own skill); they were adapted for consistency with the other copies of the same repository",
+        "skills/claude-api/shared/managed-agents-{environments,overview,tools}.md: no change; `.claude/skills` there documents Anthropic Managed Agents repository behavior, which is correct as written (false positive)",
+        "Edits were made only in skills this entry does not load; the loaded skills are unchanged, so the upstream reference is kept."
+      ]
     }
   },
   {
@@ -3193,9 +4786,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/intuit/quickbooks-claude-plugin.git",
-      "sha": "c8daa17a64d4d0fdeabdf0516524f72549b6ad19"
+      "source": "local",
+      "path": "./plugins/intuit-quickbooks"
     },
     "version": "0.1.0",
     "license": "Apache-2.0",
@@ -3209,6 +4801,22 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/intuit/quickbooks-claude-plugin.git",
+      "sha": "c8daa17a64d4d0fdeabdf0516524f72549b6ad19"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/setup/SKILL.md: added a KCoder note that the QuickBooks tools come only from a Claude-account connector, that adding the MCP URL to KCoder settings is not expected to authenticate, and that the model should tell the user the tools are unavailable in KCoder"
+      ],
+      "remaining": [
+        "The plugin depends on the claude.ai QuickBooks connector; KCoder has no equivalent, so the Claude connector / `/mcp` / `claude mcp remove` setup steps were kept as Claude-only"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -3218,9 +4826,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/jfrog/claude-plugin.git",
-      "sha": "9b1f8f6c883522a87502e5155abd593a8befe3c5"
+      "source": "local",
+      "path": "./plugins/jfrog"
     },
     "version": "0.3.11",
     "license": "Apache-2.0",
@@ -3242,6 +4849,36 @@
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22",
       "note": "Verified with placeholder values for the required environment variables."
+    },
+    "mcpTest": [
+      {
+        "server": "jfrog",
+        "transport": "http",
+        "status": "config",
+        "label": "需要配置服务地址"
+      }
+    ],
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/jfrog/claude-plugin.git",
+      "sha": "9b1f8f6c883522a87502e5155abd593a8befe3c5"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/jfrog-mcp-management/references/harness-kcoder.md (new): KCoder harness file for the plugin's per-harness design (config files `.kcoder/settings.json` / `~/.config/kcoder/settings.json`, `mcp_servers` array entry shape, `policy.env_vars` secret forwarding, Gateway HTTP entry, enable via `mcp_disabled_servers`, new-session restart, `kcoder mcp list` / `kcoder mcp test` verify, remove cleanup)",
+        "skills/jfrog-mcp-management/references/harness-common.md: added a KCoder routing row and excluded KCoder from the VS Code row so detection stays non-overlapping",
+        "skills/jfrog-mcp-management/SKILL.md: listed `harness-kcoder.md` among the harness files",
+        "skills/jfrog-mcp-management/references/persisting-env-vars.md: added how KCoder picks up exported variables (`policy.env_vars`)"
+      ],
+      "remaining": [
+        "Flagged `claude plugin` / `claude mcp` / `~/.claude` text in jfrog-init references, jfrog-ai-catalog/managing-installed-plugins.md, harness-claude.md and key-rules-and-troubleshooting.md is explicitly Claude Code-only (gated by harness detection or given as examples); left unchanged as false positives",
+        "jfrog-init Step 5 scripts (jfrog-detect-jfrog-mcp.mjs, jfrog-resolve-mcp-config.mjs) and the plugin-owned config table have no KCoder row, so they cannot locate or patch KCoder's installed copy of the plugin `.mcp.json`; needs script changes outside this text-only scope",
+        ".mcp.json uses `${JFROG_URL}/mcp` as a remote URL; KCoder does not expand placeholders in remote MCP URLs, so the bundled `jfrog` server needs a manifest/installer change (manifests left unchanged)",
+        "hooks/hooks.json runs Claude-named session-start scripts (claude-session-start.mjs, claude-align-mcp-json.mjs); not evaluated or changed"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -3269,6 +4906,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "dataplex",
+        "transport": "stdio",
+        "status": "config",
+        "label": "需要配置 `DATAPLEX_PROJECT`"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -3294,6 +4942,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -3319,6 +4970,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -3339,7 +4993,8 @@
       "mcp_servers"
     ],
     "requirements": [
-      "命令 `php`"
+      "命令 `php`",
+      "PHP"
     ],
     "env": [],
     "verification": {
@@ -3347,6 +5002,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "laravel-boost",
+        "transport": "stdio",
+        "status": "runtime",
+        "label": "缺少 `php`"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -3375,6 +5041,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "Leadfeeder",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -3401,6 +5078,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -3427,6 +5107,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -3457,6 +5140,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "legalzoom",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -3483,6 +5177,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -3511,6 +5208,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "linear",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -3540,6 +5248,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "linqalpha",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -3566,6 +5285,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -3575,10 +5297,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "git-subdir",
-      "url": "https://github.com/pydantic/skills.git",
-      "path": "plugins/logfire",
-      "sha": "238d97102650c1caa51f35027aee13c469c59542"
+      "source": "local",
+      "path": "./plugins/logfire"
     },
     "version": "0.1.4",
     "license": "MIT",
@@ -3596,6 +5316,33 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "logfire",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "upstreamSource": {
+      "source": "git-subdir",
+      "url": "https://github.com/pydantic/skills.git",
+      "path": "plugins/logfire",
+      "sha": "238d97102650c1caa51f35027aee13c469c59542"
+    },
+    "adaptation": {
+      "changes": [
+        "commands/dev-session.md: `mcp__logfire__local_dev_session` -> the `local_dev_session` tool from the `logfire` MCP server, with a note on KCoder's prefixed names",
+        "skills/logfire-ui/SKILL.md: added a KCoder line: no Codex in-app browser / Node REPL `js`, so return the clean Logfire URL; do not substitute `WebBrowser` unless asked"
+      ],
+      "remaining": [
+        ".mcp.json uses `${LOGFIRE_MCP_URL:-https://logfire-us.pydantic.dev/mcp}` as the remote URL; KCoder does not expand placeholders in remote MCP URLs, so the bundled server needs a manifest change (manifests left unchanged)",
+        "skills/logfire-ui/SKILL.md keeps its Codex Desktop browser workflow (including `mcp__node_repl__js`), which only applies in Codex"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -3625,6 +5372,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "logrocket",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -3652,6 +5410,23 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "looker",
+        "transport": "stdio",
+        "status": "config",
+        "label": "需要配置 `LOOKER_BASE_URL`"
+      },
+      {
+        "server": "looker-dev",
+        "transport": "stdio",
+        "status": "config",
+        "label": "需要配置 `LOOKER_BASE_URL`"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -3680,6 +5455,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "lovable",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -3707,6 +5493,22 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "lumen",
+        "transport": "stdio",
+        "status": "ok",
+        "label": "可用（3 个工具）",
+        "tools": 3,
+        "note": "首次启动会把服务程序下载到插件目录"
+      }
+    ],
+    "contentReview": {
+      "status": "no_change_needed",
+      "notes": [
+        "`.claude/agents/bench-analyzer.md` is the upstream repo's own development agent (not a plugin agent KCoder loads); `mcp__lumen__semantic_search` there describes tool names recorded in Claude benchmark logs, and `.claude/agents/bench-analyzer.md` is its own path. False positives, left unchanged"
+      ]
     }
   },
   {
@@ -3735,6 +5537,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "lusha",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -3761,6 +5574,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -3789,6 +5605,29 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "mapbox",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      },
+      {
+        "server": "mapbox-devkit",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      },
+      {
+        "server": "mapbox-docs",
+        "transport": "http",
+        "status": "ok",
+        "label": "可用"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -3815,6 +5654,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -3841,6 +5683,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -3866,6 +5711,12 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "no_change_needed",
+      "notes": [
+        "All findings are in skills/claude-api/** and skills/skill-creator/SKILL.md, which this plugin does not expose (manifest lists only ./skills/mcp-builder); the exposed skill has no client-specific references"
+      ]
     }
   },
   {
@@ -3875,10 +5726,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "git-subdir",
-      "url": "https://github.com/anthropics/claude-plugins-official.git",
-      "path": "plugins/mcp-server-dev",
-      "sha": "73c8cf3ea7e296057b467990f2f5d61b4c922260"
+      "source": "local",
+      "path": "./plugins/mcp-server-dev"
     },
     "version": null,
     "license": "Apache-2.0",
@@ -3892,6 +5741,21 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "git-subdir",
+      "url": "https://github.com/anthropics/claude-plugins-official.git",
+      "path": "plugins/mcp-server-dev",
+      "sha": "73c8cf3ea7e296057b467990f2f5d61b4c922260"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/build-mcp-server/references/remote-http-scaffold.md: added a KCoder row (HTTP `mcp_servers` entry in settings, `policy.bearer_token_env_var` for tokens) to the client table; Claude Code row kept"
+      ],
+      "remaining": []
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -3917,6 +5781,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -3945,6 +5812,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "microsoft-learn",
+        "transport": "http",
+        "status": "ok",
+        "label": "可用"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -3954,10 +5832,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "git-subdir",
-      "url": "https://github.com/awslabs/startups.git",
-      "path": "migrate/plugins/migration-to-aws",
-      "sha": "ec681ba5d49b039dbf1ef9d87d3304205b824f3d"
+      "source": "local",
+      "path": "./plugins/migration-to-aws"
     },
     "version": "1.5.0",
     "license": "Apache-2.0",
@@ -3978,6 +5854,54 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "aws-pricing-calculator",
+        "transport": "stdio",
+        "status": "ok",
+        "label": "可用（10 个工具）",
+        "tools": 10
+      },
+      {
+        "server": "awsknowledge",
+        "transport": "http",
+        "status": "ok",
+        "label": "可用"
+      },
+      {
+        "server": "awspricing",
+        "transport": "stdio",
+        "status": "ok",
+        "label": "可用（9 个工具）",
+        "tools": 9
+      },
+      {
+        "server": "temporal-docs",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "upstreamSource": {
+      "source": "git-subdir",
+      "url": "https://github.com/awslabs/startups.git",
+      "path": "migrate/plugins/migration-to-aws",
+      "sha": "ec681ba5d49b039dbf1ef9d87d3304205b824f3d"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/agent-advisor/SKILL.md: rewrote the `$PLUGIN` definition: KCoder does not expand `${CLAUDE_PLUGIN_ROOT}`; `$PLUGIN` = two levels above the reported skill base directory, always expanded to an absolute path before reads/shell commands",
+        "skills/agent-advisor/references/{diagram/build-diagram,phases/add-capabilities/add-capabilities,phases/clarify/clarify-business,phases/clarify/clarify-technical,phases/clarify/clarify,phases/design/design,phases/generate/generate,phases/migration-plan/migration-plan,phases/poc/poc}.md: `${CLAUDE_PLUGIN_ROOT}` -> `$PLUGIN`; shell snippets note that `$PLUGIN` must be substituted (not a shell variable); migration-plan fallback paragraph reworded around `$PLUGIN`",
+        "skills/llm-to-bedrock/SKILL.md: added `kcoder plugin install --marketplace <marketplace-id> --name migration-to-aws` next to `/plugin install`, noted KCoder's `skill` tool and its \"Skill base directory\" line"
+      ],
+      "remaining": [
+        "skills/llm-to-bedrock/SKILL.md line about subagents where `${CLAUDE_PLUGIN_ROOT}` is empty is accurate for KCoder too and was left unchanged",
+        "The `!` in-session shell prefix mentioned for Claude Code has no verified KCoder equivalent; text left as Claude-specific"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -3987,9 +5911,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/mintlify/mintlify-claude-plugin.git",
-      "sha": "c1c1700d405dc375c2d90a1d4f8b283e6422b7ec"
+      "source": "local",
+      "path": "./plugins/mintlify"
     },
     "version": null,
     "license": "MIT",
@@ -4004,6 +5927,36 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "Mintlify-Admin-8c107613660c",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      },
+      {
+        "server": "Mintlify-Search-e54dcd99dfa0",
+        "transport": "http",
+        "status": "ok",
+        "label": "可用"
+      }
+    ],
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/mintlify/mintlify-claude-plugin.git",
+      "sha": "c1c1700d405dc375c2d90a1d4f8b283e6422b7ec"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/mintlify/reference/cli.md: added that `mint agent setup` / `mint migrate --agent` do not target KCoder, that the plugin already ships the skills and the `Mintlify Admin` MCP server, and how to sign in and check it in KCoder"
+      ],
+      "remaining": [
+        "`claude mcp add` text kept: it documents the `mint` CLI's own behavior for Claude Code"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -4033,6 +5986,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "miro",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -4042,10 +6006,8 @@
     "upstream": "openai",
     "upstreamUrl": "https://github.com/openai/plugins",
     "source": {
-      "source": "git-subdir",
-      "url": "https://github.com/openai/plugins.git",
-      "path": "plugins/mixpanel-headless",
-      "sha": "981b02c0c44058b595f3b4180002c3ae3c806d40"
+      "source": "local",
+      "path": "./plugins/mixpanel-headless"
     },
     "version": "0.1.2",
     "license": "MIT",
@@ -4059,6 +6021,23 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "git-subdir",
+      "url": "https://github.com/openai/plugins.git",
+      "path": "plugins/mixpanel-headless",
+      "sha": "981b02c0c44058b595f3b4180002c3ae3c806d40"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/setup/SKILL.md: added a note that `~/.claude/mixpanel/auth.json` is the Mixpanel tooling's default bridge location regardless of agent client (so it stays the same in KCoder) and that an explicit `MP_AUTH_FILE` path is also accepted"
+      ],
+      "remaining": [
+        "The bridge path is defined by the external mixpanel_headless library and the plugin's setup.sh, which only checks ~/.claude/mixpanel/auth.json; it was not changed"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -4085,6 +6064,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -4110,6 +6092,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -4119,10 +6104,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "git-subdir",
-      "url": "https://github.com/mondaycom/mcp.git",
-      "path": "plugins/monday-crm",
-      "sha": "8fdc0b4af07a4b7e1059ca3f8320d64968737b8e"
+      "source": "local",
+      "path": "./plugins/monday-crm"
     },
     "version": "0.5.0",
     "license": "MIT",
@@ -4139,6 +6122,35 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "monday",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "upstreamSource": {
+      "source": "git-subdir",
+      "url": "https://github.com/mondaycom/mcp.git",
+      "path": "plugins/monday-crm",
+      "sha": "8fdc0b4af07a4b7e1059ca3f8320d64968737b8e"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/*/SKILL.md (9 skills): rewrote hard-coded `mcp__monday__<tool>` references in the body to the bare tool names and added a short note that they are tools of the plugin's `monday` MCP server, listed in KCoder under a generated `mcp__<server>__` prefix",
+        "skills/*/examples/*.md (10 files): `calls mcp__monday__<tool>` -> `calls monday MCP <tool>`",
+        "skills/workspace-builder/references/monday-graphql-mutations.md: `mcp__monday__all_monday_api` -> the `all_monday_api` tool from the `monday` MCP server"
+      ],
+      "remaining": [
+        "frontmatter `allowed-tools` left unchanged (metadata, not rewritten); it still lists Claude-style `mcp__...` names that will not match KCoder's generated MCP tool names if a KCoder path enforces that list",
+        "`Generated by Claude` footers and `<!-- claude-skill-id: ... -->` idempotency markers kept: they identify artifacts already written to monday boards",
+        "README still documents Claude Code install commands only"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -4148,10 +6160,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "git-subdir",
-      "url": "https://github.com/mongodb/agent-skills.git",
-      "path": "plugins/mongodb",
-      "sha": "c370a63b27075008a92134686b24af3817edeb00"
+      "source": "local",
+      "path": "./plugins/mongodb"
     },
     "version": "1.2.1",
     "license": "Apache-2.0",
@@ -4168,6 +6178,37 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "mongodb",
+        "transport": "stdio",
+        "status": "ok",
+        "label": "可用（27 个工具）",
+        "tools": 27
+      }
+    ],
+    "upstreamSource": {
+      "source": "git-subdir",
+      "url": "https://github.com/mongodb/agent-skills.git",
+      "path": "plugins/mongodb",
+      "sha": "c370a63b27075008a92134686b24af3817edeb00"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/mongodb-natural-language-querying/SKILL.md: replaced `mcp__mongodb__<tool>` calls with the `mongodb` MCP server's bare tool names and added a KCoder tool-name note",
+        "skills/mongodb-schema-design/SKILL.md: `mcp__mongodb__collection-schema/aggregate/db-stats` -> named tools of the `mongodb` MCP server",
+        "skills/mongodb-schema-design/references/source-query-stats.md: `mcp__mongodb__aggregateDB` -> the `aggregateDB` tool from the `mongodb` MCP server",
+        "skills/mongodb-schema-design/references/source-slow-query-logs.md: `mcp__plugin_mongodb_mongodb__atlas-get-performance-advisor` -> `atlas-get-performance-advisor` from the `mongodb` MCP server",
+        "skills/mongodb-mcp-setup/SKILL.md: listed KCoder among shell-based clients and said credentials must be in the environment KCoder runs in",
+        ".agy-plugin/skills/**: same edits applied so the duplicate skill tree stays identical to skills/"
+      ],
+      "remaining": [
+        "skills/mongodb-natural-language-querying/SKILL.md (both copies): frontmatter `allowed-tools` left unchanged (metadata, not rewritten); `allowed-tools: mcp__mongodb__*` still uses Claude-style `mcp__...` names that will not match KCoder's generated MCP tool names if a KCoder path enforces that list"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -4197,6 +6238,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "neon",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -4206,9 +6258,8 @@
     "upstream": "xai",
     "upstreamUrl": "https://github.com/xai-org/plugin-marketplace",
     "source": {
-      "source": "url",
-      "url": "https://github.com/netlify/context-and-tools.git",
-      "sha": "905256ef236890a842be1ff1c5fd6bb07baa1890"
+      "source": "local",
+      "path": "./plugins/netlify"
     },
     "version": "1.9.0",
     "license": "MIT",
@@ -4225,6 +6276,31 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "netlify",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/netlify/context-and-tools.git",
+      "sha": "905256ef236890a842be1ff1c5fd6bb07baa1890"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/netlify-mcp-servers/SKILL.md (and identical agent-plugin/ and codex/ copies): added a KCoder client line (`mcp_servers` HTTP entry with `policy.bearer_token_env_var`) next to the Claude Code one, and a KCoder option for testing against localhost",
+        "skills/netlify-mcp-servers/references/connecting-clients.md (and identical copies): added a KCoder native Streamable HTTP section with a settings example that keeps the token in the environment, plus `kcoder mcp test`"
+      ],
+      "remaining": [
+        "Claude Code / Claude Desktop client entries are kept because the skill documents several clients"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -4234,9 +6310,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/netlify/context-and-tools.git",
-      "sha": "dc9ebf1b994420a4791e9d5d7cd68f62e07a0a41"
+      "source": "local",
+      "path": "./plugins/netlify-skills"
     },
     "version": "1.7.0",
     "license": "MIT",
@@ -4253,6 +6328,31 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "netlify",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/netlify/context-and-tools.git",
+      "sha": "dc9ebf1b994420a4791e9d5d7cd68f62e07a0a41"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/netlify-mcp-servers/SKILL.md, agent-plugin/skills/netlify-mcp-servers/SKILL.md, codex/skills/netlify-mcp-servers/SKILL.md: added a KCoder client entry (mcp_servers HTTP entry with policy.bearer_token_env_var, token from the environment, kcoder mcp test) and a KCoder local-test hint next to `claude mcp add`",
+        "skills/netlify-mcp-servers/references/connecting-clients.md (and the agent-plugin/ and codex/ copies): added a KCoder native-connection section with a JSON example; noted `kcoder mcp add` is stdio-only"
+      ],
+      "remaining": [
+        "The three skill copies may be generated from one source upstream; all three were edited identically"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -4279,6 +6379,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -4305,6 +6408,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -4314,10 +6420,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "git-subdir",
-      "url": "https://github.com/oracle/netsuite-suitecloud-sdk.git",
-      "path": "anthropic/netsuite-suitecloud",
-      "sha": "23793a10a9bb557c684c5cb8a97f926eb3463f12"
+      "source": "local",
+      "path": "./plugins/netsuite-suitecloud"
     },
     "version": "1.0.0",
     "license": "The Universal Permissive License (UPL), Version 1.0",
@@ -4331,6 +6435,27 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "git-subdir",
+      "url": "https://github.com/oracle/netsuite-suitecloud-sdk.git",
+      "path": "anthropic/netsuite-suitecloud",
+      "sha": "23793a10a9bb557c684c5cb8a97f926eb3463f12"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/netsuite-sdf-safe-guide/SKILL.md, quick-reference.md, skills/netsuite-suitescript-learning/SKILL.md, skills/netsuite-suitescript-upgrade/SKILL.md: after each Claude Code `.claude/settings.local.json` `Skill(...)` example, added that KCoder makes installed plugin skills available, does not use those entries, and that default use is requested in the project's AGENTS.md",
+        "skills/netsuite-sdf-safe-guide/quick-reference.md: added a KCoder skill install example (`~/.config/kcoder/skills/` or `.kcoder/skills/`)",
+        "skills/netsuite-sdf-safe-guide/SKILL.md: `~/.claude/netsuite-connector-config.json` version lookup now says KCoder does not create the file and falls back to the 2026.1 default unless an older version is stated",
+        "skills/netsuite-sdf-safe-guide/references/appendices/appendix-perf-queries.md: noted the connector config is absent in KCoder and that KCoder MCP tool names do not follow `mcp__<prefix>__`; use `ns_runCustomSuiteQL`/`runCustomSuiteQL` from the configured NetSuite MCP server"
+      ],
+      "remaining": [
+        "appendix-perf-queries.md keeps `~/.claude/docs/deployments/perf-baseline.json` and `governance-trend.json` as data file locations shared with the upstream deploy flow; not relocated",
+        "SKILL.md line about the CustomTool format still refers to `~/.claude/netsuite-connector-config.json` (same fallback applies)"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -4359,6 +6484,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "newrelic",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -4385,6 +6521,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -4410,6 +6549,13 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "no_change_needed",
+      "notes": [
+        "frontmatter `allowed-tools` left unchanged (metadata, not rewritten); it still lists Claude-style `mcp__...` names that will not match KCoder's generated MCP tool names if a KCoder path enforces that list",
+        "the plugin ships no MCP server; users configure the NightVision MCP server themselves"
+      ]
     }
   },
   {
@@ -4436,6 +6582,13 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "not_adapted",
+      "reason": "许可证未允许修改再分发，保留上游原文",
+      "issues": [
+        "写死了 MCP 工具名"
+      ]
     }
   },
   {
@@ -4465,6 +6618,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "notion",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -4491,6 +6655,14 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "not_adapted",
+      "reason": "上游未附带所声明许可证的原文，改编版不再分发，保留上游原文",
+      "notes": [
+        "skills/omniverse-cad-to-simready/SKILL.md (repo alias layout description) and references/ovrtx-render-service/README.md (GitHub URL) mention `.claude/skills` as facts about upstream repositories; left unchanged as false positives",
+        "Upstream ships no license text for its declared license, so the adapted copy is not redistributed; the upstream reference is kept."
+      ]
     }
   },
   {
@@ -4517,6 +6689,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -4545,6 +6720,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "octen",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -4573,6 +6759,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "omneky",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -4599,6 +6796,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -4608,10 +6808,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "git-subdir",
-      "url": "https://github.com/oracle-samples/oracle-aidp-samples.git",
-      "path": "ai/claude-code-plugins/oracle-ai-data-platform-workbench-databricks-migrator",
-      "sha": "a7225cbdd935ad47ed9a17ee8f1533e324f42623"
+      "source": "local",
+      "path": "./plugins/oracle-ai-data-platform-workbench-databricks-migrator"
     },
     "version": "0.2.0",
     "license": "MIT",
@@ -4627,6 +6825,32 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "git-subdir",
+      "url": "https://github.com/oracle-samples/oracle-aidp-samples.git",
+      "path": "ai/claude-code-plugins/oracle-ai-data-platform-workbench-databricks-migrator",
+      "sha": "a7225cbdd935ad47ed9a17ee8f1533e324f42623"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/aidp-acceptance-contract/SKILL.md: replaced `${CLAUDE_PLUGIN_ROOT}` with `../..` (plugin root relative to the skill base directory) and added a note to resolve these paths to absolute paths before running commands",
+        "skills/aidp-build-dag/SKILL.md: replaced `${CLAUDE_PLUGIN_ROOT}` with `../..` (plugin root relative to the skill base directory) and added a note to resolve these paths to absolute paths before running commands",
+        "skills/aidp-check-data/SKILL.md: replaced `${CLAUDE_PLUGIN_ROOT}` with `../..` (plugin root relative to the skill base directory) and added a note to resolve these paths to absolute paths before running commands",
+        "skills/aidp-fixup-cell/SKILL.md: replaced `${CLAUDE_PLUGIN_ROOT}` with `../..` (plugin root relative to the skill base directory) and added a note to resolve these paths to absolute paths before running commands",
+        "skills/aidp-migrate-catalog/SKILL.md: replaced `${CLAUDE_PLUGIN_ROOT}` with `../..` (plugin root relative to the skill base directory) and added a note to resolve these paths to absolute paths before running commands",
+        "skills/aidp-migrate-job/SKILL.md: replaced `${CLAUDE_PLUGIN_ROOT}` with `../..` (plugin root relative to the skill base directory) and added a note to resolve these paths to absolute paths before running commands",
+        "skills/aidp-migrator-bootstrap/SKILL.md: replaced `${CLAUDE_PLUGIN_ROOT}` with `../..` (plugin root relative to the skill base directory) and added a note to resolve these paths to absolute paths before running commands",
+        "skills/aidp-migrator-overview/SKILL.md: replaced `${CLAUDE_PLUGIN_ROOT}` with `../..` (plugin root relative to the skill base directory) and added a note to resolve these paths to absolute paths before running commands",
+        "skills/aidp-resume-migration/SKILL.md: replaced `${CLAUDE_PLUGIN_ROOT}` with `../..` (plugin root relative to the skill base directory) and added a note to resolve these paths to absolute paths before running commands"
+      ],
+      "remaining": [
+        "references/cli-map.md and references/ddl-rewrite-rules.md at the plugin root (linked from skills) and README.md/PRIVACY.md still use `${CLAUDE_PLUGIN_ROOT}`; they are outside skills/ and were not in the findings, so they were left unchanged. In KCoder the model should read them as the plugin root (two directories above any skill)",
+        "commands/*.md keep `${CLAUDE_PLUGIN_ROOT}`, which KCoder expands there"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -4636,10 +6860,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "git-subdir",
-      "url": "https://github.com/oracle-samples/oracle-aidp-samples.git",
-      "path": "ai/claude-code-plugins/oracle-ai-data-platform-workbench-engineer-agent",
-      "sha": "a7225cbdd935ad47ed9a17ee8f1533e324f42623"
+      "source": "local",
+      "path": "./plugins/oracle-ai-data-platform-workbench-engineer-agent"
     },
     "version": "0.5.0",
     "license": "MIT",
@@ -4654,6 +6876,25 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "git-subdir",
+      "url": "https://github.com/oracle-samples/oracle-aidp-samples.git",
+      "path": "ai/claude-code-plugins/oracle-ai-data-platform-workbench-engineer-agent",
+      "sha": "a7225cbdd935ad47ed9a17ee8f1533e324f42623"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/aidp-engineer-bootstrap/SKILL.md: `$PLUGIN_DIR` is now resolved from the skill base directory (`../..`) instead of `${CLAUDE_PLUGIN_ROOT}` / `claude plugin list`; `claude mcp list` -> `kcoder mcp list`",
+        "skills/aidp-engineer-overview/SKILL.md, skills/aidp-notebooks/SKILL.md, skills/aidp-federate/SKILL.md: `claude plugin list` -> `kcoder plugin list`"
+      ],
+      "remaining": [
+        "hooks/ and scripts/check_env.py still reference `CLAUDE_PLUGIN_ROOT` (executable code, not modified; KCoder sets it for hooks)",
+        "README not changed"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -4663,10 +6904,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "git-subdir",
-      "url": "https://github.com/oracle-samples/oracle-aidp-samples.git",
-      "path": "ai/claude-code-plugins/oracle-ai-data-platform-workbench-spark-connectors",
-      "sha": "a7225cbdd935ad47ed9a17ee8f1533e324f42623"
+      "source": "local",
+      "path": "./plugins/oracle-ai-data-platform-workbench-spark-connectors"
     },
     "version": "0.7.0",
     "license": "MIT",
@@ -4680,6 +6919,23 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "git-subdir",
+      "url": "https://github.com/oracle-samples/oracle-aidp-samples.git",
+      "path": "ai/claude-code-plugins/oracle-ai-data-platform-workbench-spark-connectors",
+      "sha": "a7225cbdd935ad47ed9a17ee8f1533e324f42623"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/aidp-connectors-bootstrap/SKILL.md: Step 1 adds the KCoder location (../../scripts/... and ../../examples/... relative to the skill base directory); Steps 2-4 name the create_directory, upload_file, nb_save_file, nb_create_session and nb_execute_code tools of the `aidp` MCP server, keeping the Claude Code mcp__aidp__* names visible"
+      ],
+      "remaining": [
+        "The `aidp` MCP server is not shipped by this plugin; the user must configure it in KCoder separately"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -4707,6 +6963,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "oracledb",
+        "transport": "stdio",
+        "status": "config",
+        "label": "需要配置 `ORACLE_CONNECTION_STRING`、`ORACLE_USERNAME`、`ORACLE_PASSWORD`"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -4732,6 +6999,15 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "no_change_needed",
+      "notes": [
+        "skills/claude-api/shared/managed-agents-*.md: `.claude/skills` describes the Claude Managed Agents API's repository skill discovery (an API fact), left unchanged as a false positive",
+        "skills/claude-api/shared/evals/**: `.claude/hillclimb/<flow>/` is a self-contained eval output layout used consistently by the bundled scripts; left unchanged",
+        "skills/skill-creator/scripts/*.py: the description-optimization scripts still invoke `claude -p` (code not modified per scope); documented in SKILL.md instead",
+        "Edits were made only in skills this entry does not load; the loaded skills are unchanged, so the upstream reference is kept."
+      ]
     }
   },
   {
@@ -4741,10 +7017,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "git-subdir",
-      "url": "https://github.com/pendo-io/claude-pendo-plugin.git",
-      "path": "plugins/pendo-analytics",
-      "sha": "a0f85260c61b93c4511f59545612323a41c3f845"
+      "source": "local",
+      "path": "./plugins/pendo-analytics"
     },
     "version": "1.4.0",
     "license": "MIT",
@@ -4759,6 +7033,35 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "novus",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      },
+      {
+        "server": "pendo-external",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "upstreamSource": {
+      "source": "git-subdir",
+      "url": "https://github.com/pendo-io/claude-pendo-plugin.git",
+      "path": "plugins/pendo-analytics",
+      "sha": "a0f85260c61b93c4511f59545612323a41c3f845"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/replay-triage/SKILL.md: `mcp__atlassian__getJiraIssue` / `mcp__atlassian__search` -> the `getJiraIssue` / `search` tools of an Atlassian MCP server, noting the server prefix in the tool list"
+      ],
+      "remaining": []
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -4786,6 +7089,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "pendo-external",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -4813,6 +7127,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "pendo-external",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -4841,6 +7166,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "pigment",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -4850,9 +7186,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/pixeltable/pixeltable-skill.git",
-      "sha": "c471dbb262b6bc135e903fefd36c6f354101c6b8"
+      "source": "local",
+      "path": "./plugins/pixeltable"
     },
     "version": "2.12.0",
     "license": "Apache-2.0",
@@ -4869,6 +7204,20 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/pixeltable/pixeltable-skill.git",
+      "sha": "c471dbb262b6bc135e903fefd36c6f354101c6b8"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/pixeltable-skill/references/cli.md: added a KCoder setup line for the optional Pixeltable Cloud MCP (mcp_servers HTTP entry in ~/.config/kcoder/settings.json, sign-in from KCoder Studio's MCP page)"
+      ],
+      "remaining": []
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -4897,6 +7246,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "planetscale",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -4923,6 +7283,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -4951,6 +7314,18 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "playwright",
+        "transport": "stdio",
+        "status": "ok",
+        "label": "可用（25 个工具）",
+        "tools": 25
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -4977,6 +7352,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -5005,6 +7383,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "postiz",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -5030,6 +7419,10 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "no_change_needed",
+      "notes": []
     }
   },
   {
@@ -5056,6 +7449,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -5084,6 +7480,24 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "Prisma-Local",
+        "transport": "stdio",
+        "status": "ok",
+        "label": "可用（3 个工具）",
+        "tools": 3
+      },
+      {
+        "server": "Prisma-Remote",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -5093,10 +7507,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "git-subdir",
-      "url": "https://github.com/anthropics/claude-plugins-official.git",
-      "path": "plugins/project-artifact",
-      "sha": "73c8cf3ea7e296057b467990f2f5d61b4c922260"
+      "source": "local",
+      "path": "./plugins/project-artifact"
     },
     "version": null,
     "license": "Apache-2.0",
@@ -5110,6 +7522,24 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "git-subdir",
+      "url": "https://github.com/anthropics/claude-plugins-official.git",
+      "path": "plugins/project-artifact",
+      "sha": "73c8cf3ea7e296057b467990f2f5d61b4c922260"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/project-artifact/SKILL.md: added \"Running in KCoder\" (no Artifact tool or claude.ai login in KCoder: build page + config locally, publishing happens from Claude Code); `${CLAUDE_PLUGIN_DATA}` -> `<PLUGIN_DATA>` with the KCoder plugin store location; headless note mentions non-interactive `kcoder \"...\"` runs (an earlier draft wrote `kcoder -p`, corrected since `-p` is `--permission-mode` in KCoder)",
+        "README.md: note that KCoder has no Artifact tool"
+      ],
+      "remaining": [
+        "Core publish/share steps depend on Claude Code's built-in Artifact tool and claude.ai; no KCoder equivalent exists, so they remain Claude-only"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -5136,6 +7566,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -5161,6 +7594,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -5187,6 +7623,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -5213,6 +7652,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -5241,6 +7683,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "qt-docs",
+        "transport": "http",
+        "status": "ok",
+        "label": "可用"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -5260,7 +7713,8 @@
       "mcp_servers"
     ],
     "requirements": [
-      "命令 `jbang`"
+      "命令 `jbang`",
+      "JBang"
     ],
     "env": [],
     "verification": {
@@ -5268,6 +7722,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "quarkus-agent",
+        "transport": "stdio",
+        "status": "runtime",
+        "label": "缺少 `jbang`"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -5295,6 +7760,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "quo",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -5304,10 +7780,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "git-subdir",
-      "url": "https://github.com/railwayapp/railway-skills.git",
-      "path": "plugins/railway",
-      "sha": "a100f93e482c5153774fed74d0b3fb8f8ca63342"
+      "source": "local",
+      "path": "./plugins/railway"
     },
     "version": "1.5.2",
     "license": "MIT",
@@ -5325,6 +7799,29 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "railway",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "upstreamSource": {
+      "source": "git-subdir",
+      "url": "https://github.com/railwayapp/railway-skills.git",
+      "path": "plugins/railway",
+      "sha": "a100f93e482c5153774fed74d0b3fb8f8ca63342"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/use-railway/SKILL.md: background sign-in guidance adds the KCoder form (bash with run_in_background=true, poll with TaskOutput, stop with TaskStop) next to Claude Code's BashOutput"
+      ],
+      "remaining": []
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -5351,6 +7848,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "RevenueCat",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -5360,10 +7868,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "git-subdir",
-      "url": "https://github.com/anthropics/claude-plugins-official.git",
-      "path": "plugins/receipts",
-      "sha": "73c8cf3ea7e296057b467990f2f5d61b4c922260"
+      "source": "local",
+      "path": "./plugins/receipts"
     },
     "version": null,
     "license": "Apache-2.0",
@@ -5377,6 +7883,23 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "git-subdir",
+      "url": "https://github.com/anthropics/claude-plugins-official.git",
+      "path": "plugins/receipts",
+      "sha": "73c8cf3ea7e296057b467990f2f5d61b4c922260"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/receipts/SKILL.md: added a KCoder note that the report covers Claude Code transcripts only (~/.claude/projects/), KCoder session history is not counted, and <skill-dir> is the base directory KCoder reports"
+      ],
+      "remaining": [
+        "The miner script only reads Claude Code transcripts; a KCoder session-history report is not supported (script not modified)"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -5403,6 +7926,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -5429,6 +7955,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -5438,9 +7967,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/render-oss/render-plugin-claude-code.git",
-      "sha": "d7ecf826c5971eb7dfdb5aed79fa838a8d67ff46"
+      "source": "local",
+      "path": "./plugins/render"
     },
     "version": "0.3.0",
     "license": "MIT",
@@ -5460,6 +7988,31 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "render",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/render-oss/render-plugin-claude-code.git",
+      "sha": "d7ecf826c5971eb7dfdb5aed79fa838a8d67ff46"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/render-mcp/SKILL.md: added a KCoder manual setup next to Cursor/Claude Code/Codex: an http `mcp_servers` entry in `~/.config/kcoder/settings.json` with `policy.bearer_token_env_var: RENDER_API_KEY` (no key in the settings file), restart, `kcoder mcp test render`, and `kcoder mcp remove render` for stale configs",
+        "skills/render-mcp/references/troubleshooting.md: added the KCoder replacement step to the 401 fix and a '### KCoder' troubleshooting section"
+      ],
+      "remaining": [
+        "render.tmp.1054422/ is a leftover temporary copy inside the installed plugin root (not loaded); left unchanged rather than deleted. It still contains the original Claude Code-only text"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -5486,6 +8039,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "RevenueCat",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -5514,6 +8078,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "rill-developer",
+        "transport": "http",
+        "status": "local_service",
+        "label": "需要先在本机启动对应服务"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -5543,6 +8118,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "runway-dev",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -5572,6 +8158,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "aws-mcp",
+        "transport": "stdio",
+        "status": "config",
+        "label": "需要 AWS 凭证"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -5581,9 +8178,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/sanity-io/agent-toolkit.git",
-      "sha": "88d6cdfa7cb06c99edd5f376efa4dac21ae3f877"
+      "source": "local",
+      "path": "./plugins/sanity"
     },
     "version": "1.0.0",
     "license": "MIT",
@@ -5601,6 +8197,30 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "Sanity",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/sanity-io/agent-toolkit.git",
+      "sha": "88d6cdfa7cb06c99edd5f376efa4dac21ae3f877"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/sanity-best-practices/references/get-started.md: added a KCoder entry to MCP Setup (plugin already declares the `Sanity` server; sign in via KCoder; fallback user-level `mcp_servers` entry)"
+      ],
+      "remaining": [
+        "Claude Code `claude mcp add` line kept as multi-client documentation"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -5628,6 +8248,18 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "hana-cli",
+        "transport": "stdio",
+        "status": "ok",
+        "label": "可用（22 个工具）",
+        "tools": 22
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -5647,7 +8279,8 @@
       "mcp_servers"
     ],
     "requirements": [
-      "Node.js"
+      "Node.js",
+      "命令 `mdk-mcp`"
     ],
     "env": [],
     "verification": {
@@ -5655,6 +8288,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "mdk-mcp",
+        "transport": "stdio",
+        "status": "runtime",
+        "label": "缺少 `mdk-mcp`"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -5681,6 +8325,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -5706,6 +8353,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -5732,6 +8382,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -5760,6 +8413,18 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "semgrep_guardian",
+        "transport": "stdio",
+        "status": "ok",
+        "label": "可用（11 个工具）",
+        "tools": 11
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -5786,6 +8451,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "sentry",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -5812,6 +8488,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -5840,6 +8519,18 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "serena",
+        "transport": "stdio",
+        "status": "ok",
+        "label": "可用（3 个工具）",
+        "tools": 3
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -5866,6 +8557,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -5875,10 +8569,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "git-subdir",
-      "url": "https://github.com/anthropics/claude-plugins-official.git",
-      "path": "plugins/session-report",
-      "sha": "73c8cf3ea7e296057b467990f2f5d61b4c922260"
+      "source": "local",
+      "path": "./plugins/session-report"
     },
     "version": null,
     "license": "Apache-2.0",
@@ -5892,6 +8584,23 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "git-subdir",
+      "url": "https://github.com/anthropics/claude-plugins-official.git",
+      "path": "plugins/session-report",
+      "sha": "73c8cf3ea7e296057b467990f2f5d61b4c922260"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/session-report/SKILL.md: added a \"Running in KCoder\" note that the analyzer only reads Claude Code transcripts and cannot read KCoder sessions (`~/.config/kcoder/projects/`)"
+      ],
+      "remaining": [
+        "The bundled analyzer (analyze-sessions.mjs) only parses Claude Code transcripts; adapting it to KCoder's session format would change plugin behavior, so it was not done"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -5918,6 +8627,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -5927,10 +8639,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "git-subdir",
-      "url": "https://github.com/pendo-io/claude-pendo-plugin.git",
-      "path": "plugins/setup-mcp-agent-analytics",
-      "sha": "a0f85260c61b93c4511f59545612323a41c3f845"
+      "source": "local",
+      "path": "./plugins/setup-mcp-agent-analytics"
     },
     "version": "1.1.0",
     "license": "MIT",
@@ -5944,6 +8654,22 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "git-subdir",
+      "url": "https://github.com/pendo-io/claude-pendo-plugin.git",
+      "path": "plugins/setup-mcp-agent-analytics",
+      "sha": "a0f85260c61b93c4511f59545612323a41c3f845"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/setup-mcp-agent-analytics/SKILL.md: added the KCoder equivalent of the `claude -p --mcp-config --allowedTools` verification run (`kcoder \"<use the tools>\" --settings-file <cfg> --json` with the server declared in `mcp_servers`)",
+        "skills/setup-mcp-agent-analytics/SKILL.md: corrected the KCoder headless command from `kcoder -p \"...\"` (`-p` is `--permission-mode`) to `kcoder \"<use the tools>\" --settings-file <cfg> --json` (positional prompt, JSONL output)"
+      ],
+      "remaining": []
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -5973,6 +8699,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "shippo-mcp",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -5999,6 +8736,12 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "no_change_needed",
+      "notes": [
+        "skills/shopify/SKILL.md and skills/ucp/SKILL.md: `$CLAUDE_PLUGIN_ROOT` appears only in a frontmatter PostToolUse telemetry hook command (runtime configuration, not model-facing text). It is guarded with `[ -f ]`, so if KCoder does not set CLAUDE_PLUGIN_ROOT for skill hooks the hook is a no-op; left unchanged to keep behavior"
+      ]
     }
   },
   {
@@ -6008,10 +8751,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "git-subdir",
-      "url": "https://github.com/anthropics/claude-plugins-official.git",
-      "path": "plugins/skill-creator",
-      "sha": "73c8cf3ea7e296057b467990f2f5d61b4c922260"
+      "source": "local",
+      "path": "./plugins/skill-creator"
     },
     "version": null,
     "license": "Apache-2.0",
@@ -6025,6 +8766,23 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "git-subdir",
+      "url": "https://github.com/anthropics/claude-plugins-official.git",
+      "path": "plugins/skill-creator",
+      "sha": "73c8cf3ea7e296057b467990f2f5d61b4c922260"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/skill-creator/SKILL.md: added a KCoder note at the start of Description Optimization: the bundled scripts call `claude -p` and stage `.claude/commands/`, so they measure Claude Code triggering; run them only with Claude Code installed, otherwise revise the description by hand"
+      ],
+      "remaining": [
+        "skill-creator description-optimization scripts (`run_loop.py`, `run_eval.py`, `improve_description.py`) hard-code the `claude` CLI; scripts were not modified, so automated description optimization stays Claude Code-only"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -6053,6 +8811,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "skyvern",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -6079,6 +8848,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -6104,6 +8876,14 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "no_change_needed",
+      "notes": [
+        "skills/claude-api/shared/managed-agents-*.md: `.claude/skills` describes Claude Managed Agents platform behavior for mounted repositories; correct as API documentation, left unchanged",
+        "skills/skill-creator scripts (run_eval.py, improve_description.py, run_loop.py) still shell out to the Claude Code `claude` CLI; scripts were not modified, so automated description optimization has no KCoder-native path",
+        "Edits were made only in skills this entry does not load; the loaded skills are unchanged, so the upstream reference is kept."
+      ]
     }
   },
   {
@@ -6113,10 +8893,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "git-subdir",
-      "url": "https://github.com/Snowflake-Labs/snowflake-ai-kit.git",
-      "path": "plugins/cortex-code",
-      "sha": "e2a3cbb45a9a62b5648266c5777c1b2edb3f8579"
+      "source": "local",
+      "path": "./plugins/snowflake-cortex-code"
     },
     "version": "3.4.0",
     "license": "Apache-2.0",
@@ -6131,6 +8909,27 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "git-subdir",
+      "url": "https://github.com/Snowflake-Labs/snowflake-ai-kit.git",
+      "path": "plugins/cortex-code",
+      "sha": "e2a3cbb45a9a62b5648266c5777c1b2edb3f8579"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/cortex-setup/SKILL.md: the Snowflake MCP conflict check now reads KCoder's `~/.config/kcoder/settings.json` `mcp_servers` array instead of `~/.claude/settings.json` `mcpServers`; the remediation steps use `kcoder mcp list` / `kcoder mcp remove` and restarting KCoder; `${CLAUDE_PLUGIN_ROOT}` -> `../..` with a path-resolution note; the conflict condition also accepts `CONFLICT:` output because the script's bare `except` swallows `sys.exit(1)`",
+        "skills/cortex-run/SKILL.md: `${CLAUDE_PLUGIN_ROOT}` -> `../..` (8 occurrences) with a path-resolution note",
+        "skills/cortex-router/SKILL.md: `${CLAUDE_PLUGIN_ROOT}` -> `../..` (6 occurrences) with a path-resolution note"
+      ],
+      "remaining": [
+        "The router skill depends on the plugin's UserPromptSubmit/SessionStart hooks (hooks/hooks.json) and its script output `route: claude`; skill text still says to stay in 'Claude Code' for non-Snowflake work, which reads as 'handle it yourself' in KCoder",
+        "The conflict check only inspects user-level KCoder settings, not project `.kcoder/settings.json` or plugin-provided MCP servers",
+        "The skills reference LICENSE-SKILLS.md, which is not present in this installed copy"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -6164,6 +8963,17 @@
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22",
       "note": "Verified with placeholder values for the required environment variables."
+    },
+    "mcpTest": [
+      {
+        "server": "sonatype-guide",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -6199,6 +9009,17 @@
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22",
       "note": "Verified with placeholder values for the required environment variables."
+    },
+    "mcpTest": [
+      {
+        "server": "sourcegraph",
+        "transport": "http",
+        "status": "config",
+        "label": "需要配置服务地址"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -6226,6 +9047,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "spanner",
+        "transport": "stdio",
+        "status": "config",
+        "label": "需要配置 `SPANNER_PROJECT`、`SPANNER_INSTANCE`、`SPANNER_DATABASE`"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -6252,6 +9084,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -6279,6 +9114,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -6288,9 +9126,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/confluentinc/agent-skills.git",
-      "sha": "204b36f10e9be41819557988e8f5291711fda986"
+      "source": "local",
+      "path": "./plugins/streaming-skills-plugin"
     },
     "version": "1.4.0",
     "license": "Apache-2.0",
@@ -6304,6 +9141,27 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/confluentinc/agent-skills.git",
+      "sha": "204b36f10e9be41819557988e8f5291711fda986"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/confluent-cloud-cdc-tableflow/SKILL.md: replaced hard-coded `mcp__confluent__*` tool names with the tool name plus the `confluent` MCP server, and added a note on matching tools by name because KCoder prefixes MCP tools with its own server id",
+        "skills/confluent-cloud-cdc-tableflow/references/connector-configs.md: `mcp__confluent__create-connector` -> the `confluent` MCP tool `create-connector`",
+        "skills/confluent-cloud-cdc-tableflow/references/flink-sql-patterns.md: rewrote the four `mcp__confluent__*` Flink statement tool references the same way",
+        "skills/confluent-cloud-cdc-tableflow/references/troubleshooting.md: rewrote 17 `mcp__confluent__*` references (prose and code blocks) and added a header note that calls refer to tools from the `confluent` MCP server",
+        "skills/confluent-skill-reviewer/SKILL.md: the skill-creator harness location now names KCoder's `~/.config/kcoder/skills/skill-creator/` alongside Claude Code's `~/.claude/skills/skill-creator/`"
+      ],
+      "remaining": [
+        "CLAUDE.md, CONTRIBUTING.md and .github/ISSUE_TEMPLATE mention ~/.claude paths for repository contributors; they are not model-facing plugin content and were left unchanged",
+        "The confluent MCP server is not bundled by this plugin; the user must configure it separately"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -6313,9 +9171,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/sumup/sumup-skills.git",
-      "sha": "6922c7052ae9d0be834f27361b785bd80e0829cc"
+      "source": "local",
+      "path": "./plugins/sumup"
     },
     "version": "1.0.0",
     "license": "Apache-2.0",
@@ -6332,6 +9189,28 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "sumup",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/sumup/sumup-skills.git",
+      "sha": "6922c7052ae9d0be834f27361b785bd80e0829cc"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/sumup-mcp/SKILL.md: added a '### KCoder' direct hosted setup section (http `mcp_servers` entry, restart, browser authorization, `kcoder mcp list` / `kcoder mcp test sumup`) next to the Claude Code section"
+      ],
+      "remaining": []
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -6341,9 +9220,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/obra/superpowers.git",
-      "sha": "22f0b463e7a5e579904dd6211a520321035526f7"
+      "source": "local",
+      "path": "./plugins/superpowers"
     },
     "version": "7.0.2",
     "license": "MIT",
@@ -6357,6 +9235,23 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/obra/superpowers.git",
+      "sha": "22f0b463e7a5e579904dd6211a520321035526f7"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/writing-skills/SKILL.md: added `~/.config/kcoder/skills/` on KCoder next to `~/.claude/skills/` on Claude Code",
+        "skills/writing-skills/references/CLAUDE_MD_TESTING.md: added a KCoder note (AGENTS.md/KCODER.md instead of CLAUDE.md), replaced `~/.claude/skills/` with `~/.config/kcoder/skills/` in the scenarios and documentation variants, and generalized the NULL-baseline line"
+      ],
+      "remaining": [
+        "file name `CLAUDE_MD_TESTING.md` and the `Claude.AI Emphatic Style` variant label kept (renaming not allowed / descriptive label)"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -6386,6 +9281,23 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "synthflow",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      },
+      {
+        "server": "synthflow-docs",
+        "transport": "http",
+        "status": "ok",
+        "label": "可用"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -6411,6 +9323,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -6432,7 +9347,7 @@
       "mcp_servers"
     ],
     "requirements": [
-      "Node.js"
+      "Bun"
     ],
     "env": [],
     "verification": {
@@ -6440,6 +9355,20 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "telegram",
+        "transport": "stdio",
+        "status": "runtime",
+        "label": "缺少 `bun`"
+      }
+    ],
+    "contentReview": {
+      "status": "no_change_needed",
+      "notes": [
+        "Same channel limitation as discord: inbound messages rely on `notifications/claude/channel*` and `claude --channels`, which KCoder does not implement"
+      ]
     }
   },
   {
@@ -6466,6 +9395,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -6498,6 +9430,17 @@
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22",
       "note": "Verified with placeholder values for the required environment variables."
+    },
+    "mcpTest": [
+      {
+        "server": "terraform",
+        "transport": "stdio",
+        "status": "runtime",
+        "label": "缺少 `docker`"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -6523,6 +9466,15 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "no_change_needed",
+      "notes": [
+        "skill-creator description-optimization scripts (`run_loop.py`, `run_eval.py`, `improve_description.py`) hard-code the `claude` CLI; scripts were not modified, so automated description optimization stays Claude Code-only",
+        "the edited `skill-creator` and `claude-api` skills are not in this plugin's manifest skill list (it exposes only its own skill); they were adapted for consistency with the other copies of the same repository",
+        "skills/claude-api/shared/managed-agents-{environments,overview,tools}.md: no change; `.claude/skills` there documents Anthropic Managed Agents repository behavior, which is correct as written (false positive)",
+        "Edits were made only in skills this entry does not load; the loaded skills are unchanged, so the upstream reference is kept."
+      ]
     }
   },
   {
@@ -6548,6 +9500,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -6557,9 +9512,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/twilio/ai.git",
-      "sha": "803790a281f0ef11d2928ffb41bc8422237fb434"
+      "source": "local",
+      "path": "./plugins/twilio-developer-kit"
     },
     "version": "0.2.0",
     "license": "MIT",
@@ -6576,6 +9530,30 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "twilio-docs",
+        "transport": "http",
+        "status": "ok",
+        "label": "可用"
+      }
+    ],
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/twilio/ai.git",
+      "sha": "803790a281f0ef11d2928ffb41bc8422237fb434"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/twilio/twilio-conversation-intelligence/SKILL.md, skills/twilio/twilio-conversation-orchestrator/SKILL.md: replaced `/.claude/skills/<name>/SKILL.md` links with relative `../<skill>/SKILL.md` links to the bundled sibling skills"
+      ],
+      "remaining": [
+        "The 'Twilio Conversations (unified stack)' skill is not bundled in this plugin; its dead `/.claude/skills/conversations` link was turned into plain text marked as not bundled"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -6602,6 +9580,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -6631,6 +9612,18 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "ui5-mcp-server",
+        "transport": "stdio",
+        "status": "ok",
+        "label": "可用（10 个工具）",
+        "tools": 10
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -6660,6 +9653,18 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "chrome-devtools",
+        "transport": "stdio",
+        "status": "ok",
+        "label": "可用（33 个工具）",
+        "tools": 33
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -6686,6 +9691,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -6711,6 +9719,14 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "not_adapted",
+      "reason": "许可证未允许修改再分发，保留上游原文",
+      "issues": [
+        "引用 ~/.claude 配置路径",
+        "使用 claude 命令行"
+      ]
     }
   },
   {
@@ -6720,9 +9736,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/EpicGames/unreal-engine-skills-for-claude-code-plugin.git",
-      "sha": "0e27bde2b55c5d3f6948532f4296aaa3654d8f4b"
+      "source": "local",
+      "path": "./plugins/unreal-engine-skills-for-claude-code"
     },
     "version": "3.1.2",
     "license": "MIT",
@@ -6737,6 +9752,20 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/EpicGames/unreal-engine-skills-for-claude-code-plugin.git",
+      "sha": "0e27bde2b55c5d3f6948532f4296aaa3654d8f4b"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/unreal-skill/SKILL.md: the description's disambiguation now covers KCoder harness skills (`.kcoder/skills/`, `~/.config/kcoder/skills/`) in addition to Claude Code's `.claude/skills/` and `~/.claude/skills/`"
+      ],
+      "remaining": []
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -6766,6 +9795,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "valtown",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -6792,6 +9832,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "vanguard-advisors",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -6820,6 +9871,29 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "vanta-aus",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      },
+      {
+        "server": "vanta-eu",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      },
+      {
+        "server": "vanta-us",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -6848,6 +9922,29 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "vanta-aus",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      },
+      {
+        "server": "vanta-eu",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      },
+      {
+        "server": "vanta-us",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -6874,6 +9971,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -6903,6 +10003,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "videogen",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -6912,9 +10023,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/villagesql/villagesql-skills.git",
-      "sha": "18f7d68673e2bd5d400b4ee91298e5a4b9e8d24e"
+      "source": "local",
+      "path": "./plugins/vsql-extension-builder"
     },
     "version": "1.0.0",
     "license": "Apache-2.0",
@@ -6928,6 +10038,22 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/villagesql/villagesql-skills.git",
+      "sha": "18f7d68673e2bd5d400b4ee91298e5a4b9e8d24e"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/vsql-extension-builder/SKILL.md: issue search steps name the search_issues, issue_read and list_issues tools of the `github` MCP server, keeping the Claude Code mcp__github__* names visible"
+      ],
+      "remaining": [
+        "`.claude/tracking/` is this skill's own working-file convention inside the extension repo, not a Claude configuration path; left unchanged"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -6953,6 +10079,13 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "no_change_needed",
+      "notes": [
+        "All findings are in skills/claude-api/** and skills/skill-creator/SKILL.md, which this plugin does not expose (manifest lists only ./skills/web-artifacts-builder)",
+        "The exposed skill targets claude.ai HTML artifacts by design; the bundled single HTML file it produces is usable anywhere, but there is no KCoder artifact-publishing equivalent"
+      ]
     }
   },
   {
@@ -6978,6 +10111,15 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "no_change_needed",
+      "notes": [
+        "skills/claude-api/shared/managed-agents-*.md: `.claude/skills` describes the Claude Managed Agents API's repository skill discovery (an API fact), left unchanged as a false positive",
+        "skills/claude-api/shared/evals/**: `.claude/hillclimb/<flow>/` is a self-contained eval output layout used consistently by the bundled scripts; left unchanged",
+        "skills/skill-creator/scripts/*.py: the description-optimization scripts still invoke `claude -p` (code not modified per scope); documented in SKILL.md instead",
+        "Edits were made only in skills this entry does not load; the loaded skills are unchanged, so the upstream reference is kept."
+      ]
     }
   },
   {
@@ -6987,9 +10129,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/wingspanHQ/mcp-claude-plugin.git",
-      "sha": "7f99cb3d1789a91390fa7abf1571328736b5e0a6"
+      "source": "local",
+      "path": "./plugins/wingspan"
     },
     "version": "0.1.0",
     "license": "MIT",
@@ -7006,6 +10147,33 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "wingspan",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/wingspanHQ/mcp-claude-plugin.git",
+      "sha": "7f99cb3d1789a91390fa7abf1571328736b5e0a6"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/finding-contractors/SKILL.md: ${CLAUDE_PLUGIN_ROOT}/skills/finding-contractors/requirement-types.md -> requirement-types.md in this skill's directory",
+        "skills/using-wingspan-tools/SKILL.md: ${CLAUDE_PLUGIN_ROOT} glossary path -> glossary.md in this skill's directory; tool-list note says the mcp__plugin_wingspan_wingspan__ prefix is Claude Code's and KCoder uses its own prefix",
+        "skills/connect/SKILL.md and skills/troubleshooting-connection/SKILL.md: KCoder re-authorization via the MCP management page in KCoder Studio; status via /mcp verbose or kcoder mcp list",
+        "README.md: KCoder install and sign-in note"
+      ],
+      "remaining": [
+        "Whether KCoder honors the plugin .mcp.json `oauth` block (scopes, authServerMetadataUrl) was not verified"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -7034,6 +10202,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "wix-mcp",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -7059,6 +10238,14 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "no_change_needed",
+      "notes": [
+        "skills/claude-api/shared/managed-agents-*.md: `.claude/skills` describes Claude Managed Agents platform behavior for mounted repositories; correct as API documentation, left unchanged",
+        "skills/skill-creator scripts (run_eval.py, improve_description.py, run_loop.py) still shell out to the Claude Code `claude` CLI; scripts were not modified, so automated description optimization has no KCoder-native path",
+        "Edits were made only in skills this entry does not load; the loaded skills are unchanged, so the upstream reference is kept."
+      ]
     }
   },
   {
@@ -7087,6 +10274,29 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "you",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      },
+      {
+        "server": "you-finance",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      },
+      {
+        "server": "you-research",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -7115,6 +10325,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "Zocks",
+        "transport": "http",
+        "status": "broken",
+        "label": "端点返回 HTTP 404"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -7124,9 +10345,8 @@
     "upstream": "claude",
     "upstreamUrl": "https://github.com/anthropics/claude-plugins-official",
     "source": {
-      "source": "url",
-      "url": "https://github.com/zoom/zoom-plugin.git",
-      "sha": "86e2592334f5fb563ed273e26035844004e66165"
+      "source": "local",
+      "path": "./plugins/zoom-plugin"
     },
     "version": "1.2.0",
     "license": "MIT",
@@ -7160,6 +10380,66 @@
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22",
       "note": "Verified with placeholder values for the required environment variables."
+    },
+    "mcpTest": [
+      {
+        "server": "zoom-canvas-mcp",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      },
+      {
+        "server": "zoom-chat-mcp",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      },
+      {
+        "server": "zoom-mcp",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      },
+      {
+        "server": "zoom-meetings-mcp",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      },
+      {
+        "server": "zoom-revenue-accelerator-mcp",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      },
+      {
+        "server": "zoom-tasks-mcp",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      },
+      {
+        "server": "zoom-whiteboard-mcp",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "upstreamSource": {
+      "source": "url",
+      "url": "https://github.com/zoom/zoom-plugin.git",
+      "sha": "86e2592334f5fb563ed273e26035844004e66165"
+    },
+    "adaptation": {
+      "changes": [
+        "skills/setup-zoom-marketplace-app/SKILL.md: added the KCoder registration (http `mcp_servers` entry in `~/.config/kcoder/settings.json`, restart) for the optional Marketplace helper next to `claude mcp add`"
+      ],
+      "remaining": [
+        "The section heading still reads 'Optional Claude Code Marketplace Helper'; the added text states the notes apply to the KCoder entry too"
+      ]
+    },
+    "contentReview": {
+      "status": "adapted"
     }
   },
   {
@@ -7188,6 +10468,17 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "mcpTest": [
+      {
+        "server": "zoominfo",
+        "transport": "http",
+        "status": "login",
+        "label": "需要登录"
+      }
+    ],
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -7214,6 +10505,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   },
   {
@@ -7240,6 +10534,9 @@
       "healthy": true,
       "kcoder": "KCoder aigc@316e79056",
       "date": "2026-11-22"
+    },
+    "contentReview": {
+      "status": "clean"
     }
   }
 ]

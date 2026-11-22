@@ -21,15 +21,27 @@ for (const plugin of catalog) {
   groups.get(plugin.group).push(plugin);
 }
 const order = [...GROUP_ORDER.filter(g => groups.has(g)), ...[...groups.keys()].filter(g => !GROUP_ORDER.includes(g))];
-const lines = [`共收录 ${catalog.length} 个上游插件，全部固定到具体提交，并在 KCoder 中验证为 \`fully_supported\`。`, ''];
+const count = status => catalog.filter(p => p.contentReview?.status === status).length;
+const lines = [
+  `共收录 ${catalog.length} 个上游插件，全部在 KCoder 中验证为 \`fully_supported\`。其中 ${count('adapted')} 个已针对 KCoder 改编并放在本仓库 \`plugins/\` 下，其余固定到上游的具体提交。`,
+  '',
+  `内容审查：${count('clean')} 个未发现其他客户端专属写法，${count('no_change_needed')} 个经人工判断无需修改，${count('adapted')} 个已改编，${count('not_adapted')} 个因许可证未改编（仍可安装，但说明中可能提到 Claude Code 的命令或路径）。`,
+  '',
+];
 lines.push('| 分类 | 数量 |', '| --- | --- |');
 for (const g of order) lines.push(`| [${g}](#${g}) | ${groups.get(g).length} |`);
 for (const g of order) {
-  lines.push('', `### ${g}`, '', '| 插件 | 说明 | 能力 | 需要 | 许可证 | 来源 |', '| --- | --- | --- | --- | --- | --- |');
+  lines.push('', `### ${g}`, '', '| 插件 | 说明 | 能力 | MCP 测试 | 需要 | 许可证 | 来源 |', '| --- | --- | --- | --- | --- | --- | --- |');
   for (const p of groups.get(g).sort((a, b) => a.name.localeCompare(b.name))) {
     const caps = p.capabilities.map(c => CAPABILITY[c] ?? c).join('、');
     const needs = p.requirements.length ? p.requirements.join('；') : '—';
-    lines.push(`| \`${p.name}\` | ${short(p.description)} | ${caps} | ${cell(needs)} | ${cell(p.license ?? '未声明')} | [${p.upstream}](${p.upstreamUrl}) |`);
+    const review = p.contentReview?.status;
+    const nameCell = review === 'adapted'
+      ? `[\`${p.name}\`](plugins/${p.name}/UPSTREAM.md)（已改编）`
+      : review === 'not_adapted' ? `\`${p.name}\`（含 Claude 专属说明）` : `\`${p.name}\``;
+    const sourceCell = review === 'adapted' ? `本仓库改编自 [${p.upstream}](${p.upstreamUrl})` : `[${p.upstream}](${p.upstreamUrl})`;
+    const mcp = p.mcpTest?.length ? [...new Set(p.mcpTest.map(t => t.label))].join('；') : '—';
+    lines.push(`| ${nameCell} | ${short(p.description)} | ${caps} | ${cell(mcp)} | ${cell(needs)} | ${cell(p.license ?? '未声明')} | ${sourceCell} |`);
   }
 }
 const body = `${START}\n${lines.join('\n')}\n${END}`;

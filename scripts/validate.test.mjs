@@ -100,7 +100,7 @@ test('hooks are validated through the overlay that references them', t => {
 test('remote entries need a matching verification record', t => {
   const source = { source: 'url', url: 'https://github.com/example/plugin.git', sha: 'a'.repeat(40) };
   const record = { name: 'demo', source, verification: { level: 'fully_supported', healthy: true } };
-  assert.match(errorsOf(fixture(t, { entry: { source } })), /remote entries need verification records/);
+  assert.match(errorsOf(fixture(t, { entry: { source } })), /remote and adapted entries need verification records/);
   assert.equal(errorsOf(fixture(t, { entry: { source }, files: { 'catalog/plugins.json': [record] } })), '');
   const moved = { ...record, source: { ...source, sha: 'b'.repeat(40) } };
   assert.match(errorsOf(fixture(t, { entry: { source }, files: { 'catalog/plugins.json': [moved] } })), /different source/);
@@ -108,4 +108,22 @@ test('remote entries need a matching verification record', t => {
   assert.match(errorsOf(fixture(t, { entry: { source }, files: { 'catalog/plugins.json': [partial] } })), /not recorded as healthy/);
   const extra = { ...record, name: 'ghost' };
   assert.match(errorsOf(fixture(t, { entry: { source }, files: { 'catalog/plugins.json': [record, extra] } })), /`ghost` is not listed/);
+});
+
+test('adapted plugins keep their manifest but need provenance and a record', t => {
+  const files = {
+    'plugins/demo/.claude-plugin/plugin.json': { name: 'demo-upstream' },
+    'plugins/demo/UPSTREAM.md': `# Upstream\n\n- Project: https://github.com/example/demo\n- Commit \`${'c'.repeat(40)}\`\n`,
+  };
+  const root = fixture(t, { files });
+  rmSync(join(root, 'plugins/demo/plugin.json'));
+  assert.match(errorsOf(root), /remote and adapted entries need verification records/);
+  const record = { name: 'demo', source: './plugins/demo', verification: { level: 'fully_supported', healthy: true } };
+  mkdirSync(join(root, 'catalog'), { recursive: true });
+  writeFileSync(join(root, 'catalog/plugins.json'), JSON.stringify([record]));
+  assert.equal(errorsOf(root), '');
+  writeFileSync(join(root, 'plugins/demo/UPSTREAM.md'), 'adapted from somewhere');
+  assert.match(errorsOf(root), /upstream URL and the full commit/);
+  rmSync(join(root, 'plugins/demo/.claude-plugin'), { recursive: true });
+  assert.match(errorsOf(root), /no plugin manifest found/);
 });
