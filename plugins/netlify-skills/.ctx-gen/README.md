@@ -1,0 +1,84 @@
+# Context Pipeline receiver (Stage 2)
+
+This is the **receiving** side of the [Context Pipeline](https://linear.app/netlify/issue/AX-97) (AX-97).
+
+`netlify/docs` is the source of truth. Its `ctx-gen` distills docs into an
+`agent-context/<grouping>/` intermediate and — per grouping — generates and
+AXIS-tests a full skill at `agent-context/<grouping>/skill/`. When that changes,
+docs notifies this repo.
+
+This repo's job is **deterministic distribution**: pull the generated skill and
+import it, byte for byte, into `skills/`. No model call, no content rewrite —
+authoring and testing happen upstream, so a faithful copy is enough. (If we ever
+transform content here, that's the point at which this repo would add its own
+AXIS scenarios.)
+
+## Pieces
+
+- **`config.json`** — which docs groupings we consume and the local skill each
+  maps to (`functions` → `netlify-functions`).
+- **`state.json`** — a provenance log, never consulted for the skip decision.
+  Per grouping we record the `manifest.generation.source_hash` and docs commit
+  last imported, plus `affects` and `intermediateHash` (sha256 of the
+  grouping's `context.md` + `system.md`, the inputs the skill is generated
+  from). The delta itself is a byte comparison of
+  `agent-context/<grouping>/skill/**` against `skills/<name>/**` (path set +
+  bytes + executable bit; symlinks unsupported), so repeated dispatches of
+  identical content are no-ops and upstream hand edits that never touch the
+  manifest still propagate. When `intermediateHash` moves while `skill/` is
+  identical, the run warns and imports nothing.
+- **`../scripts/ctx-receive.mjs`** — reads the two files above against a docs
+  checkout, imports changed groupings, records provenance in `state.json`.
+- **`../.github/workflows/ctx-pipeline-receive.yml`** — resolves the docs ref,
+  checks out docs, runs the importer, and opens or updates a single rolling
+  draft PR when something changed. That PR runs the existing `validate-skills`
+  and `build-generated-outputs` (cursor/codex parity) gates; a human reviews
+  and merges. Rollback = revert.
+- **`../.github/workflows/ctx-pipeline-notify.yml`** — a `workflow_run`
+  watcher that reports every receiver outcome (imported / no-op / stale skip /
+  failed / unclassified) to context-hub, which posts the Slack notice to
+  `#notify-context-pipeline`. docs' dispatch is fire-and-forget, so the
+  receiver's own outcome has to be reported from this side (EX-3057). Logic in
+  `../scripts/ctx-notify.mjs`; inert until `CONTEXT_HUB_URL` (variable) and
+  `CONTEXT_HUB_PIPELINE_KEY` (secret) exist in the `ctx-pipeline` environment.
+- **Release pings** — `release-please.yml` (`notify-hub` and `report`) tells
+  context-hub when a release PR opens, a release is created, and a publish
+  finishes, via `../scripts/ctx-hub-ping.mjs` (EX-3255). Inert until
+  `CONTEXT_HUB_URL` (variable) and `CONTEXT_HUB_PIPELINE_KEY` (secret) exist in
+  the `ctx-pipeline` environment; a failed ping never blocks a release.
+
+## Triggers
+
+The receiver runs on docs' `agent-context-updated` dispatch or a manual
+`workflow_dispatch`. docs only dispatches **after its AXIS quality gate
+passes**, so an imported commit is gated by construction.
+
+There is no scheduled catch-up poll: a missed dispatch self-heals on the next
+one (each run imports the full current skill, not a delta) or is recovered with
+a manual run. The dispatch trigger is armed by the `CTX_PIPELINE` repo variable;
+manual runs never need it.
+
+## One rolling PR
+
+Imports land on a single branch (`ctx-pipeline/agent-context-sync`) as one
+standing draft PR, force-updated in place as new context arrives. This avoids
+overlapping PRs when a second docs change lands before the first import merges —
+otherwise both would touch the same skill dirs and `state.json` and need
+merge-conflict cleanup. The job concurrency group serializes runs so the branch
+always has a single writer.
+
+The sync PR is titled `fix(context)`, not `chore`. The repo squash-merges
+with the PR title as the whole commit message, and release-please hides
+`chore`, so a chore-titled sync would never cut a release. As `fix`, every
+merged import lands in the standing Release PR as a patch bump, and merging
+that PR publishes the skills and manifest to the hosted site and npm
+(`.github/workflows/release-please.yml`).
+
+## Running it locally
+
+```bash
+node scripts/ctx-receive.mjs --docs <path-to-a-netlify-docs-checkout> --dry-run
+```
+
+Drop `--dry-run` to write the import. `--skills-dir` and `--state` can point at
+throwaway paths to test without touching tracked files.

@@ -1,0 +1,201 @@
+# Changelog
+
+All notable changes to this repository are documented in this file.
+
+## Claude plugin [1.3.0] - Claude directory release
+
+- First 1.3 release published to the Claude directory. It reuses the 1.3.0
+  number; the unpublished 1.3.0–1.3.3 candidates below never went live there.
+- Remove `scripts/` (package assembler and bundled-CLI launchers) and the
+  `assemble-mcp-plugin` workflow. The Claude directory scans the whole
+  repository and held every 1.3.x version for "Uses a credential from the
+  user's machine" because of these files, attributing it to
+  `.claude-plugin/plugin.json`. Directory scans confirmed the plugin, with its
+  own MCP server and least-privilege OAuth scopes, passes without them.
+- Assembled MCP variants are paused; their tooling remains in git history at
+  `f0629e0`.
+
+## Claude plugin [1.3.3] - Release candidate
+
+- Point the missing-CLI recovery step to the official installation docs instead
+  of a download-and-run command (clears the directory `RUNTIME_FETCH_EXEC`
+  warning).
+- Keep the remote MCP server's explicit least-privilege OAuth scopes. A
+  directory scan of a variant without the `oauth` block was still held for
+  "Uses a credential from the user's machine" and "Update adds credential
+  forward": the rule applies to adding an authenticated remote MCP server,
+  whose CodeRabbit OAuth token goes only to `mcp.coderabbit.ai`. That case
+  needs directory reviewer confirmation; it is not cleared by this change.
+
+## Claude plugin [1.3.2] - Release candidate
+
+- Keep the remote MCP connection and remove the automatic local-review hook.
+- Use the existing standalone CLI for local reviews and repository configuration;
+  setup explains its separate sign-in and never reserves an MCP local review.
+- Remove the unused root managed-runtime metadata. Independently assembled MCP
+  packages and other host integrations remain separate.
+- Directory validation and publication are still required; this change does not
+  claim the earlier policy hold has been cleared.
+
+## Claude MCP plugin [1.3.1] - Release candidate
+
+- Make the repository root on `main` the installable Claude MCP plugin, with
+  the plugin-qualified review hook and pinned CLI 0.9.3 download metadata.
+- Add `/coderabbit:setup` and route the native Claude plugin's review skill to
+  MCP. Portable skill installs and other hosts retain the standalone CLI path;
+  explicit CLI-only review remains available before an MCP reservation.
+- Version Claude MCP independently of shared standalone release tags. The
+  directory still requires policy approval and a separate publication action.
+
+## Claude MCP plugin [1.3.0] - Release candidate
+
+- Connect CodeRabbit through the host's browser flow and review local changes
+  without a separate CLI login. Setup prepares and verifies pinned CLI 0.9.3.
+- Launch approved reviews through the Claude plugin's own post-tool hook and
+  recover saved findings by review ID without starting another review.
+- Preserve the caller's Git and SSH tool paths after executable verification.
+- Keep the standalone skills and plugin channels available. This version applies
+  only to the assembled Claude MCP package; it does not version or publish Mod,
+  Codex, or the shared standalone release archive.
+- See the [MCP changelog](packaging/releases/claude-1.3.0.md) and
+  [release inputs](packaging/releases/README.md). Directory approval and
+  publication are separate from preparing this candidate.
+
+## Standalone [1.2.2] - Released
+
+### Fixed
+
+- Add the required `metadata.version` to `coderabbit-config`, so the CLI can
+  load the complete skills catalog instead of rejecting the release archive
+  ([#92](https://github.com/coderabbitai/skills/pull/92)).
+- Publish the [standalone `v1.2.2` archive](https://github.com/coderabbitai/skills/releases/tag/v1.2.2)
+  from the [maintenance release](https://github.com/coderabbitai/skills/pull/93),
+  including the compatible autofix reader and earlier standalone updates.
+
+## [1.2.1] - Pre-release; withdrawn from Latest
+
+### Fixed
+
+- Autofix recognizes `Prompt to fix issue`, `Prompt for Coding Agents`,
+  `Prompt for Coding Agent`, and historical `Prompt for AI Agents` summaries.
+  Matching sections remain untrusted guidance, with the description as fallback.
+- Incremented standalone plugin versions so host caches can receive the
+  compatible reader. The archive was withdrawn from Latest after the CLI
+  rejected missing configuration-skill version metadata; `v1.2.2` fixes that
+  release defect. Marketplace updates remain separate.
+
+## [1.2.0] - Included in standalone 1.2.2
+
+### Added
+
+- Added `coderabbit-config` for CLI-owned configuration generation, guided
+  changes, and validation, with preview approval before local saves.
+
+- Added a Claude directory listing icon and a README "Data and Privacy"
+  section that discloses what the plugin runs and sends.
+- Added the read-only `autofix` subagent, which collects and checks
+  unresolved CodeRabbit review threads and returns a fix plan for the `autofix`
+  skill to apply with per-change approval.
+- Set the Claude plugin's `author.name` to "CodeRabbit".
+- Added `displayName` to `.claude-plugin/plugin.json` and README links for
+  documentation, support, privacy policy, and terms of service, which the
+  Claude directory shows on the listing.
+- Added public contribution guidance, structured issue forms, and a pull-request
+  template for agent-skill and integration changes.
+- Added a self-contained, assertive repository-level CodeRabbit policy with
+  draft and continuous incremental reviews, a strict request-changes workflow,
+  blocking pre-merge checks, public-repository knowledge boundaries, and focused
+  guidance for skills, native packaging, and public documentation.
+- Added native Gemini CLI extension packaging via `gemini-extension.json`,
+  including the `/coderabbit:review` command and existing portable skills.
+- Added native Antigravity CLI plugin packaging via the repository-root
+  `plugin.json` manifest, with direct GitHub installation guidance.
+- Documented CodeRabbit CLI `--dir <path>` support for directory-scoped
+  reviews in the review skill and Claude Code review helpers.
+- Added `name` frontmatter to the Claude Code `code-reviewer` subagent.
+- Added a repository `.gitignore` for local Claude settings, virtualenvs, and
+  dependency directories.
+
+### Changed
+
+- Clarified bounded CLI discovery, manual curl installation, and execution-context
+  selection in the shared review guidance, with Antigravity CLI sandbox recovery
+  isolated in a conditionally loaded reference.
+- Documented `usage --agent` and authorized review retries with `--use-credits`.
+
+- The Claude plugin now ships the `code-review` and `autofix` skills and the
+  `code-reviewer` and `autofix` subagents. It no longer includes the
+  `/coderabbit:coderabbit-review` command, because skills supersede commands
+  in Claude; run `/coderabbit:code-review` instead. Gemini CLI and Antigravity
+  CLI keep their review commands.
+- Removed the duplicate Markdown review command `commands/coderabbit-review.md`.
+  Antigravity CLI and Gemini CLI both use `/coderabbit:review` from
+  `commands/coderabbit/review.toml`, and the Claude manifest no longer needs a
+  `commands` key to hide it.
+- Rewrote the `code-reviewer` subagent description so Claude knows when to
+  delegate to it.
+- Hardened review authentication with trusted CLI paths, command-scoped host
+  permissions, and one bounded retry for pre-review sandbox auth failures.
+
+- Updated review guidance to use the public `--committed` and `--uncommitted`
+  selectors, allow `--dir` paths inside a Git working tree, and rely on the
+  review command's built-in authentication flow. Documented untracked-file scope,
+  NDJSON completion and severities, saved prompts, and current configuration and
+  account-command contracts.
+- Aligned the shared code-review subagent metadata with Gemini CLI's schema.
+- Removed alternate detailed-output guidance so review agents use `--agent`
+  exclusively.
+- Reframed the README as the canonical home for CodeRabbit skills and plugin
+  packaging across supported agents.
+- Aligned Claude Code and Cursor plugin versions with the planned `1.2.0`
+  release and Gemini CLI manifest.
+- Recorded tagged release archives as the live source for `coderabbit skills`;
+  these updates are included in the published standalone `v1.2.2` archive.
+- Quoted Claude Code command frontmatter values so standard YAML parsers can
+  validate them.
+
+## [1.1.1] - 2026-04-22
+
+### Added
+
+- GitHub release workflow that builds a tagged source archive, SHA-256 checksum,
+  and `release-manifest.json` for binary consumers.
+
+### Changed
+
+- Documented the tag-pinned, checksum-verified install contract for binary
+  installers in `README.md`.
+- Added the tagged release archive channel to `DISTRIBUTION_CHANNELS.md`.
+
+## [1.1.0] - 2026-04-21
+
+### Added
+
+- Claude Code plugin packaging in this repository via `.claude-plugin/plugin.json`.
+- In-repo `agents/code-reviewer.md` component for Claude Code.
+- In-repo `commands/coderabbit-review.md` component for Claude Code.
+- Cursor marketplace packaging via `.cursor-plugin/plugin.json`.
+- Official CodeRabbit brand asset at `assets/coderabbit-logomark.svg` for marketplace display.
+- Claude Code and Cursor plugin installation notes in `README.md`.
+
+### Changed
+
+- Restored the Claude plugin manifest version to `1.1.0` after repo consolidation.
+- Updated Claude plugin command and agent docs after moving them into this repository.
+- Updated `skills/code-review` to use the CodeRabbit CLI `--agent` flag instead of the deprecated `--prompt-only` flag, and documented the CLI version requirement.
+- Simplified `README.md` install guidance so the CLI docs are the primary path, while keeping short links for skills installer, Claude Code, Cursor, and Codex installation flows.
+
+## [1.0.0] - 2026-01-30
+
+### Added
+
+- Initial `code-review` skill release for multi-agent CodeRabbit reviews.
+- Repository README, MIT license, and cross-agent installation guidance.
+- `autofix` skill for unresolved CodeRabbit GitHub review threads.
+- README documentation for the `autofix` workflow.
+
+### Changed
+
+- Hardened installation guidance to point users to the official CLI source instead of shell-piped install commands.
+- Expanded `skills/code-review` security guidance around trusted installation, secrets in diffs, token handling, and untrusted review output.
+- Refined the `code-review` skill description and documentation for clearer agent use.

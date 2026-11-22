@@ -1,0 +1,19 @@
+{
+  "name": "mintlify-marketplace",
+  "description": "Mintlify plugins for building and maintaining Mintlify documentation sites.",
+  "owner": {
+    "name": "Mintlify",
+    "email": "support@mintlify.com",
+    "url": "https://mintlify.com"
+  },
+  "plugins": [
+    {
+      "name": "mintlify",
+      "source": "./",
+      "description": "Comprehensive skill for building Mintlify documentation sites.",
+      "author": {
+        "name": "Mintlify"
+      }
+    }
+  ]
+}

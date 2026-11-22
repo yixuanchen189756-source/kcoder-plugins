@@ -1,0 +1,349 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/).
+
+## [1.7.1] - 2026-11-10
+
+### Added
+
+- **Function actions that never registered** — when installs keep failing while deploy reports success, and the Falcon Fusion SOAR editor says a node calling the app's own function needs a Store plugin or a subscription, the handler's `workflow_integration` never registered. `debugging-workflows` gives a three-release recovery: turn off `provision_on_install`, reset the handler's integration `id` to `""`, then turn provisioning back on. `functions-development`'s consolidation checklist adds a step to check every function node in the editor after deploying.
+
+## [1.7.0] - 2026-10-30
+
+### Added
+
+- **Upgrading template-installed apps** — new `app-upgrades` skill updates an app installed from a Falcon Foundry template to a newer version of the template, in place. Give it the app ID and a `.tar.gz`, `.zip`, directory, or `owner/repo[@ref]`, or let it find the template by name. It keeps the IDs of artifacts in both versions, lists what it adds and removes, asks before removing anything, then deploys and releases.
+- **Auditing an existing app** — new `app-audit` skill runs `audit_app.py` against an app directory and reports documented anti-patterns, each with the skill section that explains it: too many functions, handler names outside 5–64 characters or duplicated, workflow properties a function's `request_schema` doesn't declare (silently dropped), output keys missing from `response_schema`, missing `workflow_integration` or `provision_on_install`, credentials read from environment variables in Python or Go functions, OpenAPI server URLs and defaults that break the install form, UIs that weren't built or are stale, and manifest, workflow, or API spec files that don't parse. `--fix` applies only the mechanical fixes, and `--json` prints machine-readable results. It calls no API.
+- **Operating an existing, installed app** — `development-workflow` covers hard-refreshing after an update, the difference between catalog, deployment, and display version numbers, what `--re-deploy` is for, and committing the IDs the first deploy writes to `manifest.yml`. Capabilities are now created in one dependency order, with agents before the workflows that call them.
+- **Deploy never builds a UI** — `foundry apps deploy` uploads each page's `dist/` as it is, so a deploy without `npm run build` ships the previous bundle. `development-workflow` says to build last, check a re-deploy's package with `deploy --diff-only`, and that release numbers continue from the last release, not the deployment name.
+- **Deploying a deleted app again** — strip the IDs first (validation refuses collections that "existed previously, but were deleted"). Version numbers start over, and objects the app created through Falcon APIs outlive it.
+- **Don't restore `manifest.yml` from git after a deploy** — losing the IDs the deploy wrote leads to `app_id not found in manifest`, then `an app with the provided name already exists`. The fix is to delete the app and deploy fresh.
+- **Which identity makes the call** — `debugging-workflows` separates the CLI profile's API client, other API clients used by local scripts, and the installed app. The app's `auth.scopes` are the only scopes a function has, including under `exec` and `test`. A missing scope returns `403` for every input; an input error returns `404` or `400` (queryjobs is the exception).
+- **"no changes detected"** — `validate` and `deploy` refuse when no packaged file changed, even right after a failed deploy. Now in the `debugging-workflows` deploy tree.
+- **Pinning `exec` to a deployment** — right after a deploy, `exec` can return `404` `no app artifacts found of type FAAS_FUNCTION` while the same call with `--version` works. The diagnostic tip says to deploy it as an unreleased pre-release, then deploy a clean build.
+- **Released fixes, stuck releases, console noise** — `debugging-workflows` says to check the built bundle when a released UI fix doesn't show and rebuild if it's missing, why releases stay "In progress" (often a workflow error deploy didn't catch) and how to keep shipping, and which console errors come from the Falcon console rather than your app.
+- **Handler status vs. CLI status** — `exec` prints `Status Code: 200` whenever the platform ran the function, even if the handler returned `400`. The handler's result is `payload.status_code`, which is what `tests.yml` `expect.status` checks.
+- **One install covers later deploys** — FalconPy calls under `exec` and `test` need the app installed once. Later deploys, including code changes, authenticate without another release.
+- **Hidden directories inside a function** — a `.venv` or `.pytest_cache` under `functions/<name>/` makes `exec` and `test` report undeployed changes after a clean deploy, though the deploy never packages them. Keep virtual environments at the repo root.
+- **Exec IDs embed the CID** — exec IDs are base64 for `fn-id/version/cid/req-id`, so use a placeholder in public PRs, issues, and posts.
+- **Worker threads in functions** — a thread has no Foundry token. `functions-falcon-api` shows how to build clients on the handler thread and run tasks with `contextvars.copy_context().run`.
+- **Returning the platform's error** — the function code review checklist asks for the API's status, message, and `trace_id` in returned errors, and flags error text that guesses a cause.
+- **Too many functions fail the build** — each function is a separate container build, and a fresh install with 43 functions failed where the same 43 handlers in 11 functions deployed in about 9 minutes. `development-workflow` now plans functions by domain, and a new `functions-development` reference, `function-count-and-build-time.md`, shows how to consolidate them (a mode-switched dispatcher for workflow actions, several handlers per function otherwise), the `request_schema` and `response_schema` rules that fail silently when you do, and a checklist for consolidating an existing app. Handler names must be 5 to 64 characters and unique within a function.
+- **Cases and RTR scopes** — `functions-falcon-api`'s scope table lists `CaseManagement` (`cases:read`, `cases:write`), `RealTimeResponse` (`real-time-response:read` and `:write`, which covers `runscript`), and `RealTimeResponseAdmin` (`real-time-response-admin:write` for `put` and `run`).
+- **Falcon Next-Gen SIEM content APIs** — new `functions-falcon-api` reference, `ngsiem-content-apis.md`, for dashboards, saved queries, and lookup files. It covers search domain names that differ by API, names that come from templates, per-domain asset limits, bulk saved query creates that answer `200` with per-item refusals, FalconPy 1.6.6 `create_saved_query` needing a filename, view-scoped lookup files and saved query functions, and each type's scopes.
+- **Listing on a shared CID** — offset paging over a changing list skips items. Filter, sort explicitly, and don't loop on a first call's total.
+- **Workflows API under the app identity** — the Workflows search APIs answer `400` to a function. Read run history from `#repo=fusion` instead.
+- **Collection behaviors that only surface on a live app** — `collections-development` covers five traps: a never-created key reads as a truthy not-found envelope, collection names stay reserved per `app_id` after a support delete, there is no in-place rename, a custom-storage collection's schema can't change after the first write, and a failed collection deploy blocks later plain deploys.
+- **Concurrent collection writers** — `PutObject` has no compare-and-set, so overlapping writers should read and merge right before writing. When lost writes matter, give each key one writer whose runs don't overlap.
+- **Falcon Fusion workflow gotchas that fail silently** — `workflows-development` covers recovering from a sticky `409` by renaming the workflow and removing its `id`, keeping `provision_on_install: true` (with `false`, installing creates no workflow until something provisions the template), avoiding the `2001` cyclic reference at a diamond join, and declaring a `request_schema` for functions that receive `properties`.
+- **Loops need a link from the action before them** — if no action names a loop in its `next:` list, the loop deploys and never runs.
+- **Function output paths in workflows** — a function action's output is `<action key>.FaaS.<function>.<handler>.<field>`, and a loop item's field is `...<field>.#.<item field>`.
+- **What mock executions can test** — `foundry workflows executions start` always runs a mock execution, which fails an app's own `functions.` references with `action not found`. Test through the installed app instead, using a near-term schedule for scheduled workflows.
+- **Workflows and AgentWorks agents** — `ai-agents-development` says `ai_agents.<name>` reaches only agents in the app's own manifest, and that an agent built in AgentWorks must be published before a workflow that references it deploys, or the deploy fails with error code 2015.
+- **Agents the app creates are app-owned** — users can't edit or duplicate them in the console. `ai-agents-development` says to create user-editable agents with a customer API client through an API integration.
+- **`output_format: json` discards invalid replies** — a reply that isn't valid JSON fails with `output_format_error` and is lost. For long replies that code parses, use `text`, ask for JSON in the prompt, and parse tolerantly.
+- **Large JSON replies from agents** — `ai-agents-development` gives an order of fixes for an agent that puts prose before its JSON or times out: cap the output in the system prompt, lower **Reasoning Effort** for an AgentWorks agent, split the agent only if it still overflows, and parse leniently as a last resort.
+- **Acting on an agent's reply** — check agent values in code against what the next API accepts. One bad value can make a bulk API reject the whole batch, and a prompt rule alone doesn't prevent it.
+- **Autocomplete in the spec** — `spec-adaptation-examples` shows the `x-cs-operation-config.autocomplete` and `x-cs-pivot` pair that links a dropdown to the operation providing its values. The integration ID in a pivot can stay as copied from a sample, because install rewrites it. Also lists the deploy error when the named operation has no `autocomplete` config.
+- **Credentials go to every operation** — Foundry sends an integration's credentials to every operation, even one marked public with `security: []`. Keeping a credential away from an endpoint takes a separate integration.
+- **Server variables with a fixed set of hosts** — `api-integrations` shows an `enum` of Falcon API hosts with a `default`, and notes that `info.description` is the text at the top of the install form.
+- **Gating an app with RBAC** — `security-patterns` shows how a permission, its role, and the `permissions:` lists on pages, links, and collections fit together, and the limits `foundry auth permissions create` enforces. It also covers rolling RBAC out without locking yourself out, and rolling it back without losing the IDs a deploy wrote to `manifest.yml`.
+- **Scopes the CLI rejects** — `scopes add` rejects some valid names (`humio-auth-proxy:read` and the Falcon Next-Gen SIEM persisted aggregation scopes, as of CLI 2.1.2), so `security-patterns` says to add them to `auth.scopes` by hand. Adding a scope makes the next release a major version that users must accept. `development-workflow` and `AGENTS.md` list this edit, and renaming a deployed KB, as sanctioned manifest edits.
+- **API integrations have no role check** — `security-patterns` says to restrict the page that calls one to a role, and to ask for a dedicated customer API client with only the scopes it needs.
+- **`xdr.cases.details` socket (CLI 2.1.2+)** — `ui-development` lists the new Next-Gen SIEM cases details socket, and the CLI guard accepts it. The table also fixes the label for `xdr.cases.panel`, which is the cases panel, not the details section.
+- **UI gotchas that read as runtime bugs** — `ui-development` covers four issues that look like runtime failures: hardcoded IDs that break after an app clone, cross-page navigation that reloads the current page, pages missing from the side menu, and an `E401` from `npm install`.
+- **Shoelace quirks checked in a deployed page** — `ui-development` notes that `sl-option` values can't contain spaces, that `sl-radio-group` gets two tab stops after a click and never reflects `checked`, and that dialog events bubble from children like `sl-details`, so handlers should check `event.target`.
+- **Stay on Vite 7** — `@vitejs/plugin-react-swc` 3.11.0 accepts only `^7`, and Vite 8's lightningcss minifier fails on the toucan stylesheet.
+
+### Changed
+
+- **Faster, cheaper app builds** — new app builds use about 24% fewer tokens and cost 13% less than 1.6.0, with no drop in deploy rate. A new `deploy_and_release.py` deploys, waits, and releases in one call, and the skills now answer the lookups builds kept repeating.
+- **Agent schema filenames name the CLI version** — CLI 2.1.2 and later write `input_schema.json` / `output_schema.json` under those names and reject any other value on every manifest load. 2.1.1 and earlier pass validate and fail at deploy.
+
+### Fixed
+
+- **Workflow names that repeat in a CID** — `workflows-development` said a duplicate workflow name fails the deploy. Both apps deploy and release; installing the second one fails. `multi_instance: true` in the workflow YAML lets it install, and Falcon Fusion SOAR adds a timestamp to the second workflow's name. Apps created from the same template need it when more than one is installed.
+- **Function examples that wouldn't run** — `functions-development` showed lambda-style `handler(event, context)` functions and tests, `{id}` routes the FDK can't match, Go handlers that don't compile, `ingest_data(body=...)`, which raises `KeyError`, and a local `curl` the FDK can't route. The examples now follow the FDK and the reference samples: `@func.handler`, fixed routes with query parameters, `r.AccessToken` in Go, `ingest_data(data_file=...)`, and the JSON envelope for local tests. Errors are returned as `APIError`, and the payload limit is the documented 1018 KB combined.
+- **Calling API integrations and Falcon APIs from functions** — `api-integrations` and `functions-falcon-api` called `APIIntegrations().execute()`, which FalconPy doesn't have, used a Go client path that doesn't compile, and the wrong `foundry-fn-go` module path. They now use `execute_command_proxy` and `APIIntegrations.ExecuteCommandProxy`, say that FalconPy's keyword form ignores `request=`, and correct `update_case_fields`, the Alerts v2 paths, and the 1-100 severity scale.
+- **Generic error text from function handlers** — `functions-development`'s `SKILL.md` now says to return a failed Falcon API call's own status and `errors[].message`, not "failed to query devices". The rule used to live only in the code review checklist.
+- **`.pyc` files in function deploys** — `functions-development`'s `SKILL.md` gives the `ignored:` pattern for `__pycache__/`, so local runs don't ship bytecode.
+- **`--function` default** — when `--function` is omitted, the CLI uses the first function in `manifest.yml`. Pass it in multi-function apps.
+- **Function log delay** — logs take 5-10 minutes to arrive, matching `foundry functions logs --help`.
+- **Function timeout default** — the agent invocation reference said `--max-exec-duration-seconds` defaults to 15. It's 30.
+- **Workflow YAML that doesn't exist** — `workflows-development` described an `invokeFunction` activity, `readCollection`/`writeCollection`, a timeout block, and a made-up Put and run file ID. It now uses `functions.<name>.<handler>` and `collections.<name>.<operation>`, the real action IDs and version constraints, output paths taken from the Workflow data panel, and null guards that note neither `!= null` nor CEL optional access lets a workflow reference a field it doesn't define. A function created without `workflow_integration` no longer has to be recreated: adding the block to the manifest and redeploying binds it.
+- **Workflow error handling** — `workflows-development` said `fail_fast_enabled: false` let a workflow continue after a function failed. It's only an input a function can define. The skill now uses action-level `continue_on_error: true` with a `Workflow.Execution.Errors` branch, lists that field's shape, and notes that `validate` accepts unknown action keys and broken CEL.
+- **UI examples built on hooks that don't exist** — `ui-development`'s React and Vue examples imported `useFoundry` from `@crowdstrike/foundry-js/react`, and an extension-messaging class posted to `'*'` with message types the console doesn't send. The examples now use the blueprint's `useFalconApiContext` and `falcon.api`, `falcon.events`, and `falcon.sendBroadcast`, the design tokens falcon-shoelace and Toucan actually define, the current React blueprint, `app-logs:*` scopes for Falcon LogScale calls from the UI, and the dev server's real port.
+- **foundry-js examples in `ui-development`** — `references/foundry-js.md` passed collection keys as objects and called `cloudFunction()` without a name, `.query()`, `falcon.workflow()`, `events.broadcast()`, and `navigation.openModal()`, none of which match foundry-js. The examples now follow the SDK's types and the foundryjs-demo sample: string keys, `cloudFunction({ name })`, `falcon.api.workflows`, `sendBroadcast()`, and `falcon.ui.openModal()`, which opens a page by name. The CSP example in `references/advanced-patterns.md` uses the manifest's `content_security_policy` map.
+- **Shoelace icons and the CSP** — `ui-development` said to add `cdn.jsdelivr.net` to the manifest CSP for icons, or to copy icons into `dist/`. The default page CSP already allows jsdelivr and `data:`, while copied icons never load: the deploy drops `.svg` files and `connect-src` blocks the app's own host.
+- **Tags and badges** — the examples used `sl-badge` and `sl-tag`, which falcon-shoelace 0.4.0 doesn't style, so every variant looked the same. They now use spans colored with Toucan's theme tokens.
+- **Theme setup** — `falcon-theming.md` imported `falcon-shoelace/dist/themes/*.css`, which doesn't exist, and toggled `sl-theme-dark` from `prefers-color-scheme`. falcon-shoelace ships one `dist/style.css` and follows the `theme-light`/`theme-dark` class that `falcon.connect()` sets.
+- **Dark dialogs** — a falcon-shoelace 0.4.0 dialog follows the dark theme, so the override is now only for older versions or custom panels.
+- **foundry-js collection examples** — the TypeScript client, filter, migration, and test examples in `collections-development` called `new Collection()`, `create`, `get`, `update`, and `query`, which foundry-js doesn't have. They now use `falcon.collection({ collection })` with `write`, `read`, `delete`, and `search`. Invented sections are gone (a manifest `indexes:` block and a `readCollection` workflow activity), and the schema-versioning section now matches the docs.
+- **Collection and security examples** — `security-patterns` queried collections with Mongo-style filters, checked a FalconPy token in a way that never fails, set response headers Falcon Foundry apps can't set, and listed console origins that miss US-2 and GovCloud. `collections-development` put search parameters in the request body and gave the wrong wildcard syntax. Both now match FalconPy and the Collections docs.
+- **Manifest examples in `security-patterns`** — the CSP and secure-manifest examples used a list for `ui.pages` and keys the CLI doesn't write (`csp:`, `connect_src`, `read_only`, an app-set iframe `sandbox`). They now use the page map, `content_security_policy`, and the field names the CLI writes in the sample apps.
+- **`foundry auth scopes add` flag** — `security-patterns` used `--scope`, which CLI 2.1.2 doesn't have. It now uses `--scopes` with `--no-prompt`.
+- **Agent `tools` references** — the dotted forms in `ai-agents-development` fail the whole app's deploy with a bare `500`. Each entry is now `action:<reference>`: `action:collections.<name>.<Operation>` for an app collection, `action:mcp/gce/collections:collections:generic:<Operation>` for the generic collection, and `action:mcp/gce/integration:<integration id>~<hash>` for an API-integration operation, which exists only after the integration deploys. `collections-development`, `api-integrations`, and the manifest reference use these forms, and the reference explains how to find an API-integration tool ID.
+- **Structured-output agent replies in workflows** — a `json_with_schema` agent's action exposes its schema's fields (`${data['<action key>.category']}`), not `response`. A `.response` reference to one passes validate and deploy, then fails install with no detail. `workflow-invocation` covers both cases and points to the workflow editor's **Workflow data** panel for the real keys.
+- **Changing a deployed knowledge base** — a deployed KB's files are write-once. Changing one fails the deploy with `409 a file with name ... already exists in this knowledge base`, and every agent that lists the KB fails with it. `knowledge-bases.md` now gives the recovery: a new KB name and sanitized path, with the `id` key removed.
+- **AI agent manifest edits** — `ai-agents-development` lists every hand-edit it allows in one place, says a misspelled `exposure` key is dropped on the next CLI save, and says IDs are filled by `foundry apps validate` or `deploy`. It also says knowledge-base files are dropped when any part of their path contains `svg`, and limits the structured-output warning to the newer Claude models the docs name.
+- **Credentials for an integration added after install** — an installed app's **Modify settings** edits existing credentials and shows integrations added in later patches. An app installed with no settings doesn't get that option from a patch, so release the version that adds the integration as Major, where **Accept update** shows the credential form.
+- **Swagger 2.0 specs through the hook** — the `api-integrations create` hook converted a Swagger 2.0 spec but let the command import the original, and `npx` often couldn't finish within its 5-second timeout. The hook now blocks Swagger 2.0 specs and says to run the adapter and register the converted file.
+- **Operation-level parameter overrides** — the adapter dropped an operation's parameter when the path had one with the same name and location, so overrides like a different `limit` default were lost. Identical copies are still removed, but differing overrides stay.
+- **OpenAPI spec hook with quoted paths** — `api-integrations create` now checks specs passed as quoted paths, paths with escaped spaces, or `--spec=path` instead of skipping adaptation.
+- **OpenAPI import safety** — the hook no longer adapts a spec named inside another command's quoted text, and Swagger 2.0 specs are detected even when a long description comes before the version field.
+- **CLI commands and flags** — corrected `foundry rtr-scripts run --script-name`, `apps clone`, which creates a new app and has no `--name`, the mock-testing commands' required flags, `foundry profile list` for the active profile, 10-character minimum release notes, the region list, and `--no-prompt` wherever `--help` lists it. `app-upgrades` now builds UI pages before deploying, since deploy ships `dist/` as it is.
+- **`authorization failed` from `exec` and `test`** — the API client editor has no `custom-apps:write` scope. `debugging-workflows` now says to confirm the CLI profile has Apps read and write, and to report the trace ID as a platform permission problem if it does.
+- **`401 Unauthorized` isn't a missing scope** — a missing scope returns `403` `access denied, scope not permitted`, and a new scope applies only after the update is accepted in the App Catalog.
+- **App-upgrade access controls** — the upgrade plan now requires confirmation when a template removes a role or permission definition, or changes permissions on an existing role or artifact, instead of silently treating the change as a safe add-only upgrade.
+- **Template source isolation** — upgrading from a directory refuses links outside that directory rather than copying their contents into the scratch app; GitHub source resolution refuses a nonempty destination instead of overwriting `source.zip`.
+- **e2e tests** — `e2e-testing` pins `@crowdstrike/foundry-playwright` 0.5.6, says `disableWorkflowProvisioning()` also deploys and releases a new version when it changes anything, and handles install settings screens in any order. The fixtures example now defines every page object its tests use.
+- **Standalone-workflow detection after a negation** — "No UI, but add a function" was redirected to the Falcon Fusion plugin. A negation now ends at a contrast word like `but` or `however`, and "I do need" no longer counts as one.
+- **Workflow routing and extension sockets** — a requested Foundry function after a negated UI clause stays with the app workflow; the CLI guard accepts `--sockets=...` and comma-separated valid socket IDs.
+- **CLI guard checks each chained command** — in a `&&` or `;` chain, a flag on one Foundry command no longer satisfies the guard for the others.
+- **The CLI guard ignores `--help` calls** — `foundry agents create -h` no longer gets flagged for a missing `--no-prompt` or `--sockets`. A real command chained with a help call is still checked.
+- **`foundry apps logs` gets the `--no-prompt` check**, since it prompts for anything not passed as a flag.
+
+## [1.6.0] - 2026-10-01
+
+### Added
+
+- **`ai-agents-development` skill** — Covers the two new Foundry AI capabilities, `foundry agents` and `foundry knowledge-bases` (alias `kb`), which live under a single top-level `ai:` block as `ai.agents` and `ai.knowledge_bases`. Both support `create` and `delete`; there is no `list` or `edit`. Documents the full manifest schema, every validation error string, the input/output format matrix, and the agent tool reference formats, and links to the product docs for AI capabilities, agents, and knowledge bases. Two references carry the detail: [knowledge-bases.md](skills/ai-agents-development/references/knowledge-bases.md) for file sourcing, encryption, and deploy packaging, and [manifest-schema.md](skills/ai-agents-development/references/manifest-schema.md) for the field-by-field reference. It also states that agents and knowledge bases have no temperature, token, chunk size, embedding, similarity, or `top_k` settings, so those keys should never be added to the manifest.
+- **Agent exposure** — `agents create` takes `--expose-charlotte-chat`, `--expose-agent-as-tool`, and `--expose-workflow-system-action`. An agent created with no flag has no `exposure` block and can't be called by anything, including its own app's workflows; `--expose-workflow-system-action` on its own keeps it app-scoped and out of Charlotte chat. `--expose-agent-as-tool` requires `--input-schema`, since a calling agent needs the callee's signature, and the CLI enforces that both at create time and on every manifest load, so hand-adding the switch without a schema breaks every later CLI command in that app.
+- **Calling an agent from the app's own workflows** — the [workflow-invocation](skills/ai-agents-development/references/workflow-invocation.md) reference shows a workflow calling the agent as `ai_agents.<agent name>`, which the Foundry API resolves at deploy in each CID. The action takes the prompt as `input` and needs `version_constraint: ~1`, because the agent action is versioned and `~0` fails deploy with `Action was not found`. A later step reads the agent's reply as `${data['<action key>.response']}`. It lists the deploy errors for an unexposed or misnamed agent and keeps a function that invokes the agent through FalconPy's `AgentInvocation` as the fallback for clouds without alias support. `workflows-development` points to it.
+- **Structured output** — explains what a `json_with_schema` agent needs to deploy: name the schema file `output_schema.json` (`input_schema.json` for input schemas), follow the model's schema rules, and use plain `json` for models that don't support structured output.
+- **Model and tools** — `ai.agents[].model` and `.tools` have no CLI flags (`agents create` writes `model: ""` and omits `tools`), so the skill allows editing just those two manifest keys and says never to invent a model ID.
+- **Agent tools from collections and API integrations** — `collections-development` documents `--agent-tools-expose` and the `agent_tools_integration: {exposed: true}` block it writes, and `api-integrations` documents `x-cs-operation-config.agent_tools` with `name`, `description`, and `expose_to_agent`. Exposure is only half the wiring: the agent must also list each operation in its own `tools`, as `collections.<name>.<Operation>` or `api_integrations.<integration>.<agent_tools.name>` (not the `operationId` or URL path). Neither half alone errors; the agent just can't reach the data. `adapt_spec_for_foundry.py` flags a misplaced `expose_to_agent` the same way it flags `expose_to_workflow`.
+- **Deleting agents and knowledge bases** — `agents delete` and `knowledge-bases delete` remove the manifest entry and the artifact directory. A knowledge base still referenced by an agent is protected (`cannot delete knowledge base "X": still referenced by agent(s): Y`). `agents delete` only removes the local copy, so the deployed agent stays in AgentWorks until the app is deleted, and a deploy that fails on an unavailable model ID needs a different model or a recreated agent.
+- **Silent agent and knowledge base pitfalls** — `--system-prompt` treats a value that isn't a readable path as inline prompt text, so a typo becomes the agent's entire instruction set with no error; the skill says to read back `agents/<path>/system_prompt.txt` after every create. `.svg` files in a knowledge base pass `foundry apps validate` and are then dropped from the deploy bundle, and a large PDF corpus can exhaust the shared 25 MB package cap on its own. Knowledge base names and descriptions are checked by `kb create` (name 5–100 characters, description 3–500) while the manifest validator only requires a one-character name and doesn't check the description, so a hand-written manifest can carry values the command would reject.
+- **CLI guard for agents and knowledge bases** — warns when `agents create --knowledge-bases X` names a knowledge base not yet in the manifest, when `knowledge-bases create` lacks `--files`, when `--expose-agent-as-tool` lacks `--input-schema`, and when an agent schema file has the wrong name. It blocks `mkdir agents/` and `mkdir knowledge-bases/` alongside the other app directories, and asks for confirmation before an irreversible delete.
+- **Charlotte AI AgentWorks APIs from functions** — `functions-falcon-api` shows how to call AgentWorks with FalconPy's `Agents`, `Spans`, `AgentInvocation`, `AgentVersions`, and `Models` classes, maps each AgentWorks route to its FalconPy method, shows how to count an agent's executions from its trace spans and how a function finds its own app's agents by name while skipping deleted ones an earlier install left behind, and adds the `charlotte-ai-agent-definition` scopes to the scope reference. `api-integrations` covers writing a minimal spec for Falcon APIs FalconPy doesn't wrap.
+- **Installable from the OpenAI/Codex, Cursor, and GitHub Copilot marketplaces.** Beyond the Anthropic marketplace, the plugin is now published to the OpenAI/Codex curated CLI marketplace (`codex plugin add crowdstrike-falcon-foundry@openai-api-curated`; ChatGPT-authenticated Codex installs via `/plugins`), the Cursor marketplace, and the GitHub Copilot (awesome-copilot) directory. The skills-only bundle now ships the square interface icon the OpenAI directory requires, and the README install table links each live listing.
+- **FDK `Request` field reference** — `functions-development` lists every field on the Python FDK request object. Query parameters live at `request.params.query`, not `request.query` or `request.params.get()`.
+- **Adding a handler to an existing function** — no CLI command does this, so `functions-development` allows editing that function's `handlers:` list as a narrow exception to the no-manifest-edits rule.
+- **Execution limits at create time** — the `functions create` example now includes `--max-exec-duration-seconds` and `--max-exec-memory-mb`.
+- **`foundry apps sync` guidance** — `development-workflow` covers the flags `sync` needs when run non-interactively, and a safe way to refill blanked manifest IDs (the `foundry-sample-*` pattern) without overwriting local edits.
+- **Converting an existing repository** — `development-workflow` explains moving `manifest.yml` to the repo root, since `foundry apps create` always creates a subdirectory named after the app.
+- **App logos** — `development-workflow` documents the manifest `logo:` field, including that the App Catalog icon is only set on an app's first deploy.
+- **Deploy troubleshooting** — `development-workflow` and `debugging-workflows` point to App manager's "Show errors" for the reason a deployment failed, and explain `deployment is currently in progress`, `no deployable artifacts found`, `403 app is not installed`, and the harmless faas-gateway `404`s a UI page logs while waiting on a function. They also note that patch releases update an installed app in place, so reinstalling is only needed to reach an API integration's credential form again.
+- **Sandbox restrictions and theming in UI pages** — `ui-development` explains that `localStorage` and `sessionStorage` throw in the sandboxed iframe, that `alert()`, `confirm()`, and leave-page prompts are silently ignored, and what to use instead. It also notes that pages follow the console's light or dark theme with no extra code.
+- **Bulk work from a UI page** — `ui-development` shows how to make a page that processes many items save progress, resume on re-run, and report failures, and when to move the loop into a workflow instead.
+- **Listing collection keys** — `collections-development` shows how to page through `ListObjects` by starting key, and why listing keys before reading them is faster than reading every candidate.
+- **What the deploy packages** — `development-workflow` lists what `foundry apps deploy` leaves out on its own (hidden paths, SVGs) and which `ignored:` entries a Python function needs.
+- **When function logs never arrive** — `debugging-workflows` adds a fallback for when `foundry functions logs` keeps failing.
+
+### Changed
+
+- **Incremental updates for large lookup files** — `functions-development` and the GreyNoise and Next-Gen SIEM export use cases no longer state a lookup file size limit. They recommend writing new or changed rows in bounded batches and merging them with `NGSIEM.update_lookup_file_entries()` instead of rebuilding and re-uploading the whole file.
+- **`development-workflow` dependency order** is now Collections → Functions → Knowledge bases → Agents → Workflows → UI, with scaffolding commands for both new capabilities in Step 5.
+- **A narrow carve-out to the "never edit manifest.yml" rule.** `development-workflow` now allows editing `ai.agents[].model` and `.tools`, which have no CLI flags, and nothing else, so the exception doesn't erode the rule that protects `id`, `path`, and `entrypoint`. Agent `exposure` is *not* part of the carve-out; it has flags.
+- **Corrected the skill count in AGENTS.md** — it claimed 9 and had been stale for several releases; the repo now ships 12.
+- **Minimum CLI version bumped to 2.1.0** — The session-start hook now warns users on CLI 2.0.x and offers to upgrade. CLI 2.1.0 added `foundry functions exec`, `test`, and `logs`, and CLI 2.1.1 fixed non-interactive output for `actions view` and `triggers view` when multiple actions match a fuzzy name filter.
+- **`action_search.py` is now a convenience, not a workaround** — With CLI 2.1.1, `foundry workflows actions view --name "..." --no-prompt` lists multiple matches non-interactively instead of dropping into a picker. The bundled `action_search.py` remains useful for working without a manifest directory, but the warning framing it as a required fallback is removed.
+- **FalconPy clients are created inside the handler** — the function examples now do this, and the skills explain why: a client created at module scope gets a `401` on every call.
+- **Collection pitfalls** — `collections-development` notes that descriptions containing commas fail `apps validate`, and that redeploying a changed schema doesn't update an existing collection, so schemas should allow for fields added later.
+- **API integration pitfalls** — `api-integrations` states the 50-character limit on `--description`, and that query parameter values must match the types in the spec.
+- **`foundry functions exec` pitfalls** — `functions-development` explains which local changes count as undeployed (including paths excluded by `ignored:`), and what to do if `exec` hangs.
+- **Python version and local tests** — `functions-development` now recommends developing on Python 3.14 and running function tests in a virtual environment that matches CI.
+- **Polling a deploy** — `development-workflow` notes that release numbers differ from deployment versions, so poll by the version `deploy` printed.
+- **Skills tuned for current Claude models** — the "SYSTEM INJECTION — READ THIS FIRST" banners and MANDATORY/STOP framing that current models over-apply are replaced with plain statements of each skill's concrete rules, and every specific fact and constraint is kept. When `adapt_spec_for_foundry.py` misses a spec issue, the skills now say to patch only that spot and tell the user, rather than editing the script in the installed plugin cache.
+- **Missing collection objects return a real `404`** — FalconPy now returns a `404` from `CustomStorage.GetObject` for a key that doesn't exist, instead of a synthetic `500`, so `collections-development` and the Python examples check only for `404`. The skills also stop naming FalconPy versions, since functions always get the current release.
+
+### Fixed
+
+- **Each skill is self-contained** — `SKILL.md` files linked to sibling skills and the repo-level `use-cases/` directory, but assistants other than Claude Code receive each skill as its own package, so those links pointed at files that weren't there. They now name the target skill or use case in prose.
+- **The skill-router reminder no longer follows you into unrelated sessions.** After a prompt matched Foundry keywords, the router added "Foundry plugin reminder" to every tool call until a skill loaded, and because its marker file was global and never reset, the reminder leaked into later prompts and other sessions, sometimes for days. The marker is now per session, reset on every prompt, and the reminder fires once per detected prompt.
+- **The skill router no longer fires on passing mentions of Falcon Foundry.** It matched an action verb anywhere before a Foundry noun, so "fix the orchestrator so it stops loading the skill for every Falcon Foundry mention" was treated as a request to build an app. The verb and noun now have to be within five words of each other ("create a new Foundry app" still matches), and the router also recognizes "make", "need", "want", "write", "connect", and "set up", so requests like "I need a Foundry app" and "set up a Foundry app" are now routed to the Foundry workflow.
+- **The CLI guard only checks commands that actually run the Foundry CLI.** It searched the whole Bash command, so a `git commit` whose message mentioned `foundry apps create` got a "missing --no-prompt" warning. Quoted strings and heredoc bodies are now ignored, and a check only applies when `foundry` is the command being run. Flags and `--name` are read from that command too, so a quoted `--no-prompt` in an earlier commit message no longer hides a real `foundry apps validate`.
+- **Bundled hook guidance now works across Claude Code, Codex, and Cursor.** The router no longer tells another assistant to use Claude Code's `Skill` tool, confirmation reminders no longer name `AskUserQuestion`, and cross-plugin routing recognizes an enabled sibling plugin in Codex's configuration and in Cursor's plugin cache instead of telling the user to install it again. A Codex turn does not treat Claude's plugin registry as an install, so a sibling disabled in Codex is still offered as an install. Cursor injects top-level `additional_context` and names its shell tool `Shell`, so the hooks emit that shape there and treat `Shell` like `Bash`. A `.cursor-plugin/plugin.json` points Cursor at `hooks/hooks-cursor.json` so it does not try to parse the Claude hook manifest. Antigravity's plugin directory is recognized the same way, so an already-enabled sibling is not offered as a fresh install. The README also documents Codex's `/hooks` trust step.
+- **A standalone-Fusion redirect is no longer followed by a Foundry reminder.** When the router advised the Falcon Fusion plugin instead of a Foundry app, the first tool call still got "Consider invoking development-workflow", which contradicted the redirect.
+- **`foundry api-integrations create` is actually blocked when the OpenAPI spec can't be adapted.** The router put its block decision in a field Claude Code doesn't read, so an un-adapted spec could still be imported. It now returns `permissionDecision: "deny"`.
+- **Brainstorming is only redirected for Foundry work.** With the plugin installed, every `superpowers:brainstorming` invocation was told to cancel and switch to `development-workflow`, even in projects unrelated to Foundry. The redirect now applies only when the task is Foundry app development.
+- **`workflows-development` no longer asks for `onError` blocks.** Its opening instructions said to implement `onError` blocks and described built-in retries; Fusion has neither. It now points at conditional routing and action-level flags, matching its Error Handling section.
+- **Scope examples use real scope names and the real manifest key.** `security-patterns` and two references listed `hosts:read` and `detections:read`, which aren't Falcon API scopes (`devices:read` and `detects:read` are), and declared scopes under a top-level `oauth_scopes:` key the manifest doesn't read. Examples now use `auth.scopes`.
+- **`ignored:` entries are regular expressions.** The `development-workflow` example used globs such as `**/*.test.ts`, which fail `foundry apps validate`; it now uses anchored regexes.
+- **Removed calls to `falcon.theme()`**, which doesn't exist in foundry-js.
+- **Handler routing and description limits** — the function manifest example used `path:` instead of `api_path`, `api_path` doesn't support `{param}` placeholders, and descriptions are limited to 1024 characters for a function and 512 for a handler.
+- **foundry-js from the asset CDN** — only version 0.20.0 is served, so `ui-development`'s blueprint reference now shows vendoring the npm build when a page needs a newer version.
+- **`Alerts.get_alerts_v2` examples passed `ids=`**, which FalconPy doesn't accept for that method. It returns a `400` (`Argument composite_ids must be specified.`) without sending the request, so the examples always failed. `functions-falcon-api` and `functions-development` now pass `composite_ids=`, and the mocked test example asserts the keyword, since a mock that doesn't check arguments hides the mistake.
+
+## [1.5.0] - 2026-08-19
+
+### Added
+
+- **Install instructions for five AI coding assistants** — Claude Code, Codex, Copilot CLI, Cursor, and Antigravity CLI each get a verified marketplace command. A collapsible table covers local clones for testing a branch. Claude Code, Copilot CLI, and Cursor take `--plugin-dir`; Antigravity CLI takes `agy plugin install`. Codex has no such flag and reads skills from `~/.agents/skills/` instead.
+- **`fusion-redirect` skill** — Declines a standalone Falcon Fusion workflow request (a trigger plus actions that already exist) and points to the sibling Falcon Fusion plugin. The advice previously lived in `development-workflow`'s body, where only the skill router hook could surface it, so it never fired on assistants that don't run hooks. As its own skill it needs no hook. When the Falcon Fusion plugin is installed, that plugin's skill takes the request instead.
+- **Agent Plugins manifest** — A root `plugin.json` following the [Agent Plugins](https://agent-plugins.org) 1.0.0 spec, so any conforming client recognizes the repo as a plugin. CI validates it and `release.sh` bumps its version with the rest.
+- **Function execution, testing, and debugging (CLI 2.1.0+)** — The `functions-development` skill now covers `foundry functions exec`, `test`, and `logs`. Documents the deploy-first rule (exec and test run the deployed artifact, not local code), request-data confirmation before exec, handler disambiguation from the manifest, and the `tests.yml` schema for integration test cases. Adds a code-review checklist for logging, secrets, and schema coverage. The CLI guard enforces `--no-prompt` on the new commands. Users on CLI 2.0.x are told why the commands are unavailable and offered an upgrade.
+- US-3 cloud region to the cloud-region documentation: added `us-3` to the `FOUNDRY_CLOUD_REGION` value lists (headless-operation reference, e2e-testing env var table) and the multi-cloud deployment section. Foundry CLI 2.0.2 added US-3 support; the base URL (`api.us-3.crowdstrike.com`) is in FalconPy as of v1.6.4.
+
+### Changed
+
+- **NGSIEM `start_search` keyword guidance updated for FalconPy 1.6.5** — The `search=` keyword remains the recommended approach (works on all versions), but the explanation now notes that `body=` was fixed in FalconPy 1.6.5 ([#1497](https://github.com/CrowdStrike/falconpy/pull/1497)). Since FalconPy is unpinned, `search=` is still the safe default.
+
+### Fixed
+
+- **`connection issue` on tenant commands** — In a workspace-scoped sandbox the CLI cannot write `~/.config/foundry/token.json`, where it keeps its short-lived access token. It reports only the symptom, which sent agents investigating networks and credentials. The debugging skill now explains that the token refresh is expected and that the fix is granting write access to that directory. Observed on Codex.
+- **Three commands that reject `--no-prompt`** — `foundry version`, `apps list`, and `apps list-deployments` fail with `unknown flag`. This is CLI behavior, not assistant-specific. Two of the three are in the prerequisite check, so "always add `--no-prompt`" broke the first thing an agent runs.
+- **OpenAPI adapter dependencies without hooks** — Claude Code's skill router runs `adapt_spec_for_foundry.py` automatically. Copilot CLI, Cursor, and Antigravity CLI don't, so their users invoke it directly. It needs `pyyaml`, which a bare `pip install` cannot supply on Homebrew or system Pythons (PEP 668). The API integrations skill now documents a virtualenv setup.
+- **Sub-skill routing survives a single-entry-point install** — `development-workflow` now says where sub-skills live on disk (`../<name>/SKILL.md`) and what to do when a capability request lands on the orchestrator: read the sub-skill first, then go straight to the CLI command if `manifest.yml` exists. The orchestrator's trigger description is unchanged, so a fully-registered install routes as before.
+- **Sub-skills point back to the orchestrator** — Every capability sub-skill now links to `development-workflow` near the top, so an assistant without routing hooks that picks a sub-skill directly still finds the CLI prerequisite check and scaffolding order. Previously only `e2e-testing` mentioned it, and only in a footer.
+
+## [1.4.1] - 2026-08-07
+
+### Fixed
+
+- **Replaced deprecated Detects API with Alerts API** — The `functions-falcon-api` skill now directs users to `from falconpy import Alerts` with `query_alerts_v2()` / `get_alerts_v2()` instead of the deprecated `Detects` class, which returns 405 Method Not Allowed. Filter by `product:'detections'` to scope results to detections only.
+
+## [1.4.0] - 2026-07-31
+
+### Added
+
+- **LogScale query recipe** — Complete `NGSIEM.start_search()` / `get_search_status()` pattern for querying LogScale from Foundry functions. Documents the `search-all` repository requirement (specific repo names cause 403), the `search=` keyword requirement (FalconPy documents `body=` but its guard never honors it — see [falconpy#1491](https://github.com/CrowdStrike/falconpy/issues/1491)), the `resources` vs `body` response-key asymmetry between `start_search` and `get_search_status`, and clarifies that `NGSIEM` is the query class while `FoundryLogScale` is ingestion-only. Adds `humio-auth-proxy:read` to the scope reference table, verified against a live CID.
+- **Function I/O schema requirements** — Functions called from workflows must be created with `--input-schema` and `--output-schema`. Schemas bind only at creation time; the CLI writes `null` for both without these flags, even when `--wf-expose` is set. Functions without a response schema produce no visible output in Fusion actions.
+- **Workflow deletion warning** — Documents that deleting a workflow and recreating it with the same name causes `409 name must be unique for an app` followed by `400 dependent artifact failed`, blocking all further deploys. Recovery requires a fresh app.
+- **Cross-plugin redirect to the Falcon Fusion plugin** — The development-workflow orchestrator now recognizes standalone Falcon Fusion workflow requests (trigger + actions, no UI/function/collection/API integration) and advises the `crowdstrike-falcon-fusion` plugin instead of scaffolding a Foundry app. Adds `detect_fusion_redirect.py` classifier with unit tests.
+- **GraphQL APIs use case** — Integrate GraphQL APIs (Falcon Identity Protection, GitHub, Snyk) into Foundry apps using FalconPy or HTTP POST. Covers zero-arg auth for Falcon GraphQL endpoints and the security tradeoff of env vars vs API integrations for third-party APIs.
+- **`scripts/action_search.py`** — API-based action discovery script that works in headless/CI environments where the CLI's interactive `actions view` prompt fails. Uses FalconPy with FQL fuzzy matching and prints action IDs with `version_constraint` values.
+- **CLI guard for `actions view` / `triggers view`** — Hook now catches missing `--no-prompt` on these commands to prevent TTY hangs.
+- **`foundry apps list` in prerequisite check** — New CLI 2.0.2 command that lists all deployed apps on the CID from any directory. Added to Step 3 to help avoid name collisions.
+- **Collection description validation constraints** — Documents the 3–500 character length limit, alphanumeric-start requirement, and allowed character set for collection descriptions.
+- **Function logs in testing-patterns reference** — Added function logs (viewing in UI and Advanced Event Search) to the reference table entry for testing patterns.
+- **Query parameter type matching for API integrations** — Documents that `apiIntegration().execute()` types params as `Record<string, unknown>`, so a quoted number like `limit: '25'` passes type-checking and fails server-side with `got string want integer`. The extension still renders, so the failure reads as an API or credential error rather than a code bug.
+- **Content regression tests** — `tests/test_skill_content.py` guards critical documentation (LogScale recipe, schema requirements, workflow deletion warning) against accidental removal.
+
+### Changed
+
+- **Fusion redirect names the plugin, not the repo** — The cross-plugin advisory pointed users at the `fusion-skills` GitHub repo. It now names the plugin (`crowdstrike-falcon-fusion`) with the `/plugin install` command and the marketplace link, since most users install from the marketplace and a repo detour is confusing to anyone unfamiliar with GitHub. `detect_fusion_redirect.py` reports `target` as `crowdstrike-falcon-fusion` / `crowdstrike-falcon-foundry` rather than the repo names.
+- **Gemini CLI → Antigravity CLI** — Google transitioned Gemini CLI to Antigravity CLI (binary: `agy`). Updated README with new command, skills paths (`~/.gemini/antigravity-cli/skills/` for user scope, `.agents/skills/` for workspace scope). Removed `GEMINI.md` since we never shipped Gemini CLI support; Antigravity reads `AGENTS.md` directly.
+- **Codex docs link** — Updated from `developers.openai.com/codex/skills` to `learn.chatgpt.com/docs/build-skills`.
+- **Renamed Python scripts to snake_case** — `scripts/adapt-spec-for-foundry.py` → `adapt_spec_for_foundry.py` and `scripts/test-adapt-spec.py` → `test_adapt_spec.py`, matching the repo's `snake_case` lint convention and allowing the test to import the module directly. The PreToolUse hook and all skill docs reference the new names; no behavior changed. If you invoked the old path directly in your own tooling, update it to the underscore name.
+
+### Fixed
+
+- **Fusion redirect was never wired to a hook** — `detect_fusion_redirect.py` shipped as a standalone script that nothing invoked, so its verdict never reached the agent at runtime. The `fusion-redirect` eval passed only 1 of 5 trials: in three runs the agent declined to scaffold an app but never mentioned the Fusion plugin, and in one it scaffolded an app anyway. The skill router now runs the classifier on Foundry-matched prompts and injects an explicit redirect advisory when it fires. The advisory in `development-workflow` also states that naming the plugin is *required output* — declining to scaffold is only half a redirect — and that hand-writing the workflow YAML defeats the purpose, since the Fusion plugin discovers real action IDs, validates against the platform schema, and imports to the CID.
+- **Fusion redirect classifier mishandled negation** — `detect_fusion_redirect.py` matched app-capability keywords without regard to negation, so a prompt saying "no Foundry app, no UI, no functions" registered `UI` and `Foundry app` as *requests* for those capabilities and suppressed the redirect. Standalone Fusion workflow requests that explicitly ruled out app capabilities — the clearest possible case for redirecting — were the ones most likely to be kept in this plugin. Negated spans are now stripped before app signals are matched, and the verdict reports `negated_app_signals` so the reasoning stays visible. Caught by the `fusion-redirect` eval, which failed 0/5 trials before this fix.
+- **Removed "delete and re-create" advice** — The old guidance for fixing missing `workflow_integration` said to delete and recreate the function. This is technically correct (schemas only bind at creation), but was misleading about workflows: you must never delete and recreate a *workflow* to refresh a binding. Both skills now give consistent guidance — recreate the function, update the workflow YAML reference in place.
+- **Action discovery guidance** — Updated all `actions view` examples to include `--no-prompt` and pointed to `action_search.py` as the primary fallback. The CLI ignores `--no-prompt` for these commands (tracked upstream), so the script is the reliable path.
+- **Alert and detection query routing (population vs. enrich)** — The orchestrator and workflows skills now distinguish two cases. Fetching a *population* the workflow doesn't already have ("summarize all high-severity alerts") goes to a source-of-truth API — a native platform action (e.g. Cases → Search Cases) first, or a FalconPy `Alerts`/`Detects` function when none fits — since an Event Query against NG-SIEM can silently return nothing (repo contents are connector-dependent). *Enriching* a detection the workflow already holds (query by its ID) stays an Event Query, as does historical/aggregate telemetry. New reference [event-query-vs-api.md](skills/workflows-development/references/event-query-vs-api.md); the functions-falcon-api example keeps the verified `severity_name` + `created_timestamp` FQL filter.
+- **Removed `apps delete` workaround** — The 500/stuck-in-Deleting issue is fixed in CLI 2.0.2. Removed guidance about using Falcon App Manager UI as fallback.
+- **Corrected "commands that work from anywhere"** — Replaced `foundry apps list-deployments` (which requires a manifest) with `foundry apps list` (which actually works from any directory).
+- **Fixed invalid error-handling references in workflow advanced-patterns** — Removed non-existent `onError` blocks, `maxConcurrency`, and automatic retries. Replaced with the real mechanisms: conditional routing on `Workflow.Execution.Errors`, loop `continue_on_partial_execution`, and sequential loops for stateful actions.
+
+## [1.3.0] - 2026-06-11
+
+> Changes in this release were identified by running automated eval prompts against the skills with Sonnet and Opus, then investigating failures and judging feedback to find skill gaps.
+
+### Added
+
+**Functions & API Integrations:**
+- Credential management section with decision table (API integration vs FalconPy vs env vars) and callout that raw HTTP works but credentials are unencrypted and visible in app exports.
+- OAuth scope reference table mapping FalconPy classes and methods to required manifest scopes, derived from all production sample apps. Notes that built-in capabilities don't need explicit scopes. Eval runs confirmed this corrects invalid scope generation (e.g., `detects-read` → `detects:read`, `collection-management-read` → `custom-storage:read`).
+- Context paragraph explaining API integrations ARE Foundry's credential management system.
+
+**UI:**
+- Vanilla JS as a first-class template option for pages and extensions. Includes CLI scaffolding examples, note that no npm install/build step is needed, and clarification that vite/build-related pitfalls are React-specific.
+- Async `connect()` callout explaining `falcon.connect()` must be in `useEffect` and navigation must be accessed after connect resolves via `useMemo` with React state (`isInitialized`).
+
+**Workflows:**
+- HTTP Actions reference (`references/http-actions.md`) with verified `Inline.HTTPRequest` schema, both auth patterns (API key header and OAuth 2.0 client credentials), status-code conditional routing, and an HTTP-Actions-vs-API-integration decision guide. Added a callout so HTTP Actions are suggested for simple REST calls that don't need an app.
+- Collection config lookup workflow example showing the pattern for reading user-configured settings from a collection before performing an action.
+- Response Action Workflow (Contain Host) example showing platform action discovery and usage. Added Contain device action ID to platform actions table.
+- Null-guard warning near trigger parameters explaining they're prompted in the UI but may be empty via API or sub-workflow calls.
+
+### Fixed
+
+**Functions & API Integrations:**
+- Strengthened zero-arg constructor pitfall to explicitly call out the `os.environ` anti-pattern. Clarified this applies to FalconPy only (Go requires explicit credential wiring).
+- Added Falcon severity values reference table for mapping to external ticketing systems.
+- Clarified CustomStorage bulk read pattern: use FQL filters instead of sequential GetObject loops.
+- Corrected `definition_id` vs name guidance: name works in production, UUID only needed for local testing. Fixed raw HTTP claim from "won't work" to "works but credentials are unencrypted."
+- Added `APIIntegrations().execute_command_proxy()` code examples showing how to call registered third-party API integrations from function code. Includes request body/params patterns, explanation of why the platform proxy is required, and references to 3 sample repos.
+
+**UI:**
+- Improved CSP/Shoelace icons pitfall to mention Foundry's CSP allowlist and local asset alternative.
+
+**Workflows:**
+- Clarified `system_action` guidance: `false` exposes the workflow as a SOAR response action, `true` keeps it internal. Changed example default to `false` since most on-demand workflows should be SOAR-visible.
+- Added callout that workflows must use registered API integrations, not raw HTTP via functions with hardcoded credentials.
+- Fixed incorrect trigger parameter variable syntax. Was `${data['trigger.param_name']}`, corrected to `${data['param_name']}` (no prefix). Validated against foundry-sample-foundryjs-demo, security-skills (20+ workflows), and all other sample repos.
+- Fixed CEL `has()` usage: `has(data['key'])` doesn't work in Fusion (throws `Q0910: invalid argument to has() macro`). Replaced with `data['key'] != null`. Documented that `has()` works on object fields after retrieval, not directly on data store keys.
+- Added modern optional patterns: `data[?'key'].orValue(default)`, `.or()` fallback chains, safe list existence checks. Preferred over verbose `!= null` ternaries.
+- Fixed version_constraint guidance: was oversimplified ("~0 for functions, ~1 for platform actions"). Corrected to explain it pins against the activity's `semantic_version` field. Some platform actions like "contain device" have no semantic_version and require `~0`.
+- Forced workflows-development sub-skill loading from orchestrator to prevent hallucinated workflow formats.
+
+## [1.2.0] - 2026-06-03
+
+### Added
+
+- **Deploy command validation** — The CLI guard hook now catches missing `--change-type` and `--change-log` flags on `foundry apps deploy`, preventing a 500 error from the Foundry API.
+- **Foundry-JS API integration pattern** — Added the `falcon.apiIntegration().execute()` pattern for calling external APIs from the UI to `ui-development/references/foundry-js.md`, with response structure and a cross-reference to Python/Go function examples.
+- **Extension socket navigation** — The UI socket table now includes a console navigation column and the `identity.detections.details` socket, with verified paths to each socket's detail panel.
+- **Python function testing** — Added Falcon console testing documentation for Python functions, including discovering the Function logs button.
+
+### Changed
+
+- **ui-development** — Documented that `navigateTo` defaults `target` to `_self` when omitted (navigates in the same tab). Confirmed from foundry-js source.
+- **collections-development** — Added pitfalls warning that schema field mismatches and invalid enum values return errors in the response body without throwing, so writes must check `result.errors`.
+- **debugging-workflows** — Added troubleshooting rows for blank pages from an un-awaited `falcon.connect()` and data not appearing after writes due to schema mismatches.
+- **development-workflow, ui-development** — Documented that `foundry apps validate`, `deploy`, and `ui run` must run from the app root; running from a subdirectory produces doubled paths and misleading file-not-found errors.
+
+### Fixed
+
+- **Inclusive terminology** — Changed "Whitelist approach" to "Allowlist approach" in security-examples.md.
+- **verify-apps.sh extension verification** — Instructions now scroll to find the accordion, expand it, wait for the iframe to load, and check for content inside — matching the `expandExtensionInSocket()` pattern from `@crowdstrike/foundry-playwright`.
+- **test-skill.sh warmup** — Use `--model haiku` for the API health check to avoid wasting Opus tokens on a connectivity test.
+- **tail-test.sh** — Suppress `find` stderr when test directories don't exist yet.
+
+## [1.1.0] - 2026-05-13
+
+### Added
+
+- **e2e-testing skill** — End-to-end testing for Foundry apps using `@crowdstrike/foundry-playwright`. Covers the 4-project pipeline (authenticate → install → test → uninstall), page objects, configuration screens, custom page objects, CI with GitHub Actions, and debugging with Playwright MCP.
+- **NGSIEM query export use case** — Export Falcon Next-Gen SIEM query results to CSV/JSON via Foundry functions with pagination and scheduled workflow patterns.
+- **Foundry-JS reference** — `falcon.api.workflows`, `falcon.logscale`, `falcon.cloudFunction`, and collections CRUD patterns for `@crowdstrike/foundry-js` in `ui-development/references/foundry-js.md`.
+- **Visual debugging section** in debugging-workflows — Screenshot-based troubleshooting with Playwright MCP and test failure artifacts.
+- **agentskills.io metadata** — All skills now have top-level `tags`, `author`, `license`, and `compatibility` fields per the [agentskills.io](https://agentskills.io) open spec.
+
+### Changed
+
+- **development-workflow** — Expanded e2e testing guidance with credential configuration details, non-SSO user requirement, and app name alignment.
+- **release.sh** — Added Step 8 documenting the Anthropic Plugin Marketplace update process (notify Anthropic of tag + SHA after each release).
+
+### Removed
+
+- **UI skill: stale E2E Testing section** — Removed placeholder in `ui-development/references/advanced-patterns.md` that used imaginary helpers predating `@crowdstrike/foundry-playwright`. Proper guidance now lives in the dedicated e2e-testing skill.
+
+## [1.0.0] - 2026-04-29
+
+Initial public release of Falcon Foundry Skills — AI coding assistant skills for building CrowdStrike Falcon Foundry apps.
+
+### Skills
+
+- **development-workflow** — Orchestrates the full app lifecycle from requirements through deployment. Coordinates all sub-skills and enforces CLI-first scaffolding.
+- **api-integrations** — Create and configure API integrations with OpenAPI specs. Includes spec adaptation for Foundry compatibility and Falcon Fusion SOAR sharing.
+- **collections-development** — Design and implement Foundry collections with JSON Schema modeling, CRUD operations via CustomStorage, and access control patterns.
+- **functions-development** — Build serverless functions in Python or Go with FDK handler patterns, dependency management, and testing.
+- **functions-falcon-api** — Call CrowdStrike Falcon APIs from within Foundry functions using zero-argument FalconPy authentication.
+- **ui-development** — Build UI pages and extensions with React, Vue, or vanilla JS. Includes Foundry-JS patterns, Shoelace theming, and iframe communication.
+- **workflows-development** — Design Falcon Fusion SOAR workflows with YAML specs, CEL expressions, loop/condition control flow, and platform action integration.
+- **debugging-workflows** — Systematic troubleshooting for CLI errors, deployment failures, blank pages, and runtime issues.
+- **security-patterns** — OAuth scoping, input validation, XSS prevention, CSP configuration, and secure coding patterns.
+
+### Infrastructure
+
+- **CLI guard hook** (`hooks/foundry-cli-guard.sh`) — Automatically validates Bash commands to enforce `--no-prompt`, block manual directory creation, and validate socket IDs.
+- **Spec adaptation script** (`scripts/adapt-spec-for-foundry.py`) — Fixes common OpenAPI spec issues (server variables, auth schemes, parameter deduplication) before `foundry api-integrations create`.
+- **Test harness** (`test-skill.sh`, `run-ab-test.sh`, `verify-apps.sh`) — Automated skill evaluation with token counting, anti-pattern detection, deploy verification, and A/B comparison.
+
+### Use Cases
+
+13 real-world implementation patterns extracted from [CrowdStrike Tech Hub](https://www.crowdstrike.com/tech-hub/ng-siem/) blog posts covering API pagination, detection enrichment, LogScale ingestion, custom SOAR actions, collections, GraphQL APIs, and more.
+
+### Multi-Tool Support
+
+- **`AGENTS.md`** — Canonical AI agent instruction file with tool-agnostic Foundry development guidance (CLI commands, skills ecosystem, quality guidelines, contribution conventions).
+- **`CLAUDE.md`** — Claude Code-specific plugin additions (hooks, superpowers integration, safety enforcement). References `AGENTS.md` for the full development guide.
+- **`.github/copilot-instructions.md`** — Redirect for GitHub Copilot.
+- **`.cursorrules`** — Redirect for Cursor.

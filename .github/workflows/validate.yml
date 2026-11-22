@@ -1,0 +1,22 @@
+name: validate-packages
+
+on:
+  push:
+    branches: [packages]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate adapted packages
+        run: node scripts/validate.mjs --packages .
